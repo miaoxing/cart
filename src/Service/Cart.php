@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Cart\Service;
 
-use plugins\mall\services\Order;
+use Miaoxing\Order\Service\Order;
 use Miaoxing\Product\Service\Product;
 use Miaoxing\Product\Service\Sku;
 use Miaoxing\Plugin\Service\User;
