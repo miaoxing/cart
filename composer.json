@@ -1,0 +1,23 @@
+{
+  "name": "miaoxing/cart",
+  "description": "Miaoxing Cart Plugin",
+  "keywords": [
+    "miaoxing", "cart"
+  ],
+  "license": "MIT",
+  "require": {
+    "miaoxing/app": "dev-master@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Miaoxing\\Cart\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MiaoxingTest\\Cart\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
