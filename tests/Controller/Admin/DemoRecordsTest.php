@@ -7,6 +7,6 @@ use Miaoxing\Plugin\Test\BaseControllerTestCase;
 /**
  * 后台演示控制器
  */
-class CartRecordsTest extends BaseControllerTestCase
+class DemoRecordsTest extends BaseControllerTestCase
 {
 }

@@ -7,7 +7,7 @@ use Miaoxing\Plugin\Test\BaseTestCase;
 /**
  * 演示服务
  */
-class CartRecordTest extends BaseTestCase
+class DemoRecordTest extends BaseTestCase
 {
     /**
      * 获取名称
