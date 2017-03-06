@@ -5,8 +5,8 @@
 <?php require $view->getFile('cart:carts/index-tab.php') ?>
 
 <?= $block('css') ?>
-<link rel="stylesheet" href="<?= $asset('plugins/mall/assets/products.css') ?>">
-<link rel="stylesheet" href="<?= $asset('plugins/mall/assets/carts.css') ?>">
+<link rel="stylesheet" href="<?= $asset('plugins/product/css/products.css') ?>">
+<link rel="stylesheet" href="<?= $asset('plugins/cart/css/carts.css') ?>">
 <?= $block->end() ?>
 
 <?php $carts = $types[$req['type']]; ?>
@@ -110,7 +110,7 @@
 <?php require $view->getFile('product:products/picker.php') ?>
 <?= $block('js') ?>
 <script>
-  require(['plugins/mall/assets/carts', 'plugins/mall/assets/products', 'comps/artTemplate/template.min'], function (carts, products) {
+  require(['plugins/cart/js/carts', 'plugins/product/js/products', 'comps/artTemplate/template.min'], function (carts, products) {
     carts.indexAction({
       products: products,
       scoreTitle: '<?= $e($setting('score.title', '积分')) ?>'

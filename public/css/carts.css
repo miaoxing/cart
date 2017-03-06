@@ -1,0 +1,153 @@
+.cart-list {
+  margin-bottom: 56px;
+}
+
+/* 空购物车提示 */
+.cart-empty a {
+  margin: 1em auto;
+  width: 8em;
+}
+
+.cart-thumb {
+  width: 75px
+}
+
+.cart-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.cart-title {
+  font-size: 14px;
+}
+
+.cart-list .list-heading a {
+  color: inherit;
+}
+
+.cart-price {
+  width: 60px;
+  font-size: 14px;
+  padding-left: 0 !important;
+}
+
+.cart-list-checkbox {
+  width: 20px
+}
+
+.cart-list-checkbox .checkbox {
+  margin: 0;
+}
+
+.cart-footer-bar {
+  background-color: #fff;
+  padding: 0;
+}
+
+.cart-total-text {
+  min-width: 3em;
+}
+
+.cart-amount {
+  text-align: right;
+  padding-right: .5em;
+}
+
+.cart-pay {
+  display: block;
+  width: 7em;
+  min-width: 7em;
+  border-radius: 0;
+  border: 0;
+  font-size: 16px;
+  height: 46px;
+}
+
+/* 购物车操作 */
+.cart-actions {
+  margin-top: 8px;
+}
+
+/* 购物车规格 */
+.cart-specs {
+  position: relative;
+}
+
+.cart-chevron-down {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  border-color: inherit;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  margin-left: 4px;
+  bottom: 6px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.cart-tips {
+  font-size: 12px;
+}
+
+/* 更改数量按钮 */
+.cart-actions .spinner-button,
+.spinner-input {
+  color: #666;
+}
+
+.cart-actions .spinner-button::before,
+.cart-actions .spinner-plus::after {
+  background-color: #666;
+}
+
+/* 删除购物车按钮 */
+.cart-delete {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  border: 1px solid #999;
+  border-radius: 50%;
+  margin-top: 1px;
+  color: #666;
+}
+
+.cart-delete::before,
+.cart-delete::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  content: '';
+  width: 11px;
+  height: 1px;
+  background-color: #666;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.cart-delete::after {
+  width: 1px;
+  height: 11px;
+}
+
+/* 全选按钮 */
+.cart-toggle-item {
+  margin-left: 8px;
+  min-width: 4em;
+}
+
+.checkbox-lg .checkbox-label::before {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox-lg .checkbox-label::after {
+  margin-left: -19px;
+  padding-top: 2px;
+  font-size: 12px;
+}
