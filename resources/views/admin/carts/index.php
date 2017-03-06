@@ -124,7 +124,7 @@
 <?php require $this->getFile('cart:admin/carts/richInfo.php') ?>
 <?php require $this->getFile('product:admin/products/richInfo.php') ?>
 <?php require $this->getFile('user:admin/user/richInfo.php') ?>
-<?php require $this->getFile('mall:admin/orders/export.php') ?>
+<?php require $this->getFile('@order/admin/orders/export.php') ?>
 
 <?php $event->trigger('adminCartsIndexRender') ?>
 
