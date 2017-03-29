@@ -624,26 +624,6 @@ class Cart extends \miaoxing\plugin\BaseModel
     }
 
     /**
-     * 获取可用于抵用现金的总积分
-     *
-     * @return int
-     */
-    public function getPayScores()
-    {
-        if (!$this->isColl) {
-            return $this->getProduct()->get('maxPayScores') * $this['quantity'];
-        } else {
-            $payScores = 0;
-            /** @var $cart $this */
-            foreach ($this->data as $cart) {
-                $payScores += $cart->getPayScores();
-            }
-
-            return $payScores;
-        }
-    }
-
-    /**
      * 获取现价,用于下单后
      *
      * @return string
