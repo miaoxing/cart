@@ -11,20 +11,19 @@
 
 <?php $carts = $types[$req['type']]; ?>
 <ul class="list list-intended cart-list">
-  <?php
-  foreach ($carts as $cart) :
+  <?php foreach ($carts as $cart) :
     $product = $cart->getProduct();
     $sku = $cart->getSku();
     $payable = $cart->checkPayable();
-  ?>
+    ?>
     <li class="js-cart-item list-item">
       <div class="list-col list-middle cart-list-checkbox">
         <div class="checkbox-lg checkbox checkbox-circle checkbox-success">
           <label>
             <input class="js-cart-checkbox cart-checkbox" type="checkbox" name="id[]" value="<?= $cart['id'] ?>"
-                   data-type-id="<?= $product['config']['typeId'] ?>"
-                   data-price="<?= $cart->getSkuPrice() ?>"
-                   data-scores="<?= $product['scores'] ?>" <?= $payable['code'] === 1 ? '' : 'disabled' ?>>
+              data-type-id="<?= $product['config']['typeId'] ?>"
+              data-price="<?= $cart->getSkuPrice() ?>"
+              data-scores="<?= $product['scores'] ?>" <?= $payable['code'] === 1 ? '' : 'disabled' ?>>
             <span class="checkbox-label"></span>
           </label>
         </div>
@@ -40,8 +39,9 @@
             <h4 class="cart-title list-heading truncate-2">
               <a class="js-cart-title" href="<?= $url('products/%s', $product['id']) ?>"><?= $product['name'] ?></a>
             </h4>
+
             <div class="js-picker-show list-body cart-specs" data-product-id="<?= $product['id'] ?>"
-                 data-sku-id="<?= $sku['id'] ?>" data-cart-id="<?= $cart['id'] ?>">
+              data-sku-id="<?= $sku['id'] ?>" data-cart-id="<?= $cart['id'] ?>">
               <?php if (!$product->isSingleSku()) : ?>
                 <?php foreach ($sku->getSpecsFromCache() as $specName => $specValue) : ?>
                   <?= $specName ?>: <?= $specValue ?>
@@ -70,14 +70,15 @@
         <div class="cart-actions">
           <div class="spinner">
             <button class="spinner-button spinner-minus" type="button"></button>
-            <input type="text" class="spinner-input js-quantity" id="quantity" value="<?= $cart['quantity'] ?>" data-id="<?= $cart['id'] ?>">
+            <input type="text" class="spinner-input js-quantity" id="quantity" value="<?= $cart['quantity'] ?>"
+              data-id="<?= $cart['id'] ?>">
             <button class="spinner-button spinner-plus" type="button"></button>
           </div>
-          <a class="cart-delete pull-right" href="javascript:;" data-id="<?= $cart['id'] ?>"></a>
+          <a class="cart-delete pull-right" href="javascript:" data-id="<?= $cart['id'] ?>"></a>
         </div>
       </div>
     </li>
-  <?php                                                     endforeach ?>
+  <?php endforeach ?>
 
   <?php if (!$carts->length()) : ?>
     <li class="list-empty cart-empty">
@@ -103,14 +104,20 @@
         0
       </strong>
     <?php endif ?>
-    <button class="btn btn-block btn-lg btn-primary cart-pay"><?= $setting('order.titleCheckout') ?: '结算' ?>(<span class="cart-product-count">0</span>)</button>
+    <button class="btn btn-block btn-lg btn-primary cart-pay"><?= $setting('order.titleCheckout') ?: '结算' ?>
+      (<span class="cart-product-count">0</span>)
+    </button>
   </div>
 </div>
 
 <?php require $view->getFile('product:products/picker.php') ?>
 <?= $block('js') ?>
 <script>
-  require(['plugins/cart/js/carts', 'plugins/product/js/products', 'comps/artTemplate/template.min'], function (carts, products) {
+  require([
+    'plugins/cart/js/carts',
+    'plugins/product/js/products',
+    'comps/artTemplate/template.min'
+  ], function (carts, products) {
     carts.indexAction({
       products: products,
       scoreTitle: '<?= $e($setting('score.title', '积分')) ?>'

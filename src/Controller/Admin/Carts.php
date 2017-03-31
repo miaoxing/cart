@@ -52,6 +52,18 @@ class Carts extends \miaoxing\plugin\BaseController
                     $carts->andWhere('cart.createTime < ?', $req['endTime']);
                 }
 
+                if ($req['minAmount']) {
+                    $carts->andWhere('(price = 0.00 and origPrice >= ?) or (price >= ?)', [
+                        $req['minAmount'], $req['minAmount']
+                    ]);
+                }
+
+                if ($req['maxAmount']) {
+                    $carts->andWhere('(price = 0.00 and origPrice <= ?) or (price <= ?)', [
+                        $req['maxAmount'], $req['maxAmount']
+                    ]);
+                }
+
                 $data = [];
                 foreach ($carts as $cart) {
                     $data[] = $cart->toArray() + [

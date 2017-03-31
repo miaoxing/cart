@@ -2,8 +2,8 @@
   <thead>
   <tr>
     <th>备注</th>
-    <th style="width:250px;">操作用户</th>
-    <th style="width:200px;">操作时间</th>
+    <th class="t-12">操作用户</th>
+    <th class="t-12">操作时间</th>
   </tr>
   </thead>
   <tbody>

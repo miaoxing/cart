@@ -3,11 +3,11 @@
   <thead>
   <tr>
     <th>商品</th>
-    <th style="width:80px">现价</th>
-    <th style="width:80px">原价</th>
-    <th style="width:80px">数量</th>
-    <th style="width:80px">总价</th>
-    <th style="width:200px">修改单价</th>
+    <th class="t-5">现价</th>
+    <th class="t-5">原价</th>
+    <th class="t-5">数量</th>
+    <th class="t-5">总价</th>
+    <th class="t-12">修改单价</th>
   </tr>
   </thead>
   <tbody>
@@ -20,7 +20,7 @@
     <td><?= $cart['quantity'] ?></td>
     <td><?= sprintf('%.2f', $cart['quantity'] * $cart->getCurPrice()) ?></td>
     <td>
-      <input placeholder="填入增加或减少的金额" name="resetCartPrice" type="text" style="width:160px;margin:0;"/>
+      <input placeholder="填入增加或减少的金额" name="resetCartPrice" type="text"/>
     </td>
   </tr>
   </tbody>

@@ -5,8 +5,6 @@
 <?= $block->end() ?>
 
 <div class="page-header">
-  <a id="export-csv" class="btn btn-default pull-right" href="javascript:void(0);">导出</a>
-
   <h1>
     购物车管理
   </h1>
@@ -24,41 +22,63 @@
 
             <div class="col-md-3">
               <select class="form-control" name="status" id="status">
-                <option value="all">全部状态</option>
-                <option value="notOrdered" selected>未下订单</option>
+                <option value="all" selected>全部状态</option>
+                <option value="notOrdered">未下订单</option>
                 <option value="ordered">已下订单</option>
                 <option value="cancel">已取消</option>
               </select>
             </div>
 
-            <label class="col-md-1 control-label" for="startTime">开始时间：</label>
+            <label class="col-md-1 control-label" for="start-time">开始时间：</label>
 
             <div class="col-md-3">
-              <input type="text" class="form-control" name="startTime" id="startTime">
+              <input type="text" class="form-control" name="startTime" id="start-time">
             </div>
 
-            <label class="col-md-1 control-label" for="endTime">结束时间：</label>
+            <label class="col-md-1 control-label" for="end-time">结束时间：</label>
 
             <div class="col-md-3">
-              <input type="text" class="form-control" name="endTime" id="endTime">
+              <input type="text" class="form-control" name="endTime" id="end-time">
+            </div>
+          </div>
+
+          <div class="form-group form-group-sm">
+            <label class="col-md-1 control-label" for="min-amount">最小金额：</label>
+
+            <div class="col-md-3">
+              <input type="text" class="form-control" name="minAmount" id="min-amount">
             </div>
 
+            <label class="col-md-1 control-label" for="max-amount">最大金额：</label>
+
+            <div class="col-md-3">
+              <input type="text" class="form-control" name="maxAmount" id="max-amount">
+            </div>
+          </div>
+
+          <div class="clearfix form-group form-group-sm">
+            <div class="col-md-offset-1 col-md-6">
+              <button class="js-user-filter btn btn-primary btn-sm" type="submit">
+                查询
+              </button>
+              &nbsp;
+              <a id="export-csv" class="btn btn-white btn-sm" href="javascript:void(0);">导出</a>
+            </div>
           </div>
 
         </div>
-
       </form>
 
       <table id="record-table" class="record-table table table-bordered table-hover js-export-table">
         <thead>
         <tr>
-          <th style="width: 180px">用户</th>
+          <th class="t-10">用户</th>
           <th>商品</th>
-          <th style="width: 56px">数量</th>
-          <th style="width: 120px">商品总价(元)</th>
-          <th style="width: 138px">加入时间</th>
-          <th style="width: 80px">状态</th>
-          <th style="width: 80px">操作</th>
+          <th class="t-4">数量</th>
+          <th class="t-6">商品总价(元)</th>
+          <th class="t-10">加入时间</th>
+          <th class="t-4">状态</th>
+          <th class="t-5">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -73,8 +93,8 @@
 <!-- /row -->
 
 <div class="modal fade js-reset-price-modal" tabindex="-1" role="dialog" aria-labelledby="show-reset-price-modal-label"
-     aria-hidden="true">
-  <div class="modal-dialog" style="width:800px;">
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -115,10 +135,10 @@
 <!-- 购物车操作 -->
 <script id="actions-tpl" type="text/html">
   -
-  <!--  <% if (paid == 0 && orderId == 0) { %>-->
-  <!--    <a class="reset-price" href="javascript:;" data-id="<%= id %>">修改价格</a><br>-->
-  <!--  <% } %>-->
-  <!--  <a class="log" href="javascript:;" data-id="<%= id %>">查看日志</a><br>-->
+      <% if (paid == 0 && orderId == 0) { %>
+        <a class="reset-price" href="javascript:" data-id="<%= id %>">修改价格</a><br>
+      <% } %>
+      <a class="log" href="javascript:" data-id="<%= id %>">查看日志</a><br>
 </script>
 
 <?php require $this->getFile('cart:admin/carts/richInfo.php') ?>
@@ -173,8 +193,9 @@
       ]
     });
 
-    $('#search-form').update(function () {
+    $('#search-form').loadParams().submit(function (e) {
       recordTable.reload($(this).serialize(), false);
+      e.preventDefault();
     });
 
     // 修改价格modal
@@ -201,7 +222,7 @@
     });
 
     // 开始结束时间使用日期时间范围选择器
-    $('#startTime, #endTime').rangeDateTimePicker({
+    $('#start-time, #end-time').rangeDateTimePicker({
       showSecond: true,
       dateFormat: 'yy-mm-dd',
       timeFormat: 'HH:mm:ss'
