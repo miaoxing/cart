@@ -54,13 +54,13 @@ class Carts extends \miaoxing\plugin\BaseController
 
                 if ($req['minAmount']) {
                     $carts->andWhere('(price = 0.00 and origPrice >= ?) or (price >= ?)', [
-                        $req['minAmount'], $req['minAmount']
+                        $req['minAmount'], $req['minAmount'],
                     ]);
                 }
 
                 if ($req['maxAmount']) {
                     $carts->andWhere('(price = 0.00 and origPrice <= ?) or (price <= ?)', [
-                        $req['maxAmount'], $req['maxAmount']
+                        $req['maxAmount'], $req['maxAmount'],
                     ]);
                 }
 

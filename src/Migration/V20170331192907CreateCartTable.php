@@ -11,7 +11,7 @@ class V20170331192907CreateCartTable extends BaseMigration
      */
     public function up()
     {
-//        $this->schema->table('cart')
+        //        $this->schema->table('cart')
 //            ->id()
 //            ->int('userId')
 //            ->int('productId')
