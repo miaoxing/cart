@@ -83,7 +83,9 @@
   <?php if (!$carts->length()) : ?>
     <li class="list-empty cart-empty">
       <?= $setting('cart.title') ?: '购物车' ?>空空如也
-      <a class="btn btn-default hairline btn-block" href="<?= $url('products') ?>">去逛逛</a>
+      <?php if (!$setting('cart.notEnableShowProductsBtn')) : ?>
+        <a class="btn btn-default hairline btn-block" href="<?= $url('products') ?>">去逛逛</a>
+      <?php endif ?>
     </li>
   <?php endif ?>
 </ul>
