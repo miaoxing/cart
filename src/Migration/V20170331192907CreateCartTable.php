@@ -27,6 +27,7 @@ class V20170331192907CreateCartTable extends BaseMigration
             ->string('specs', 255)
             ->tinyInt('free', 1)->comment('是否为赠送商品')
             ->tinyInt('paid', 1)->comment('购物车是否已付款')
+            ->tinyInt('refundStatus')->comment('退款的状态')
             ->string('image', 255)
             ->text('configs')
             ->timestampsV1()
