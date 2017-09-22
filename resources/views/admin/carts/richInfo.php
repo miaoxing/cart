@@ -29,11 +29,11 @@
         if (cart.refundRet) {
           if (cart.refundRet.code > 0) {
             product.content +=
-        '<a class="refund-link" href="' + $.url('admin/carts/%s/refunds/new', cart.id) +'">退款</a>';
+        '<a class="refund-link" href="' + $.url('admin/carts/%s/refunds/new', cart.id) +'">退款</a> ';
           } else if (cart.refundRet.refundId) {
             product.content +=
         '<a class="refund-link" href="' + $.url('admin/refunds?status=0', {id: cart.refundRet.refundId}) + '">'
-          + cart.refundRet.processText + '</a>';
+          + cart.refundRet.processText + '</a> ';
           }
         }
       <?php endif ?>
