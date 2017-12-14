@@ -696,6 +696,23 @@ class Cart extends \miaoxing\plugin\BaseModel
     }
 
     /**
+     * Coll: 检查购物车是否全为自提商品
+     *
+     * @return bool
+     */
+    public function isSelfPickUp()
+    {
+        /** @var Cart $cart */
+        foreach ($this as $cart) {
+            if (!$cart->getProduct()['config']['selfPickUp']) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * 获取产品缩略图
      *
      * 兼容下单前后两种情况
