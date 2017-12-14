@@ -312,6 +312,7 @@ class Cart extends \miaoxing\plugin\BaseModel
             'scores' => $product['scores'],
             'name' => $product['name'],
             'quantity' => (int) $data['quantity'],
+            'temp' => (int) $data['temp'],
         ]);
 
         return ['code' => 1, 'message' => '初始化成功'];
@@ -448,6 +449,7 @@ class Cart extends \miaoxing\plugin\BaseModel
             ->select('SUM(quantity)')
             ->mine()
             ->notDeleted()
+            ->notTemp()
             ->andWhere(['productId' => $product['id']])
             ->andWhere(['orderId' => ''])
             ->fetchColumn();
@@ -538,7 +540,7 @@ class Cart extends \miaoxing\plugin\BaseModel
         // 2. 如果有相同的购物车,只增加数量
         $found = false;
         $curId = $cur->getIdentifier();
-        $carts = wei()->cart()->mine()->notDeleted()->findAll(['skuId' => $cur['skuId']]);
+        $carts = wei()->cart()->mine()->notDeleted()->notTemp()->findAll(['skuId' => $cur['skuId']]);
         foreach ($carts as $cart) {
             if ($cart->getIdentifier() == $curId) {
                 $cart->incr('quantity', $cur['quantity']);
@@ -818,5 +820,10 @@ class Cart extends \miaoxing\plugin\BaseModel
         $this['configs'] = $config;
 
         return $this;
+    }
+
+    public function notTemp()
+    {
+        return $this->andWhere(['temp' => 0]);
     }
 }

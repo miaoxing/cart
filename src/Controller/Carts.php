@@ -43,6 +43,7 @@ class Carts extends \miaoxing\plugin\BaseController
             ->mine()
             ->notOrdered()
             ->notDeleted()
+            ->notTemp()
             ->desc('id')
             ->findAll();
 
