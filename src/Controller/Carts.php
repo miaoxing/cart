@@ -16,11 +16,11 @@ class Carts extends \miaoxing\plugin\BaseController
     {
         parent::__construct($options);
 
-        $this->middleware(CheckReferrer::className(), [
+        $this->middleware(CheckReferrer::class, [
             'only' => 'create',
         ]);
 
-        $this->middleware(HttpMethod::className(), [
+        $this->middleware(HttpMethod::class, [
             'only' => 'create',
             'actions' => [
                 'create' => 'post',
@@ -28,7 +28,7 @@ class Carts extends \miaoxing\plugin\BaseController
         ]);
 
         // TODO lock服务增加最大时间解决PHP崩溃导致死锁
-        $this->middleware(Lock::className(), [
+        $this->middleware(Lock::class, [
             'only' => 'create',
             'name' => 'carts/create-v2',
         ]);
