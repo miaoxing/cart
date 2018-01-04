@@ -7,7 +7,7 @@ use Miaoxing\Product\Service\Product;
 use Miaoxing\Product\Service\Sku;
 use Miaoxing\Plugin\Service\User;
 
-class Cart extends \miaoxing\plugin\BaseModel
+class Cart extends \Miaoxing\Plugin\BaseModel
 {
     protected $autoId = true;
 
