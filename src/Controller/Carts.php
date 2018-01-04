@@ -6,7 +6,7 @@ use Miaoxing\Plugin\Middleware\CheckReferrer;
 use Miaoxing\Plugin\Middleware\HttpMethod;
 use Miaoxing\Plugin\Middleware\Lock;
 
-class Carts extends \miaoxing\plugin\BaseController
+class Carts extends \Miaoxing\Plugin\BaseController
 {
     protected $guestPages = [
         'carts/count',

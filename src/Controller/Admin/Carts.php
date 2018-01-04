@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Cart\Controller\Admin;
 
-class Carts extends \miaoxing\plugin\BaseController
+class Carts extends \Miaoxing\Plugin\BaseController
 {
     protected $controllerName = '购物车管理';
 
