@@ -25,7 +25,7 @@
         content: ''
       };
 
-      <?php if ($plugin->isInstalled('refund')) : ?>
+      <?php if ($wei->plugin->isInstalled('refund')) : ?>
         if (cart.refundRet) {
           if (cart.refundRet.code > 0) {
             product.content +=
