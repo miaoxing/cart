@@ -4,7 +4,7 @@
 
 <?php require $view->getFile('cart:carts/index-tab.php') ?>
 
-<?= $block('css') ?>
+<?= $block->css() ?>
 <link rel="stylesheet" href="<?= $asset('plugins/product/css/products.css') ?>">
 <link rel="stylesheet" href="<?= $asset('plugins/cart/css/carts.css') ?>">
 <?= $block->end() ?>
@@ -113,7 +113,7 @@
 </div>
 
 <?php require $view->getFile('product:products/picker.php') ?>
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require([
     'plugins/cart/js/carts',

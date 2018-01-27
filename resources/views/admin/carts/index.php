@@ -1,6 +1,6 @@
 <?php $view->layout() ?>
 
-<?= $block('css') ?>
+<?= $block->css() ?>
 <link rel="stylesheet" href="<?= $asset('plugins/admin/css/filter.css') ?>"/>
 <?= $block->end() ?>
 
@@ -148,7 +148,7 @@
 
 <?php $event->trigger('adminCartsIndexRender') ?>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['dataTable', 'form', 'jquery-deparam', 'assets/dateTimePicker'], function () {
     var recordTable = $('#record-table').dataTable({
