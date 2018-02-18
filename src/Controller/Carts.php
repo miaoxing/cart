@@ -65,7 +65,7 @@ class Carts extends \Miaoxing\Plugin\BaseController
 
         $showPrice = !$this->setting('product.hidePrice');
         $headerTitle = $this->setting('cart.title', '购物车');
-        $this->pageConfig['displayFooter'] = false;
+        $this->layout->hideFooter();
 
         return get_defined_vars();
     }
