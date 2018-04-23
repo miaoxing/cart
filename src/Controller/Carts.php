@@ -184,7 +184,7 @@ class Carts extends \Miaoxing\Plugin\BaseController
 
     public function countAction()
     {
-        $count = wei()->cart()->mine()->notOrdered()->notDeleted()->count();
+        $count = wei()->cart()->mine()->notOrdered()->notDeleted()->notTemp()->count();
 
         return $this->suc(['count' => $count]);
     }
