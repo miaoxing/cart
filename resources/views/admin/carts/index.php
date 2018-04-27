@@ -62,7 +62,9 @@
                 查询
               </button>
               &nbsp;
-              <a id="export-csv" class="btn btn-white btn-sm" href="javascript:void(0);">导出</a>
+              <?php if (wei()->setting('cart.enableExport')) : ?>
+                <a id="export-csv" class="btn btn-white btn-sm" href="javascript:void(0);">导出</a>
+              <?php endif ?>
             </div>
           </div>
 
