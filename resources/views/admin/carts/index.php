@@ -43,13 +43,13 @@
           </div>
 
           <div class="form-group form-group-sm">
-            <label class="col-md-1 control-label" for="min-amount">最小金额：</label>
+            <label class="col-md-1 control-label" for="min-amount">最小单价：</label>
 
             <div class="col-md-3">
               <input type="text" class="form-control" name="minAmount" id="min-amount">
             </div>
 
-            <label class="col-md-1 control-label" for="max-amount">最大金额：</label>
+            <label class="col-md-1 control-label" for="max-amount">最大单价：</label>
 
             <div class="col-md-3">
               <input type="text" class="form-control" name="maxAmount" id="max-amount">
