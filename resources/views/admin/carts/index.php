@@ -142,9 +142,9 @@
     <a class="log" href="javascript:" data-id="<%= id %>">查看日志</a><br>
 </script>
 
-<?php require $this->getFile('cart:admin/carts/richInfo.php') ?>
-<?php require $this->getFile('product:admin/products/richInfo.php') ?>
-<?php require $this->getFile('user:admin/user/richInfo.php') ?>
+<?php require $this->getFile('@cart/admin/carts/richInfo.php') ?>
+<?php require $this->getFile('@product/admin/products/richInfo.php') ?>
+<?php require $this->getFile('@user/admin/user/richInfo.php') ?>
 <?php require $this->getFile('@order/admin/orders/export.php') ?>
 
 <?php $event->trigger('adminCartsIndexRender') ?>

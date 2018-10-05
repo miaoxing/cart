@@ -2,7 +2,7 @@
 
 <?php $event->trigger('cartsIndex', [$carts]) ?>
 
-<?php require $view->getFile('cart:carts/index-tab.php') ?>
+<?php require $view->getFile('@cart/carts/index-tab.php') ?>
 
 <?= $block->css() ?>
 <link rel="stylesheet" href="<?= $asset('plugins/product/css/products.css') ?>">
@@ -112,7 +112,7 @@
   </div>
 </div>
 
-<?php require $view->getFile('product:products/picker.php') ?>
+<?php require $view->getFile('@product/products/picker.php') ?>
 <?= $block->js() ?>
 <script>
   require([
