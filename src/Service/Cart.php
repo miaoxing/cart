@@ -5,7 +5,6 @@ namespace Miaoxing\Cart\Service;
 use Miaoxing\Order\Service\Order;
 use Miaoxing\Product\Service\Product;
 use Miaoxing\Product\Service\Sku;
-use Miaoxing\Plugin\Service\User;
 
 class Cart extends \Miaoxing\Plugin\BaseModel
 {
@@ -309,7 +308,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
             'skuId' => $sku['id'],
             'origPrice' => $sku['price'],
             'productId' => $product['id'],
-            'scores' => $product['scores'],
+            'scores' => $sku['score'],
             'name' => $product['name'],
             'quantity' => (int) $data['quantity'],
             'temp' => (int) $data['temp'],
