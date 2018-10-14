@@ -23,7 +23,7 @@
             <input class="js-cart-checkbox cart-checkbox" type="checkbox" name="id[]" value="<?= $cart['id'] ?>"
               data-type-id="<?= $product['config']['typeId'] ?>"
               data-price="<?= $cart->getSkuPrice() ?>"
-              data-scores="<?= $product['scores'] ?>" <?= $payable['code'] === 1 ? '' : 'disabled' ?>>
+              data-scores="<?= $sku['score'] ?>" <?= $payable['code'] === 1 ? '' : 'disabled' ?>>
             <span class="checkbox-label"></span>
           </label>
         </div>
