@@ -52,7 +52,7 @@ define([], function () {
 
         var score = parseInt($('.js-cart-score').html(), 10);
         if (score > self.score) {
-          return $.err('积分不足，您当前可用积分为' + self.score + '，还差' + (score - self.score) + '!');
+          return $.err('积分不足，您当前可用积分为' + self.score + '，还差' + (score - self.score) + '！');
         }
 
         window.location = $.url('orders/new', {cartId: ids, showwxpaytitle: '1'});

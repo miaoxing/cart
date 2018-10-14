@@ -296,13 +296,22 @@ class Cart extends \Miaoxing\Plugin\BaseModel
             return $ret;
         }
 
-        // 8. 触发初始化购物车的回调
+        // 8. 检查积分
+        if ($sku['score'] && $sku['score'] * $data['quantity'] > wei()->curUserV2->score) {
+            return $this->err([
+                '积分不足，您当前可用积分为%s，还差%s！',
+                wei()->curUserV2->score,
+                $sku['score'] * $data['quantity'] - wei()->curUserV2->score,
+            ]);
+        }
+
+        // 9. 触发初始化购物车的回调
         $ret = wei()->event->until('cartInit', [$this, $sku, $data, $product]);
         if ($ret) {
             return $ret;
         }
 
-        // 9. 初始化数据
+        // 10. 初始化数据
         $this->setData([
             'userId' => wei()->curUser['id'],
             'skuId' => $sku['id'],
@@ -374,9 +383,9 @@ class Cart extends \Miaoxing\Plugin\BaseModel
 
         if ((float) $this['price']) {
             $message = '修改购物车商品价格[' . $this['name'] . ']：原价为￥' . ($this['origPrice']) . '，现价为￥' . sprintf(
-                '%.2f',
-                $this['price']
-            );
+                    '%.2f',
+                    $this['price']
+                );
         } else {
             $message = '修改购物车商品价格[' . $this['name'] . ']：重置价格为￥' . ($this['origPrice']);
         }
