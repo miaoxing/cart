@@ -8,6 +8,8 @@ define([], function () {
      * 商品控制器对象
      */
     products: null,
+    score: 0,
+    scoreTitle: null,
     $el: $('body'),
     $: function (selector) {
       return this.$el.find(selector);
@@ -47,6 +49,12 @@ define([], function () {
         if (!ids.length) {
           return $.err('请至少选择一个商品');
         }
+
+        var score = parseInt($('.js-cart-score').html(), 10);
+        if (score > self.score) {
+          return $.err('积分不足，您当前可用积分为' + self.score + '，还差' + (score - self.score) + '!');
+        }
+
         window.location = $.url('orders/new', {cartId: ids, showwxpaytitle: '1'});
       });
 
@@ -186,7 +194,7 @@ define([], function () {
       }
 
       if (scores) {
-        text += scores + this.scoreTitle;
+        text += '<span class="js-cart-score">' + scores + '</span>' + this.scoreTitle;
       }
 
       if (text == '') {

@@ -122,6 +122,7 @@
   ], function (carts, products) {
     carts.indexAction({
       products: products,
+      score: <?= (int) wei()->curUserV2->score ?>,
       scoreTitle: '<?= $e($setting('score.title', '积分')) ?>'
     });
   });
