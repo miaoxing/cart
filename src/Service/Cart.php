@@ -697,7 +697,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
     {
         /** @var Cart $cart */
         foreach ($this as $cart) {
-            if (!$cart->getProduct()->get('virtual')) {
+            if (!$cart->getProduct()->get('isVirtual')) {
                 return false;
             }
         }
