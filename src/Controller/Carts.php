@@ -64,7 +64,7 @@ class Carts extends \Miaoxing\Plugin\BaseController
         }
 
         $showPrice = !$this->setting('product.hidePrice');
-        $headerTitle = $this->setting('cart.title', '购物车');
+        $this->page->setTitle($this->setting('cart.title', '购物车'));
 
         return get_defined_vars();
     }
