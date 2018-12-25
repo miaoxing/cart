@@ -136,7 +136,7 @@
 
 <!-- 购物车操作 -->
 <script id="actions-tpl" type="text/html">
-    <% if (paid == 0 && orderId == 0) { %>
+    <% if (deleteTime == '0000-00-00 00:00:00' && paid == 0 && orderId == 0) { %>
       <a class="reset-price" href="javascript:" data-id="<%= id %>">修改价格</a><br>
     <% } %>
     <a class="log" href="javascript:" data-id="<%= id %>">查看日志</a><br>
