@@ -12,6 +12,11 @@ class Cart extends \Miaoxing\Plugin\BaseModel
 
     const TYPE_REDEMPTION = 2;
 
+    protected $types = [
+        self::TYPE_FREE => '赠品',
+        self::TYPE_REDEMPTION => '换购',
+    ];
+
     protected $autoId = true;
 
     /**
@@ -837,5 +842,10 @@ class Cart extends \Miaoxing\Plugin\BaseModel
     public function notTemp()
     {
         return $this->andWhere(['temp' => 0]);
+    }
+
+    public function getTypeName()
+    {
+        return isset($this->types[$this['free']]) ? $this->types[$this['free']] : '';
     }
 }
