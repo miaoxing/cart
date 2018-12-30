@@ -8,6 +8,10 @@ use Miaoxing\Product\Service\Sku;
 
 class Cart extends \Miaoxing\Plugin\BaseModel
 {
+    const TYPE_FREE = 1;
+
+    const TYPE_REDEMPTION = 2;
+
     protected $autoId = true;
 
     /**
