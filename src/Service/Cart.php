@@ -663,6 +663,10 @@ class Cart extends \Miaoxing\Plugin\BaseModel
      */
     public function getSkuPrice()
     {
+        if ($this['free'] == self::TYPE_FREE) {
+            return '0.00';
+        }
+
         if ((float) $this['price']) {
             return $this['price'];
         } else {
