@@ -852,4 +852,14 @@ class Cart extends \Miaoxing\Plugin\BaseModel
     {
         return isset($this->types[$this['free']]) ? $this->types[$this['free']] : '';
     }
+
+    public function getOrigPrice()
+    {
+        if (!wei()->money->isZero($this['origPrice'])) {
+            return $this['origPrice'];
+        }
+
+        // 为0是不能确定是否为免费,改为读取商品的原价
+        return $this->getProduct()['originalPrice'];
+    }
 }
