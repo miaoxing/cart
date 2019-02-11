@@ -11,7 +11,7 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <!-- PAGE CONTENT BEGINS -->
     <div class="table-responsive">
       <form class="form-horizontal filter-form" id="search-form" role="form">
@@ -57,7 +57,7 @@
           </div>
 
           <div class="clearfix form-group form-group-sm">
-            <div class="col-md-offset-1 col-md-6">
+            <div class="offset-md-1 col-md-6">
               <button class="js-user-filter btn btn-primary btn-sm" type="submit">
                 查询
               </button>
