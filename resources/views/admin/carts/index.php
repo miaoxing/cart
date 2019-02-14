@@ -16,7 +16,7 @@
     <div class="table-responsive">
       <form class="form-horizontal filter-form" id="search-form" role="form">
         <div class="well">
-          <div class="form-group form-group-sm">
+          <div class="form-group">
 
             <label class="col-md-1 control-label" for="status">状态</label>
 
@@ -42,7 +42,7 @@
             </div>
           </div>
 
-          <div class="form-group form-group-sm">
+          <div class="form-group">
             <label class="col-md-1 control-label" for="min-amount">最小单价：</label>
 
             <div class="col-md-3">
@@ -56,7 +56,7 @@
             </div>
           </div>
 
-          <div class="clearfix form-group form-group-sm">
+          <div class="clearfix form-group">
             <div class="offset-md-1 col-md-6">
               <button class="js-user-filter btn btn-primary btn-sm" type="submit">
                 查询
