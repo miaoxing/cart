@@ -155,7 +155,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/admin/js/data-table', 'form', 'jquery-deparam', 'plugins/admin/js/range-date-time-picker'], function () {
+  require(['plugins/admin/js/data-table', 'form', 'jquery-unparam', 'plugins/admin/js/range-date-time-picker'], function () {
     var recordTable = $('#record-table').dataTable({
       ajax: {
         url: $.url('admin/carts?_format=json')
