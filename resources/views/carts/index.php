@@ -118,7 +118,7 @@
   require([
     'plugins/cart/js/carts',
     'plugins/product/js/products',
-    'comps/artTemplate/template.min'
+    'plugins/app/libs/artTemplate/template.min'
   ], function (carts, products) {
     carts.indexAction({
       products: products,
