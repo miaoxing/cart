@@ -11,7 +11,7 @@
 </table>
 
 <script>
-  require(['plugins/admin/js/data-table', 'form', 'jquery-unparam'], function () {
+  require(['plugins/admin/js/data-table', 'form'], function () {
     var recordTable = $('.cart-log-table').dataTable({
       ajax: {
         url: $.url('admin/carts/log.json', {cartId: '<?= (int) $req['cartId'] ?>'})
