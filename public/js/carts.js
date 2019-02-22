@@ -62,7 +62,6 @@ define([], function () {
       this.initSpinner();
 
       // 更改规格
-      template.helper('$', $);
       $('.js-picker-show').click(function () {
         var $specs = $(this);
         self.products.showCartPicker({
