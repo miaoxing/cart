@@ -74,7 +74,7 @@
               data-id="<?= $cart['id'] ?>">
             <button class="spinner-button spinner-plus" type="button"></button>
           </div>
-          <a class="cart-delete pull-right" href="javascript:" data-id="<?= $cart['id'] ?>"></a>
+          <a class="cart-delete float-right" href="javascript:" data-id="<?= $cart['id'] ?>"></a>
         </div>
       </div>
     </li>
