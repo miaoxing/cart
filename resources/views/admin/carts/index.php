@@ -63,7 +63,7 @@
               </button>
               &nbsp;
               <?php if (wei()->setting('cart.enableExport')) : ?>
-                <a id="export-csv" class="btn btn-default btn-sm" href="javascript:void(0);">导出</a>
+                <a id="export-csv" class="btn btn-secondary btn-sm" href="javascript:void(0);">导出</a>
               <?php endif ?>
             </div>
           </div>
@@ -111,7 +111,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
         <button type="button" class="btn btn-primary" id="reset-price-submit">确定</button>
       </div>
     </div>
@@ -130,7 +130,7 @@
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
       </div>
     </div>
     <!-- /.modal-content -->
