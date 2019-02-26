@@ -34,7 +34,7 @@
         </a>
       </div>
       <div class="list-col">
-        <div class="flex align-center">
+        <div class="d-flex align-center">
           <div class="cart-content">
             <h4 class="cart-title list-heading truncate-2">
               <a class="js-cart-title" href="<?= $url('products/%s', $product['id']) ?>"><?= $product['name'] ?></a>
@@ -90,14 +90,14 @@
   <?php endif ?>
 </ul>
 
-<div class="js-cart-actions border-top cart-footer-bar footer-bar flex justify-between flex-center">
+<div class="js-cart-actions border-top cart-footer-bar footer-bar d-flex justify-between flex-center">
   <div class="checkbox-lg checkbox checkbox-circle checkbox-success cart-toggle-item">
     <label>
       <input class="cart-toggle-all" type="checkbox">
       <span class="checkbox-label">全选</span>
     </label>
   </div>
-  <div class="flex justify-end flex-center">
+  <div class="d-flex justify-end flex-center">
     <?php if ($showPrice) : ?>
       <div class="cart-total-text">
         合计：
