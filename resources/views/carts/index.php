@@ -36,11 +36,11 @@
       <div class="list-col">
         <div class="d-flex align-items-center">
           <div class="cart-content">
-            <h4 class="cart-title list-heading truncate-2">
+            <h4 class="cart-title list-title truncate-2">
               <a class="js-cart-title" href="<?= $url('products/%s', $product['id']) ?>"><?= $product['name'] ?></a>
             </h4>
 
-            <div class="js-picker-show list-body cart-specs" data-product-id="<?= $product['id'] ?>"
+            <div class="js-picker-show list-text cart-specs" data-product-id="<?= $product['id'] ?>"
               data-sku-id="<?= $sku['id'] ?>" data-cart-id="<?= $cart['id'] ?>">
               <?php if (!$product->isSingleSku()) : ?>
                 <?php foreach ($sku->getSpecsFromCache() as $specName => $specValue) : ?>
