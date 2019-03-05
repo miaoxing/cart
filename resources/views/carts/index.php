@@ -11,21 +11,20 @@
 
 <?php $carts = $types[$req['type']]; ?>
 <ul class="list list-intended cart-list">
-  <?php foreach ($carts as $cart) :
+  <?php foreach ($carts as $i => $cart) :
     $product = $cart->getProduct();
     $sku = $cart->getSku();
     $payable = $cart->checkPayable();
     ?>
     <li class="js-cart-item list-item">
       <div class="list-col list-middle cart-list-checkbox">
-        <div class="checkbox-lg checkbox checkbox-circle checkbox-success">
-          <label>
-            <input class="js-cart-checkbox cart-checkbox" type="checkbox" name="id[]" value="<?= $cart['id'] ?>"
-              data-type-id="<?= $product['config']['typeId'] ?>"
-              data-price="<?= $cart->getSkuPrice() ?>"
-              data-scores="<?= $sku['score'] ?>" <?= $payable['code'] === 1 ? '' : 'disabled' ?>>
-            <span class="checkbox-label"></span>
-          </label>
+        <div class="custom-control custom-checkbox custom-checkbox-success">
+          <input class="js-cart-checkbox custom-control-input" type="checkbox" name="id[]" value="<?= $cart['id'] ?>"
+            id="cart-<?= $cart['id'] ?>"
+            data-type-id="<?= $product['config']['typeId'] ?>"
+            data-price="<?= $cart->getSkuPrice() ?>"
+            data-scores="<?= $sku['score'] ?>" <?= $payable['code'] === 1 ? '' : 'disabled' ?>>
+          <label class="custom-control-label" for="cart-<?= $cart['id'] ?>"></label>
         </div>
       </div>
       <div class="list-col list-middle cart-thumb">
@@ -91,12 +90,11 @@
 </ul>
 
 <div class="js-cart-actions border-top cart-footer-bar footer-bar d-flex justify-content-between align-items-center">
-  <div class="checkbox-lg checkbox checkbox-circle checkbox-success cart-toggle-item">
-    <label>
-      <input class="cart-toggle-all" type="checkbox">
-      <span class="checkbox-label">全选</span>
-    </label>
+  <div class="custom-control custom-checkbox custom-checkbox-success cart-toggle-item">
+    <input class="custom-control-input cart-toggle-all" type="checkbox" id="cart-toggle-all">
+    <label class="custom-control-label" for="cart-toggle-all">全选</label>
   </div>
+
   <div class="d-flex align-items-center justify-content-end">
     <?php if ($showPrice) : ?>
       <div class="cart-total-text">
