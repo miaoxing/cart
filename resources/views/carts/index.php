@@ -17,7 +17,7 @@
     $payable = $cart->checkPayable();
     ?>
     <li class="js-cart-item list-item">
-      <div class="list-col list-middle cart-list-checkbox">
+      <div class="list-col align-self-center cart-list-checkbox">
         <div class="custom-control custom-checkbox custom-checkbox-success">
           <input class="js-cart-checkbox custom-control-input" type="checkbox" name="id[]" value="<?= $cart['id'] ?>"
             id="cart-<?= $cart['id'] ?>"
@@ -27,7 +27,7 @@
           <label class="custom-control-label" for="cart-<?= $cart['id'] ?>"></label>
         </div>
       </div>
-      <div class="list-col list-middle cart-thumb">
+      <div class="list-col align-self-center cart-thumb">
         <a href="<?= $url('products/%s', $product['id']) ?>">
           <img src="<?= $asset->thumb($cart->getImage()) ?>">
         </a>
