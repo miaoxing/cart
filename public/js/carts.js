@@ -207,7 +207,7 @@ define([], function () {
      * 根据编号删除购物车
      */
     destroy: function (id) {
-      $.confirm('确认删除商品?', function (result) {
+      $.confirm('确定删除商品?', function (result) {
         if (result) {
           $.post($.url('carts/destroy'), {id: id}, function (ret) {
             $.msg(ret, function () {
