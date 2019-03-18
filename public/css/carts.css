@@ -1,5 +1,5 @@
 .cart-list {
-  margin-bottom: 56px;
+  margin-bottom: 4rem;
 }
 
 /* 空购物车提示 */
@@ -56,8 +56,6 @@
   min-width: 7em;
   border-radius: 0;
   border: 0;
-  font-size: 16px;
-  height: 46px;
 }
 
 /* 购物车操作 */

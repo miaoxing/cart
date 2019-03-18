@@ -104,7 +104,7 @@
         0
       </strong>
     <?php endif ?>
-    <button class="btn btn-block btn-lg btn-primary cart-pay"><?= $setting('order.titleCheckout') ?: '结算' ?>
+    <button class="btn btn-block btn-md btn-primary cart-pay"><?= $setting('order.titleCheckout') ?: '结算' ?>
       (<span class="cart-product-count">0</span>)
     </button>
   </div>
