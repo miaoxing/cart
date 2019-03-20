@@ -20,7 +20,7 @@
     <td><?= $cart['quantity'] ?></td>
     <td><?= sprintf('%.2f', $cart['quantity'] * $cart->getCurPrice()) ?></td>
     <td>
-      <input placeholder="填入增加或减少的金额" name="resetCartPrice" type="text"/>
+      <input class="form-control" placeholder="填入增加或减少的金额" name="resetCartPrice" type="text"/>
     </td>
   </tr>
   </tbody>
