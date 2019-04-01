@@ -590,7 +590,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
         $ids = [];
         foreach (['price', 'skuId', 'orderId', 'configs'] as $field) {
             // 将0统一转为空字符串
-            $ids[] = $this[$field] ?: '';
+            $ids[] = ($this[$field] && $this[$field] != '0.00') ? $this[$field] : '';
         }
 
         return json_encode($ids);
