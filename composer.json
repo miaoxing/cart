@@ -1,5 +1,6 @@
 {
   "name": "miaoxing/cart",
+  "type": "miaoxing-plugin",
   "description": "Miaoxing Cart Plugin",
   "keywords": [
     "miaoxing", "cart"
@@ -21,5 +22,15 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "extra": {
+    "installer-types": [
+      "miaoxing-plugin"
+    ],
+    "installer-paths": {
+      "plugins/{$name}/": [
+        "type:miaoxing-plugin"
+      ]
+    }
+  }
 }
