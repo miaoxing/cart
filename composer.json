@@ -6,9 +6,9 @@
   ],
   "license": "MIT",
   "require": {
-    "miaoxing/app": "dev-master@dev",
-    "miaoxing/product": "dev-master@dev",
-    "miaoxing/user": "dev-master@dev"
+    "miaoxing/app": "^0.2.2",
+    "miaoxing/product": "^0.1.0",
+    "miaoxing/user": "^0.1.11"
   },
   "autoload": {
     "psr-4": {
