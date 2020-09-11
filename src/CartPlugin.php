@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Cart;
 
-class Plugin extends \Miaoxing\Plugin\BasePlugin
+class CartPlugin extends \Miaoxing\Plugin\BasePlugin
 {
     protected $name = '购物车';
 
