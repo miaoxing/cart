@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Cart\Migration;
 
-use Miaoxing\Plugin\BaseMigration;
+use Wei\Migration\BaseMigration;
 
 class V20170331192907CreateCartTable extends BaseMigration
 {
