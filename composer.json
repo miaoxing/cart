@@ -3,13 +3,14 @@
   "type": "miaoxing-plugin",
   "description": "Miaoxing Cart Plugin",
   "keywords": [
-    "miaoxing", "cart"
+    "miaoxing",
+    "cart"
   ],
   "license": "MIT",
   "require": {
-    "miaoxing/app": "^0.2.2",
+    "miaoxing/app": "^0.2.3",
     "miaoxing/product": "^0.1.0",
-    "miaoxing/user": "^0.1.11"
+    "miaoxing/user": "^0.1.12"
   },
   "autoload": {
     "psr-4": {
