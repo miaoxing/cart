@@ -30,9 +30,9 @@ class V20170331192907CreateCartTable extends BaseMigration
             ->tinyInt('refundStatus')->comment('退款的状态')
             ->string('image', 255)
             ->text('configs')
-            ->timestampsV1()
-            ->userstampsV1()
-            ->softDeletableV1()
+            ->timestamps()
+            ->userstamps()
+            ->softDeletable()
             ->exec();
     }
 
