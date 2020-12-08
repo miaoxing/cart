@@ -3,11 +3,14 @@
 namespace Miaoxing\Cart\Service;
 
 use Miaoxing\Order\Service\Order;
+use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Product\Service\Product;
 use Miaoxing\Product\Service\Sku;
 
 class Cart extends \Miaoxing\Plugin\BaseModel
 {
+    use ModelTrait;
+
     const TYPE_FREE = 1;
 
     const TYPE_REDEMPTION = 2;
