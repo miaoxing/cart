@@ -42,7 +42,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
      */
     protected $user;
 
-    protected $data = [
+    protected $attributes = [
         'specs' => [],
         'configs' => [],
     ];
@@ -63,7 +63,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
         } else {
             $amount = 0;
             /** @var $cart $this */
-            foreach ($this->data as $cart) {
+            foreach ($this->attributes as $cart) {
                 $amount += $cart->getProductAmount();
             }
 
@@ -83,7 +83,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
         } else {
             $amount = 0;
             /** @var $cart $this */
-            foreach ($this->data as $cart) {
+            foreach ($this->attributes as $cart) {
                 $amount += $cart->getProductOrigAmount();
             }
 
@@ -103,7 +103,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
         } else {
             $amount = 0;
             /** @var $cart $this */
-            foreach ($this->data as $cart) {
+            foreach ($this->attributes as $cart) {
                 $amount += $cart->getScoresAmount();
             }
 
@@ -119,7 +119,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
     public function getTotalQuantity()
     {
         $quantity = 0;
-        foreach ($this->data as $cart) {
+        foreach ($this->attributes as $cart) {
             $quantity += $cart['quantity'];
         }
 
@@ -324,7 +324,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
         }
 
         // 10. 初始化数据
-        $this->setData([
+        $this->setAttributes([
             'userId' => wei()->curUser['id'],
             'skuId' => $sku['id'],
             'origPrice' => $sku['price'],

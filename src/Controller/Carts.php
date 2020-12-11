@@ -48,7 +48,7 @@ class Carts extends \Miaoxing\Plugin\BaseController
             ->findAll();
 
         // 普通商品的购物车
-        $types['default'] = wei()->cart()->beColl()->setData($carts);
+        $types['default'] = wei()->cart()->beColl()->setAttributes($carts);
 
         // 增加购物车类型
         wei()->event->trigger('addCartTypes', [$carts, &$types]);
