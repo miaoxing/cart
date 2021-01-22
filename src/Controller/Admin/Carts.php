@@ -82,7 +82,7 @@ class Carts extends \Miaoxing\Plugin\BaseController
                         'data' => $data,
                         'page' => (int) $req['page'],
                         'rows' => (int) $req['rows'],
-                        'records' => $carts->count(),
+                        'records' => $carts->cnt(),
                     ]);
                 }
 

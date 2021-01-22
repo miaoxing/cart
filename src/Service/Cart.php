@@ -54,7 +54,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
      */
     public function getProductAmount()
     {
-        if (!$this->isColl) {
+        if (!$this->coll) {
             if ((float) $this['price'] > 0) {
                 return (float) ($this['price'] * $this['quantity']);
             }
@@ -78,7 +78,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
      */
     public function getProductOrigAmount()
     {
-        if (!$this->isColl) {
+        if (!$this->coll) {
             return $this['origPrice'] * $this['quantity'];
         } else {
             $amount = 0;
@@ -98,7 +98,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
      */
     public function getScoresAmount()
     {
-        if (!$this->isColl) {
+        if (!$this->coll) {
             return $this['scores'] * $this['quantity'];
         } else {
             $amount = 0;
@@ -779,7 +779,7 @@ class Cart extends \Miaoxing\Plugin\BaseModel
         $data = parent::toArray($returnFields);
 
         // 如果未下订单,数据要从原商品中读取
-        if (!$this->isColl && !$this['orderId']) {
+        if (!$this->coll && !$this['orderId']) {
             $product = $this->getProduct();
             $data['image'] = $this->getImage();
             $data['name'] = $product['name'];
