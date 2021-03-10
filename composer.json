@@ -10,7 +10,7 @@
   "require": {
     "miaoxing/app": "^0.2.10",
     "miaoxing/product": "^0.1.7",
-    "miaoxing/user": "^0.2.5"
+    "miaoxing/user": "^0.2.6"
   },
   "autoload": {
     "psr-4": {
