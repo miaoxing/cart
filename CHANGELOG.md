@@ -1,3 +1,14 @@
+## [0.1.12](https://github.com/miaoxing/cart/compare/v0.1.11...v0.1.12) (2021-03-11)
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/product:** upgrade from `0.1.9` to `0.1.10`
+* **@miaoxing/user:** upgrade from `0.2.9` to `0.2.10`
+
 ## [0.1.11](https://github.com/miaoxing/cart/compare/v0.1.10...v0.1.11) (2021-03-11)
 
 
