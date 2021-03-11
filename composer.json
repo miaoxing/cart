@@ -9,7 +9,7 @@
   "license": "MIT",
   "require": {
     "miaoxing/app": "^0.2.10",
-    "miaoxing/product": "^0.1.10",
+    "miaoxing/product": "^0.1.11",
     "miaoxing/user": "^0.2.10"
   },
   "autoload": {
