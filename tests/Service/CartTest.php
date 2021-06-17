@@ -11,7 +11,7 @@ use Miaoxing\Product\Service\ProductModel;
 
 class CartTest extends BaseTestCase
 {
-    protected function createProduct(array $data, array $sku): ProductModel
+    protected function createProduct(array $data = [], array $sku = []): ProductModel
     {
         // 创建测试商品
         $ret = Tester::postAdminApi('products', array_merge([
@@ -320,5 +320,87 @@ class CartTest extends BaseTestCase
         ]);
 
         $this->assertRetErr($ret, '此商品每人限购2件，订单已有2件，请去订单中查看', -4);
+    }
+
+    public function testCreateProductNotFound()
+    {
+        $ret = Cart::create(['skuId' => -1]);
+        $this->assertRetErr($ret, '商品不存在');
+    }
+
+    public function testCreateProductIsAllowAddCart()
+    {
+        $product = $this->createProduct(['isAllowAddCart' => false]);
+        $ret = Cart::create(['skuId' => $product->skus[0]->id]);
+        $this->assertRetErr($ret, '该商品不可加入购物车');
+    }
+
+    public function testCreateStockNumNotEnough()
+    {
+        $ret = Tester::postAdminApi('products', [
+            'name' => '测试商品',
+            'spec' => [
+                'specs' => [
+                    [
+                        'name' => '颜色',
+                        'values' => [
+                            [
+                                'name' => '红色'
+                            ],
+                            [
+                                'name' => '蓝色'
+                            ]
+                        ]
+                    ],
+                    [
+                        'name' => '尺寸',
+                        'values' => [
+                            [
+                                'name' => 'M'
+                            ],
+                            [
+                                'name' => 'L'
+                            ],
+                        ]
+                    ]
+                ]
+            ],
+            'skus' => [
+                [
+                    'price' => 20,
+                    'stockNum' => 0,
+                    'specValues' => [
+                        [
+                            'name' => '红色',
+                            'specName' => '颜色',
+                        ],
+                        [
+                            'name' => 'M',
+                            'specName' => '尺寸',
+                        ],
+                    ],
+                ],
+                [
+                    'price' => 20,
+                    'stockNum' => 10,
+                    'specValues' => [
+                        [
+                            'name' => '蓝色',
+                            'specName' => '颜色',
+                        ],
+                        [
+                            'name' => 'L',
+                            'specName' => '尺寸',
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+
+        /** @var ProductModel $product */
+        $product = $ret->getMetadata('model');
+
+        $ret = Cart::create(['skuId' => $product->skus[0]->id, 1]);
+        $this->assertRetErr($ret, '该商品规格已售罄');
     }
 }
