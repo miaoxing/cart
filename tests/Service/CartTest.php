@@ -11,6 +11,34 @@ use Miaoxing\Product\Service\ProductModel;
 
 class CartTest extends BaseTestCase
 {
+    protected function createProduct(array $data, array $sku): ProductModel
+    {
+        // 创建测试商品
+        $ret = Tester::postAdminApi('products', array_merge([
+            'name' => '测试商品',
+            'spec' => [
+                'specs' => ProductModel::getDefaultSpecs(),
+            ],
+            'skus' => [
+                array_merge([
+                    'price' => 20,
+                    'stockNum' => 10,
+                    'specValues' => [
+                        [
+                            'name' => '默认',
+                            'specName' => '默认',
+                        ],
+                    ],
+                ], $sku),
+            ],
+        ], $data));
+
+        /** @var ProductModel $product */
+        $product = $ret->getMetadata('model');
+
+        return $product;
+    }
+
     public function testCreateOrUpdate()
     {
         User::loginById(1);
@@ -122,49 +150,45 @@ class CartTest extends BaseTestCase
         $this->assertRetErr($ret, '此商品每人限购3件，购物车已有3件，请去购物车继续购买');
     }
 
-    public function testCheckLimitation()
+    public function testCheckMaxOrderQuantity()
     {
-        wei()->curUser->loginById(1);
+        User::loginById(1);
 
         // 创建测试商品
-        $product = wei()->product();
-        $ret = $product->create([
+        $product = $this->createProduct([
             'name' => '限购的测试商品1',
-            'quantity' => 10,
-            'price' => '20.00',
-            'images' => [
-                '/assets/mall/product/placeholder.gif',
-            ],
-            'limitation' => 2,
+            'maxOrderQuantity' => 2,
+        ], [
+            'price' => 20,
+            'stockNum' => 10,
         ]);
-        $this->assertRetSuc($ret);
 
-        $skuId = $product->getFirstSku()->get('id');
+        $skuId = $product->skus[0]->id;
 
         // 加入购物车
-        $ret = wei()->cart->createOrUpdate([
+        $ret = Cart::createOrUpdate([
             'skuId' => $skuId,
-            'quantity' => '3', // 使用字符串,和Ajax请求一样
+            'quantity' => '3',
         ]);
-        $this->assertRetErr($ret, '此商品每人限购2件，请返回修改', -4);
+        $this->assertRetErr($ret, '此商品每人限购2件，请返回修改');
 
-        $ret = wei()->cart->createOrUpdate([
+        $ret = Cart::createOrUpdate([
             'skuId' => $skuId,
             'quantity' => '1',
         ]);
         $this->assertRetSuc($ret);
 
-        $ret = wei()->cart->createOrUpdate([
+        $ret = Cart::createOrUpdate([
             'skuId' => $skuId,
             'quantity' => '1',
         ]);
         $this->assertRetSuc($ret);
 
-        $ret = wei()->cart->createOrUpdate([
+        $ret = Cart::createOrUpdate([
             'skuId' => $skuId,
             'quantity' => '1',
         ]);
-        $this->assertRetErr($ret, '此商品每人限购2件，购物车已有2件，请去购物车继续购买', -4);
+        $this->assertRetErr($ret, '此商品每人限购2件，购物车已有2件，请去购物车继续购买');
     }
 
     public function testCheckLimitationWithOrder()
