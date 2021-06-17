@@ -2,45 +2,24 @@
 
 namespace Miaoxing\Cart\Service;
 
-use Miaoxing\Order\Service\Order;
-use Miaoxing\Plugin\Model\ModelTrait;
+use Miaoxing\Plugin\BaseService;
 use Miaoxing\Product\Service\Product;
 use Miaoxing\Product\Service\Sku;
+use Miaoxing\Product\Service\SkuModel;
+use Wei\Event;
+use Wei\Req;
+use Wei\Ret;
 
-class Cart extends \Miaoxing\Plugin\BaseModel
+class Cart extends BaseService
 {
-    use ModelTrait;
+    public const TYPE_FREE = 1;
 
-    const TYPE_FREE = 1;
-
-    const TYPE_REDEMPTION = 2;
+    public const TYPE_REDEMPTION = 2;
 
     protected $types = [
         self::TYPE_FREE => '赠品',
         self::TYPE_REDEMPTION => '换购',
     ];
-
-    protected $autoId = true;
-
-    /**
-     * @var \Miaoxing\Product\Service\Product
-     */
-    protected $product;
-
-    /**
-     * @var Sku
-     */
-    protected $sku;
-
-    /**
-     * @var Order
-     */
-    protected $order;
-
-    /**
-     * @var \Miaoxing\Plugin\Service\User
-     */
-    protected $user;
 
     protected $attributes = [
         'specs' => [],
@@ -126,76 +105,6 @@ class Cart extends \Miaoxing\Plugin\BaseModel
         return $quantity;
     }
 
-    public function getProduct()
-    {
-        $this->product || $this->product = wei()->product()->findOrInitById($this['productId']);
-
-        return $this->product;
-    }
-
-    /**
-     * 设置购物车对应的商品
-     *
-     * @param \Miaoxing\Product\Service\Product $product
-     * @return $this
-     */
-    public function setProduct(\Miaoxing\Product\Service\Product $product)
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
-    /**
-     * 获取商品规格
-     *
-     * @return \Miaoxing\Product\Service\Sku|false
-     */
-    public function getSku()
-    {
-        $this->sku || $this->sku = wei()->sku()->findOrInitById($this['skuId']);
-
-        return $this->sku;
-    }
-
-    /**
-     * 设置商品规格
-     *
-     * @param Sku $sku
-     * @return $this
-     */
-    public function setSku(\Miaoxing\Product\Service\Sku $sku)
-    {
-        $this->sku = $sku;
-
-        return $this;
-    }
-
-    /**
-     * 获取订单
-     * @return Order
-     */
-    public function getOrder()
-    {
-        $this->order || $this->order = wei()->order()->findOrInitById($this['orderId']);
-
-        return $this->order;
-    }
-
-    public function setOrder(Order $order)
-    {
-        $this->order = $order;
-
-        return $this;
-    }
-
-    public function getUser()
-    {
-        $this->user || $this->user = wei()->user()->findOrInitById($this['userId']);
-
-        return $this->user;
-    }
-
     public function getStatusText()
     {
         switch (true) {
@@ -221,164 +130,24 @@ class Cart extends \Miaoxing\Plugin\BaseModel
     /**
      * Record: 从指定的数据,创建一个新的购物车
      *
-     * @param array $data
-     * @param array $recordData 直接存储的数据,如自定义价格
-     * @return array
+     * @param array|Req $data
+     * @param array $attributes 直接存储的数据,如自定义价格
+     * @return Ret|array{data:CartModel}
+     * @svc
      */
-    public function create($data = [], array $recordData = [])
+    protected function create($data = [], array $attributes = []): Ret
     {
-        $ret = $this->init($data);
-        if ($ret['code'] !== 1) {
+        $cart = CartModel::new();
+        $ret = $cart->init($data);
+        if ($ret->isErr()) {
             return $ret;
         }
 
-        $this->save($recordData);
+        $cart->save($attributes);
 
-        return $this->suc([
-            'message' => '加入成功',
-            'data' => $this->toArray(),
-        ]);
-    }
-
-    /**
-     * Record: 初始化商品数据
-     *
-     * @param array $data
-     * @return array
-     */
-    public function init($data = [])
-    {
-        // 1. 初始化SKU,商品对象
-        /** @var $sku \Miaoxing\Product\Service\Sku */
-        $sku = wei()->sku()->findById($data['skuId']);
-        if (!$sku) {
-            return ['code' => -1, 'message' => '商品不存在'];
-        }
-
-        // 2. 检查商品是否售罄(前台有拦截,一般扫二维码时触发)
-        $product = $sku->getProduct();
-        if ($product->isSoldOut()) {
-            return ['code' => -4, 'message' => sprintf('商品"%s"已售罄', $product['name'])];
-        }
-
-        // 3. 检查商品是否过期
-        if ($product->isEnd()) {
-            return ['code' => -4, 'message' => sprintf('商品"%s"已到下架时间', $product['name'])];
-        }
-
-        // 4. 检查选择规格是否库存足够
-        if ($sku['quantity'] == 0) {
-            return [
-                'code' => -5,
-                'message' => sprintf('很抱歉,商品"%s"中,规格"%s"已售罄', $product['name'], implode(',', $sku->getSpecs())),
-            ];
-        }
-
-        // 5. 检查是否到上架时间
-        if ($product->isWillStart()) {
-            return ['code' => -6, 'message' => '抢购未开始'];
-        }
-
-        // 6. 检查数量参数是否合法,并且低于库存
-        $validator = wei()->validate([
-            'data' => $data,
-            'rules' => [
-                'quantity' => [
-                    'positiveInteger' => true,
-                    'lessThanOrEqual' => $sku['quantity'],
-                ],
-            ],
-            'names' => [
-                'quantity' => '商品数量',
-            ],
-            'messages' => [
-                'quantity' => [
-                    'lessThanOrEqual' => '%name%不能超过库存数量',
-                ],
-            ],
-        ]);
-
-        if (!$validator->isValid()) {
-            return ['code' => -2, 'message' => $validator->getFirstMessage()];
-        }
-
-        // 7. 检查所有购物车中该商品的总量是否超过限制
-        $ret = $this->checkLimitation($product, $data['quantity']);
-        if ($ret['code'] !== 1) {
-            return $ret;
-        }
-
-        // 8. 检查积分
-        if ($sku['score'] && $sku['score'] * $data['quantity'] > wei()->curUserV2->score) {
-            return $this->err([
-                '积分不足，您当前可用积分为%s，还差%s！',
-                wei()->curUserV2->score,
-                $sku['score'] * $data['quantity'] - wei()->curUserV2->score,
-            ]);
-        }
-
-        // 9. 触发初始化购物车的回调
-        $ret = wei()->event->until('cartInit', [$this, $sku, $data, $product]);
-        if ($ret) {
-            return $ret;
-        }
-
-        // 10. 初始化数据
-        $this->setAttributes([
-            'userId' => wei()->curUser['id'],
-            'skuId' => $sku['id'],
-            'origPrice' => $sku['price'],
-            'productId' => $product['id'],
-            'scores' => $sku['score'],
-            'name' => $product['name'],
-            'quantity' => (int) $data['quantity'],
-            'temp' => (int) $data['temp'],
-        ]);
-
-        return ['code' => 1, 'message' => '初始化成功'];
-    }
-
-    /**
-     * Record: 更改购物车中的商品数量
-     *
-     * @param int $quantity 更改后的数量
-     * @return array
-     */
-    public function updateQuantity($quantity)
-    {
-        // 1. 数据合法性检查
-        if (!wei()->isPositiveInteger($quantity)) {
-            return $this->err(wei()->isPositiveInteger->getFirstMessage('商品数量'), -1);
-        }
-
-        // 2.1 数量减少,直接更新
-        if ($quantity < $this['quantity']) {
-            $this->save(['quantity' => $quantity]);
-
-            return $this->suc('更改成功');
-        }
-
-        // 2.2 数量不变
-        if ($quantity == $this['quantity']) {
-            return $this->err('数量未更改', -2);
-        }
-
-        // 2.3 数量增加
-        $sku = $this->getSku();
-        $product = $sku->getProduct();
-        if ($quantity > $sku['quantity']) {
-            return $this->err('商品数量不能超过库存', -3);
-        }
-
-        // 检查所有购物车中该商品的总量是否超过限制
-        $ret = $this->checkLimitation($product, $quantity - $this['quantity']);
-        if ($ret['code'] !== 1) {
-            return $ret;
-        }
-
-        $this->save(['quantity' => (int) $quantity]);
-
-        return $this->suc('更改成功');
+        $ret['data'] = $cart;
+        $ret['message'] = '加入成功';
+        return $ret;
     }
 
     /**
@@ -411,192 +180,41 @@ class Cart extends \Miaoxing\Plugin\BaseModel
     }
 
     /**
-     * 检查要加入购物车的商品数量是否超过最大购买数量
-     *
-     * @param \Miaoxing\Product\Service\Product $product
-     * @param int $quantity 要加入购物车的数量
-     * @return array
-     */
-    public function checkLimitation(\Miaoxing\Product\Service\Product $product, $quantity)
-    {
-        if (!$product['limitation']) {
-            return $this->suc('数量不限制,可以购买');
-        }
-
-        $orderCount = $this->getOrderCount($product);
-        $cartCount = $this->getCartCount($product);
-        $refundCount = $this->getRefundCount($product);
-
-        // 组装出具体的错误信息
-        $count = $orderCount + $cartCount + (int) $quantity - $refundCount;
-        if ($count > (int) $product['limitation']) {
-            $message = $this->buildLimitationMessage($product['limitation'], $cartCount, $orderCount);
-
-            return $this->err($message, -4);
-        }
-
-        return $this->suc('数量不超过限制,可以购买');
-    }
-
-    /**
-     * 当前已下订单中购买过该产品的数量
-     * @param \Miaoxing\Product\Service\Product $product
-     * @return int
-     */
-    public function getOrderCount(\Miaoxing\Product\Service\Product $product)
-    {
-        // 获取已下单的数量
-        $orderCount = (int) wei()->cart()
-            ->select('SUM(quantity)')
-            ->mine()
-            ->notDeleted()
-            ->andWhere(['productId' => $product['id']])
-            ->andWhere("orderId != ''")
-            ->fetchColumn();
-
-        return $orderCount;
-    }
-
-    /**
-     * 当前购物车中购买过该产品的数量
-     * @param Product $product
-     * @return int
-     */
-    public function getCartCount(\Miaoxing\Product\Service\Product $product)
-    {
-        // 获取购物车中的数量
-        $cartCount = (int) wei()->cart()
-            ->select('SUM(quantity)')
-            ->mine()
-            ->notDeleted()
-            ->notTemp()
-            ->andWhere(['productId' => $product['id']])
-            ->andWhere(['orderId' => ''])
-            ->fetchColumn();
-
-        return $cartCount;
-    }
-
-    public function getRefundCount(\Miaoxing\Product\Service\Product $product)
-    {
-        // 获取退款中的数量
-        $refunds = wei()->refund()->curApp()
-            ->mine()
-            ->andWhere(['productId' => $product['id']])
-            ->andWhere(['status' => 4])
-            ->findAll();
-
-        $refundCount = 0;
-        foreach ($refunds as $refund) {
-            $calCount = $product['price'] == 0 ? $product['price'] : floor($refund['fee'] / $product['price']);
-            // 计算的退款数量不能超过购物车上的数量
-            $cart = wei()->cart()->findOneById($refund['cartId']);
-            if ($cart['quantity'] < $calCount) {
-                $calCount = $cart['quantity'];
-            }
-
-            $refundCount += $calCount;
-        }
-
-        return $refundCount;
-    }
-
-    /**
-     * 根据限购数量和用户购物车,订单中数量,构造不同的提示消息
-     *
-     * @param int $limitation
-     * @param int $cartCount
-     * @param int $orderCount
-     * @return string
-     */
-    protected function buildLimitationMessage($limitation, $cartCount, $orderCount)
-    {
-        // 1. 先提醒限制
-        $message = '此商品每人限购' . $limitation . '件，';
-
-        // 2. 接着提醒购物车和订单里已有的数量
-        if ($cartCount) {
-            $cartTitle = wei()->setting('cart.title', '购物车');
-            $message .= $cartTitle . '已有' . $cartCount . '件，';
-        }
-        if ($orderCount) {
-            $message .= '订单已有' . $orderCount . '件，';
-        }
-
-        // 3. 最后指出推荐的做法
-        switch (true) {
-            // 可能还可以再买,但是购物车里已有,推荐去购物车查看
-            case $cartCount:
-                $message .= '请去购物车继续购买';
-                break;
-
-            // 已经不能再买了,引导到订单中确认
-            case $orderCount == $limitation:
-                $message .= '请去订单中查看';
-                break;
-
-            default:
-                $message .= '请返回修改';
-        }
-
-        return $message;
-    }
-
-    /**
      * Repo: 创建或更新购物车
      *
-     * @param array $data
-     * @return array
+     * @param array|Req $data
+     * @return Ret|array{data:CartModel}
+     * @svc
      */
-    public function createOrUpdate($data)
+    protected function createOrUpdate($data): Ret
     {
         // 1. 初始化购物车
-        $cur = wei()->cart();
-        $ret = $cur->init($data);
-        if ($ret['code'] !== 1) {
+        $newCart = CartModel::new();
+        $ret = $newCart->init($data);
+        if ($ret->isErr()) {
             return $ret;
         }
 
-        // 2. 如果有相同的购物车,只增加数量
-        $found = false;
-        $curId = $cur->getIdentifier();
-        $carts = wei()->cart()->mine()->notDeleted()->notTemp()->findAll(['skuId' => $cur['skuId']]);
+        // 2. 如果有相同的购物车，只增加数量
+        $newIdentifier = $newCart->calIdentifier();
+        $carts = CartModel::mine()->findAllBy('skuId', $newCart->skuId);
         foreach ($carts as $cart) {
-            if ($cart->getIdentifier() == $curId) {
-                $cart->incr('quantity', $cur['quantity']);
-                $cart->save();
-                $cur = $cart;
-                $found = true;
+            if ($cart->calIdentifier() === $newIdentifier) {
+                $cart->incrSave('quantity', $newCart->quantity);
+                $newCart = $cart;
                 break;
             }
         }
 
-        // 3. 未找到相同的商品,直接保存
-        if (!$found) {
-            $cur->save();
+        // 3. 未找到相同的购物车
+        if ($newCart->isNew()) {
+            $newCart->save();
         }
 
-        return $this->suc([
+        return $newCart->toRet([
             'message' => '加入成功',
-            'found' => $found,
-            'data' => $cur,
+            'exists' => !$newCart->wasRecentlyCreated(),
         ]);
-    }
-
-    /**
-     * Record: 生成当前购物车的唯一ID,用于判断两个购物车是否一致
-     *
-     * @return string
-     */
-    public function getIdentifier()
-    {
-        $ids = [];
-        foreach (['price', 'skuId', 'orderId', 'configs'] as $field) {
-            // 将0统一转为空字符串
-            $ids[] = ($this[$field] && $this[$field] != '0.00') ? $this[$field] : '';
-        }
-
-        return json_encode($ids);
     }
 
     /**
@@ -771,56 +389,13 @@ class Cart extends \Miaoxing\Plugin\BaseModel
         return $content;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function toArray($returnFields = [])
-    {
-        $data = parent::toArray($returnFields);
-
-        // 如果未下订单,数据要从原商品中读取
-        if (!$this->coll && !$this['orderId']) {
-            $product = $this->getProduct();
-            $data['image'] = $this->getImage();
-            $data['name'] = $product['name'];
-            $data['specs'] = $product->isSingleSku() ? [] : $this->getSku()->getSpecsFromCache();
-        }
-
-        return $data;
-    }
-
-    public function afterFind()
-    {
-        parent::afterFind();
-
-        $this['specs'] = (array) json_decode($this['specs'], true);
-        $this['configs'] = (array) json_decode($this['configs'], true);
-        $this->event->trigger('postImageDataLoad', [&$this, ['image']]);
-    }
-
-    public function beforeSave()
-    {
-        parent::beforeSave();
-
-        $this['specs'] = json_encode($this['specs'], JSON_UNESCAPED_UNICODE);
-        $this['configs'] = json_encode($this['configs'], JSON_UNESCAPED_UNICODE);
-        $this->event->trigger('preImageDataSave', [&$this, ['image']]);
-    }
-
     public function afterSave()
     {
-        parent::afterSave();
-
-        $this['specs'] = (array) json_decode($this['specs'], true);
-        $this['configs'] = (array) json_decode($this['configs'], true);
-        $this->event->trigger('postImageDataLoad', [&$this, ['image']]);
-
         $this->clearTagCacheByUser();
     }
 
     public function afterDestroy()
     {
-        parent::afterDestroy();
         $this->clearTagCacheByUser();
     }
 
