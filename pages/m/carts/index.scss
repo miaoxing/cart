@@ -1,0 +1,9 @@
+@import "~taro-ui/dist/style/components/swipe-action.scss";
+
+// AtSwipeAction 及其各层子元素宽度变成 0
+// @link https://github.com/NervJS/taro-ui/issues/1278
+.at-swipe-action__option {
+  width: 66px; // 66 才能显示 2 个字
+  justify-content: center;
+  font-size: .875rem;
+}
