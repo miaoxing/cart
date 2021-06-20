@@ -111,7 +111,7 @@ class Cart extends BaseService
             case $this->isSoftDeleted():
                 return '已取消';
 
-            case $this['orderId'] != 0:
+            case 0 != $this['orderId']:
                 return '已下订单';
 
             default:
@@ -151,22 +151,72 @@ class Cart extends BaseService
     }
 
     /**
+     * @param array|Req $data
+     * @return Ret|array{data:CartModel}
+     * @throws \Exception
+     * @svc
+     */
+    protected function update($data): Ret
+    {
+        $cart = CartModel::mine()->findOrFail($data['id']);
+
+        // 1. 检查SKU和数量是否合法
+        $sku = SkuModel::find($data['skuId']);
+        if (!$sku) {
+            return err('该商品不存在');
+        }
+        if ($sku->productId !== $cart->productId) {
+            return err('该商品属性不存在');
+        }
+        $cart->skuId = $sku->id;
+        $cart->addedPrice = $sku->price;
+
+        // 2. 如果增加了数量,需要检查所有购物车中该商品的总量是否超过限制
+        $quantity = (int) $data['quantity'];
+        $addedQuantity = $quantity - $cart->quantity;
+        if ($addedQuantity > 0) {
+            $ret = $cart->checkLimitation($cart->product, $quantity);
+            if ($ret->isErr()) {
+                return $ret;
+            }
+        }
+        $cart->quantity = $quantity;
+
+        // 3. 检查新的购物车是否可下单
+        $ret = $cart->checkCreateOrder();
+        if ($ret->isErr()) {
+            return $ret;
+        }
+
+        // 4. 更新到购物车
+        $ret = Event::until('beforeCartUpdate', [$cart, $sku, $data]);
+        if ($ret) {
+            return $ret;
+        }
+
+        $cart->save();
+
+        return suc('更新成功')->with('data', $cart);
+    }
+
+    /**
      * 修改购物车价格
+     * @param mixed $changePrice
      */
     public function resetCartProductPrice($changePrice)
     {
-        if (trim($changePrice) == '') {
+        if ('' == trim($changePrice)) {
             return ['code' => 1, 'message' => '操作成功'];
         }
 
-        $this['price'] = ($changePrice != 0 ? ((float) $this['price'] ?: $this['origPrice']) + $changePrice : 0);
+        $this['price'] = (0 != $changePrice ? ((float) $this['price'] ?: $this['origPrice']) + $changePrice : 0);
         $this->save();
 
         if ((float) $this['price']) {
             $message = '修改购物车商品价格[' . $this['name'] . ']：原价为￥' . ($this['origPrice']) . '，现价为￥' . sprintf(
-                    '%.2f',
-                    $this['price']
-                );
+                '%.2f',
+                $this['price']
+            );
         } else {
             $message = '修改购物车商品价格[' . $this['name'] . ']：重置价格为￥' . ($this['origPrice']);
         }
@@ -218,59 +268,13 @@ class Cart extends BaseService
     }
 
     /**
-     * 判断当前购物车对应的商品,库存是否足够
-     *
-     * @return bool
-     */
-    public function isQuantityEnough()
-    {
-        return (int) $this->getSku()->get('quantity') >= (int) $this['quantity'];
-    }
-
-    /**
-     * Record: 检查当前购物车能否购买
-     *
-     * @return array
-     */
-    public function checkPayable()
-    {
-        // 1. 检查商品是否可购买
-        $ret = $this->getProduct()->checkPayable();
-        if ($ret['code'] !== 1) {
-            return $ret;
-        }
-
-        // 2. 检查SKU是否可购买
-        $ret = $this->getSku()->checkPayable();
-        if ($ret['code'] !== 1) {
-            return $ret;
-        }
-
-        // 3. 检查购物车是否可购买
-        if ($this['quantity'] <= 0) {
-            return $this->err('请选择数量', -21);
-        }
-
-        if (!$this->isQuantityEnough()) {
-            return $this->err('库存不足', -22);
-        }
-
-        $ret = wei()->event->until('cartCheckPayable', [$this]);
-        if ($ret) {
-            return $ret;
-        }
-
-        return $this->suc('可以购买');
-    }
-
-    /**
      * 获取现价,用于下单后
      *
      * @return string
      */
     public function getCurPrice()
     {
-        if ($this['price'] != '0.00') {
+        if ('0.00' != $this['price']) {
             return $this['price'];
         } else {
             return $this['origPrice'];
@@ -284,7 +288,7 @@ class Cart extends BaseService
      */
     public function getSkuPrice()
     {
-        if ($this['free'] == self::TYPE_FREE) {
+        if (self::TYPE_FREE == $this['free']) {
             return '0.00';
         }
 
