@@ -74,21 +74,26 @@ const CartItem = ({cart, selected, quantity, onChangeQuantity, onClickSpec, widt
                 {cart.product.name}
               </Navigator>
 
-              {!cart.product.spec.isDefault && <View mt2>
+              {cart.sku && !cart.product.spec.isDefault && <View mt2>
                 <View inlineBlock p1 pl2 textXS gray500 bgGray100 rounded1 onClick={onClickSpec}>
                   {getSpecValueNames(cart.sku.specValueIds, cart.product.spec.specs)}
                   <Icon ml1 type="chevron-down"/>
                 </View>
               </View>}
 
-              <View mt2 row toCenterY toBetween>
+              {cart.sku && <View mt2 row toCenterY toBetween>
                 <Price>{cart.changedPrice || cart.sku.price}</Price>
                 <View>
                   <Stepper value={quantity} onChange={updateQuantity} min={1} max={cart.sku.stockNum}/>
                 </View>
-              </View>
+              </View>}
 
-              {cart.createOrder.code !== 0 && (<View mt2 red500 textSM>{cart.createOrder.message}</View>)}
+              {cart.createOrder.code !== 0 && <View mt2 red500 textSM>{cart.createOrder.message}</View>}
+
+              {!cart.sku && <View mt2 onClick={onClickSpec} textRight>
+                <Button variant="outline-primary" size="xs">重选</Button>
+              </View>}
+
             </ListCol>
           </ListItem>
         </AtSwipeAction>
@@ -220,7 +225,8 @@ const Index = () => {
     setSkuPicker({
       product: ret.data,
       quantity: cart.quantity,
-      selectedValueIds: cart.sku.specValueIds,
+      // 删除 SKU 则无值
+      selectedValueIds: cart.sku?.specValueIds,
       cartId: cart.id,
     });
     setIsOpened(true);

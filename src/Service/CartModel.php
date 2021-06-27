@@ -187,6 +187,9 @@ class CartModel extends BaseModel
         }
 
         // 2. 检查SKU是否可购买
+        if (!$this->sku) {
+            return err('该规格已失效');
+        }
         $ret = $this->sku->checkCreateCart();
         if ($ret->isErr()) {
             return $ret;
