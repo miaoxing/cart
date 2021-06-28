@@ -19,6 +19,7 @@ use Wei\V;
 
 /**
  * @property SkuModel $sku
+ * @property ProductModel $product
  */
 class CartModel extends BaseModel
 {
@@ -49,6 +50,15 @@ class CartModel extends BaseModel
     public function sku(): SkuModel
     {
         return $this->belongsTo(SkuModel::class);
+    }
+
+    /**
+     * @return ProductModel
+     * @internal 待改为关联支持 unscoped
+     */
+    public function withDeletedProduct(): ProductModel
+    {
+        return $this->belongsTo(ProductModel::withDeleted());
     }
 
     /**
@@ -181,6 +191,9 @@ class CartModel extends BaseModel
     public function checkCreateOrder(): Ret
     {
         // 1. 检查商品是否可购买
+        if (!$this->product || $this->product->isDeleted()) {
+            return err('该商品已失效');
+        }
         $ret = $this->product->checkCreateOrder();
         if ($ret->isErr()) {
             return $ret;

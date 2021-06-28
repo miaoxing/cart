@@ -13,7 +13,8 @@ return new class extends BaseController {
             ->toOrder()
             ->desc('id')
             ->all()
-            ->load(['product.spec', 'sku']);
+            // @internal
+            ->load(['withDeletedProduct.spec', 'sku']);
 
         return $carts->toRet(CartResource::includes(['createOrder']))
             ->with('selected', CartConfigModel::findOrInitMine()->selectedIds);

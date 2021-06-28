@@ -74,23 +74,25 @@ const CartItem = ({cart, selected, quantity, onChangeQuantity, onClickSpec, widt
                 {cart.product.name}
               </Navigator>
 
-              {cart.sku && !cart.product.spec.isDefault && <View mt2>
-                <View inlineBlock p1 pl2 textXS gray500 bgGray100 rounded1 onClick={onClickSpec}>
-                  {getSpecValueNames(cart.sku.specValueIds, cart.product.spec.specs)}
-                  <Icon ml1 type="chevron-down"/>
-                </View>
-              </View>}
+              {!cart.product.deletedAt && cart.sku && <Block>
+                {!cart.product.spec.isDefault && <View mt2>
+                  <View inlineBlock p1 pl2 textXS gray500 bgGray100 rounded1 onClick={onClickSpec}>
+                    {getSpecValueNames(cart.sku.specValueIds, cart.product.spec.specs)}
+                    <Icon ml1 type="chevron-down"/>
+                  </View>
+                </View>}
 
-              {cart.sku && <View mt2 row toCenterY toBetween>
-                <Price>{cart.changedPrice || cart.sku.price}</Price>
-                <View>
-                  <Stepper value={quantity} onChange={updateQuantity} min={1} max={cart.sku.stockNum}/>
+                <View mt2 row toCenterY toBetween>
+                  <Price>{cart.changedPrice || cart.sku.price}</Price>
+                  <View>
+                    <Stepper value={quantity} onChange={updateQuantity} min={1} max={cart.sku.stockNum}/>
+                  </View>
                 </View>
-              </View>}
+              </Block>}
 
               {cart.createOrder.code !== 0 && <View mt2 red500 textSM>{cart.createOrder.message}</View>}
 
-              {!cart.sku && <View mt2 onClick={onClickSpec} textRight>
+              {!cart.product.deletedAt && !cart.sku && <View mt2 onClick={onClickSpec} textRight>
                 <Button variant="outline-primary" size="xs">重选</Button>
               </View>}
 
