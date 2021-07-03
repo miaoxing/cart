@@ -5,5 +5,5 @@
 .at-swipe-action__option {
   width: 66px; // 66 才能显示 2 个字
   justify-content: center;
-  font-size: .875rem;
+  font-size: var(--mx-fontSizes-sm);
 }
