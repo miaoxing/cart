@@ -27,6 +27,46 @@ class IndexTest extends BaseTestCase
         $this->assertSame([], $ret['selected']);
     }
 
+    public function testPost()
+    {
+        User::loginByModel(UserModel::save());
+
+        $product = $this->createProduct();
+
+        $ret = Tester
+            ::request([
+                'skuId' => $product->skus[0]->id,
+                'quantity' => 1,
+            ])
+            ->post('/m-api/carts');
+
+        $this->assertRetSuc($ret);
+        $this->assertFalse($ret['exists']);
+    }
+
+    public function testPostExistCart()
+    {
+        User::loginByModel(UserModel::save());
+
+        $product = $this->createProduct();
+
+        ['data' => $cart] = Cart::create(['skuId' => $product->skus[0]->id, 'quantity' => 1]);
+
+        $ret = Tester
+            ::request([
+                'skuId' => $product->skus[0]->id,
+                'quantity' => 1,
+            ])
+            ->post('/m-api/carts');
+
+        $this->assertTrue($ret['exists']);
+        $this->assertRetSuc($ret);
+
+        $cart->reload();
+        $this->assertSame($cart->id, $ret['data']['id']);
+        $this->assertSame(2, $cart->quantity);
+    }
+
     protected function createProduct(array $data = [], array $sku = []): ProductModel
     {
         // 创建测试商品
