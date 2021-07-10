@@ -29,6 +29,19 @@ class IdTest extends BaseTestCase
         $this->assertSame(2, $cart->quantity);
     }
 
+    public function testDelete()
+    {
+        $product = $this->createProduct();
+
+        ['data' => $cart] = Cart::create(['skuId' => $product->skus[0]->id, 'quantity' => 1]);
+
+        $ret = Tester::delete('/m-api/carts/' . $cart->id);
+        $this->assertRetSuc($ret);
+
+        $cart->reload();
+        $this->assertSame(CartModel::STATUS_DELETED, $cart->status);
+    }
+
     protected function createProduct(array $data = []): ProductModel
     {
         // 创建测试商品
