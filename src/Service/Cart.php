@@ -3,8 +3,6 @@
 namespace Miaoxing\Cart\Service;
 
 use Miaoxing\Plugin\BaseService;
-use Miaoxing\Product\Service\Product;
-use Miaoxing\Product\Service\Sku;
 use Miaoxing\Product\Service\SkuModel;
 use Wei\Event;
 use Wei\Req;
@@ -19,11 +17,6 @@ class Cart extends BaseService
     protected $types = [
         self::TYPE_FREE => '赠品',
         self::TYPE_REDEMPTION => '换购',
-    ];
-
-    protected $attributes = [
-        'specs' => [],
-        'configs' => [],
     ];
 
     /**
@@ -268,20 +261,6 @@ class Cart extends BaseService
     }
 
     /**
-     * 获取现价,用于下单后
-     *
-     * @return string
-     */
-    public function getCurPrice()
-    {
-        if ('0.00' != $this['price']) {
-            return $this['price'];
-        } else {
-            return $this['origPrice'];
-        }
-    }
-
-    /**
      * 获取价格,用于下单前
      *
      * @return string
@@ -361,24 +340,6 @@ class Cart extends BaseService
     }
 
     /**
-     * 获取产品缩略图
-     *
-     * 兼容下单前后两种情况
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        if ($this['orderId']) {
-            return $this['image'];
-        } else {
-            $thumb = wei()->event->until('cartGetThumb', [$this]);
-
-            return $thumb ?: $this->getProduct()->getThumb();
-        }
-    }
-
-    /**
      * 获取规格字符串
      *
      * @return string
@@ -403,45 +364,8 @@ class Cart extends BaseService
         $this->clearTagCacheByUser();
     }
 
-    /**
-     * 设置配置字段的内容
-     *
-     * @param string|array $name
-     * @param mixed $value
-     * @return $this
-     */
-    public function setConfig($name, $value = null)
-    {
-        $config = $this['configs'];
-
-        if (is_array($name)) {
-            $config += $name;
-        } else {
-            $config[$name] = $value;
-        }
-
-        $this['configs'] = $config;
-
-        return $this;
-    }
-
-    public function notTemp()
-    {
-        return $this->andWhere(['temp' => 0]);
-    }
-
     public function getTypeName()
     {
         return isset($this->types[$this['free']]) ? $this->types[$this['free']] : '';
-    }
-
-    public function getOrigPrice()
-    {
-        if (!wei()->money->isZero($this['origPrice'])) {
-            return $this['origPrice'];
-        }
-
-        // 为0是不能确定是否为免费,改为读取商品的原价
-        return $this->getProduct()['originalPrice'];
     }
 }
