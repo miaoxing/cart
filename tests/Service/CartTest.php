@@ -8,6 +8,7 @@ use Miaoxing\Plugin\Service\Tester;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Test\BaseTestCase;
 use Miaoxing\Product\Service\ProductModel;
+use Wei\Ret;
 
 class CartTest extends BaseTestCase
 {
@@ -37,6 +38,64 @@ class CartTest extends BaseTestCase
         $product = $ret->getMetadata('model');
 
         return $product;
+    }
+
+    /**
+     * @param array $data
+     * @param Ret $ret
+     * @dataProvider providerForCreate
+     */
+    public function testCreate(array $data, Ret $ret)
+    {
+        $product = $this->createProduct();
+
+        $createRet = Cart::create($data + ['skuId' => $product->skus[0]->id]);
+
+        if ($ret->isErr()) {
+            $this->assertSameRet($ret, $createRet);
+        } else {
+            $this->assertSame($ret['message'], $createRet['message']);
+            $this->assertSame($product->skus[0]->price, $createRet['data']->addedPrice);
+            $this->assertSame(2, $createRet['data']->quantity);
+        }
+    }
+
+    public static function providerForCreate(): array
+    {
+        return [
+            [
+                [
+                    'skuId' => null,
+                ],
+                err('商品不存在'),
+            ],
+            [
+                [
+                    'quantity' => 'a',
+                ],
+                err('商品数量必须是一个整数', -1),
+            ],
+            [
+                [
+                    'quantity' => -1,
+                ],
+                err('商品数量必须是大于0的整数', -1),
+            ],
+            [
+                [
+                    'quantity' => 11,
+                ],
+                err('商品数量不能超过库存数量', -1),
+            ],
+            [
+                [
+                    'quantity' => 2,
+                ],
+                suc([
+                    'message' => '加入成功',
+                ]),
+            ],
+        ];
     }
 
     public function testCreateOrUpdate()
@@ -345,25 +404,25 @@ class CartTest extends BaseTestCase
                         'name' => '颜色',
                         'values' => [
                             [
-                                'name' => '红色'
+                                'name' => '红色',
                             ],
                             [
-                                'name' => '蓝色'
-                            ]
-                        ]
+                                'name' => '蓝色',
+                            ],
+                        ],
                     ],
                     [
                         'name' => '尺寸',
                         'values' => [
                             [
-                                'name' => 'M'
+                                'name' => 'M',
                             ],
                             [
-                                'name' => 'L'
+                                'name' => 'L',
                             ],
-                        ]
-                    ]
-                ]
+                        ],
+                    ],
+                ],
             ],
             'skus' => [
                 [
