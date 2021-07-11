@@ -24,9 +24,7 @@ return new class extends BaseController {
     {
         $ret = Cart::createOrUpdate($req);
 
-        if ($ret->isSuc()) {
-            $ret['data'] = CartResource::transformData($ret['data']);
-        }
+        $ret->transform(CartResource::class);
 
         return $ret;
     }
