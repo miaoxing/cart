@@ -98,6 +98,65 @@ class CartTest extends BaseTestCase
         ];
     }
 
+    /**
+     * @param array|\Closure $data
+     * @param Ret $ret
+     * @throws \Exception
+     * @dataProvider providerForUpdate
+     */
+    public function testUpdate($data, Ret $ret)
+    {
+        if ($data instanceof \Closure) {
+            $data = $data($this);
+        }
+
+        $product = $this->createProduct();
+
+        ['data' => $cart] = Cart::create(['skuId' => $product->skus[0]->id, 'quantity' => 2]);
+
+        $data['id'] = $cart->id;
+        $updateRet = Cart::update($data + ['skuId' => $cart->skuId]);
+
+        if ($ret->isErr()) {
+            $this->assertSameRet($ret, $updateRet);
+        } else {
+            $this->assertSame($ret['message'], $updateRet['message']);
+            $this->assertSame($data['quantity'], $updateRet['data']->quantity);
+        }
+    }
+
+    public static function providerForUpdate(): array
+    {
+        return [
+            [
+                [
+                    'skuId' => 'invalid',
+                ],
+                err('该商品不存在'),
+            ],
+            [
+                function (self $test) {
+                    return [
+                        'skuId' => $test->createProduct()->skus[0]->id,
+                    ];
+                },
+                err('该商品属性不存在'),
+            ],
+            [
+                [
+                    'quantity' => 100,
+                ],
+                err('库存不足'),
+            ],
+            [
+                [
+                    'quantity' => 3,
+                ],
+                suc('更新成功'),
+            ],
+        ];
+    }
+
     public function testCreateOrUpdate()
     {
         User::loginById(1);
