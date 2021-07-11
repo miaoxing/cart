@@ -74,7 +74,7 @@ class Carts extends \Miaoxing\Plugin\BaseController
                         ];
                 }
 
-                if ($req['_format'] == 'csv') {
+                if ('csv' == $req['_format']) {
                     return $this->renderCsv($data);
                 } else {
                     return $this->suc([
@@ -86,6 +86,7 @@ class Carts extends \Miaoxing\Plugin\BaseController
                     ]);
                 }
 
+                // no break
             default:
                 return get_defined_vars();
         }

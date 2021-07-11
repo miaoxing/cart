@@ -62,9 +62,9 @@
                 查询
               </button>
               &nbsp;
-              <?php if (wei()->setting('cart.enableExport')) : ?>
+              <?php if (wei()->setting('cart.enableExport')) { ?>
                 <a id="export-csv" class="btn btn-secondary" href="javascript:void(0);">导出</a>
-              <?php endif ?>
+              <?php } ?>
             </div>
           </div>
 
@@ -155,7 +155,11 @@
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/admin/js/data-table', 'plugins/admin/js/form', 'plugins/admin/js/range-date-time-picker'], function () {
+  require([
+    'plugins/admin/js/data-table',
+    'plugins/admin/js/form',
+    'plugins/admin/js/range-date-time-picker',
+  ], function () {
     var recordTable = $('#record-table').dataTable({
       ajax: {
         url: $.url('admin/carts?_format=json')
