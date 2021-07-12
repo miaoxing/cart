@@ -17,7 +17,7 @@ return new class extends BaseController {
 
     public function delete($req)
     {
-        CartModel::mine()->findOrFail($req['id'])->destroy();
+        CartModel::mine()->destroyOrFail($req['id']);
 
         return suc();
     }
