@@ -272,8 +272,9 @@ class CartModel extends BaseModel
     public function updateQuantity($quantity): Ret
     {
         // 1. 数据合法性检查
-        if (!wei()->isPositiveInteger($quantity)) {
-            return err(wei()->isPositiveInteger->getFirstMessage('商品数量'), -1);
+        $ret = IsPositiveInteger::check($quantity, '商品数量');
+        if ($ret->isErr()) {
+            return $ret;
         }
 
         // 2.1 数量减少,直接更新
