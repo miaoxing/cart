@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "outDir": "dist",
+    "declaration": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "lib": [
+      "dom",
+      "es2019"
+    ],
+    "jsx": "react"
+  },
+  "exclude": [
+    "node_modules",
+    "__tests__",
+    "dist"
+  ]
+}
