@@ -8,12 +8,49 @@
   "jest": {
     "preset": "jest-preset-miaoxing"
   },
+  "workspaces": [
+    "plugins/*"
+  ],
   "dependencies": {
-    "@mxjs/money": "^0.1.0"
+    "miaoxing": "^0.2.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "taro-ui": "^3.0.0-alpha.10",
+    "@fower/taro": "^1.16.0",
+    "@mxjs/money": "^0.1.0",
+    "@mxjs/m-icon": "^0.1.0",
+    "@mxjs/m-footer-bar": "^0.1.0",
+    "@mxjs/m-card": "^0.1.0",
+    "@mxjs/m-button": "^0.1.0",
+    "@mxjs/m-page": "^0.1.0",
+    "@mxjs/m-ret": "^0.1.0",
+    "@mxjs/m-list": "^0.1.0",
+    "@mxjs/m-empty": "^0.1.0",
+    "@mxjs/m-stepper": "^0.1.0",
+    "@mxjs/m-checkbox": "^0.1.0",
+    "@tarojs/taro": "^3.2.10"
+  },
+  "devDependencies": {
+    "pretty": "^2.0.0",
+    "@testing-library/react": "^11.2.6",
+    "@mxjs/test": "^0.1.8"
   },
   "ciDependencies": {
+    "miaoxing": "miaoxing/miaoxing-js",
     "babel-preset-miaoxing": "miaoxing/babel-preset-miaoxing",
     "@miaoxing/dev": "miaoxing/dev",
-    "jest-preset-miaoxing": "miaoxing/jest-preset-miaoxing"
+    "jest-preset-miaoxing": "miaoxing/jest-preset-miaoxing",
+    "@mxjs/app": "miaoxing/mxjs-app",
+    "@mxjs/m-icon": "miaoxing/mxjs-m-icon",
+    "@mxjs/m-footer-bar": "miaoxing/mxjs-m-footer-bar",
+    "@mxjs/m-card": "miaoxing/mxjs-m-card",
+    "@mxjs/m-button": "miaoxing/mxjs-m-button",
+    "@mxjs/m-page": "miaoxing/mxjs-m-page",
+    "@mxjs/m-ret": "miaoxing/mxjs-m-ret",
+    "@mxjs/m-list": "miaoxing/mxjs-m-list",
+    "@mxjs/m-empty": "miaoxing/mxjs-m-empty",
+    "@mxjs/m-stepper": "miaoxing/mxjs-m-stepper",
+    "@mxjs/m-checkbox": "miaoxing/mxjs-m-checkbox",
+    "@mxjs/money": "miaoxing/mxjs-money"
   }
 }
