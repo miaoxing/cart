@@ -1,5 +1,5 @@
 import Index from './index';
-import {render, waitFor, fireEvent} from '@testing-library/react';
+import {render, waitFor, fireEvent, waitForElementToBeRemoved} from '@testing-library/react';
 import $, {Ret} from 'miaoxing';
 import {createPromise, bootstrap, setUrl, resetUrl} from '@mxjs/test';
 import * as TaroTest from '@tarojs/taro';
@@ -293,6 +293,58 @@ describe('Index', () => {
     fireEvent.click(plus);
     expect(stepper.value).toBe(5);
     expect(amount.textContent).toBe('￥60');
+
+    expect($.http).toMatchSnapshot();
+  });
+
+  test('delete', async () => {
+    const product = createProduct();
+
+    const promise = createPromise();
+    const promise2 = createPromise();
+    $.http = jest.fn()
+      .mockImplementationOnce(() => promise.resolve({
+        ret: Ret.suc({
+          data: [
+            {
+              id: 1,
+              productId: product.id,
+              skuId: product.skus[2].id,
+              quantity: 5,
+              changedPrice: null,
+              addedPrice: '9',
+              configs: {},
+              updatedAt: '2021-06-28 16:45:59',
+              sku: product.skus[2],
+              product: product,
+              createOrder: Ret.suc(),
+            },
+          ],
+          selected: [1],
+        }),
+      }))
+      .mockImplementationOnce(() => promise2.resolve({
+        ret: Ret.suc(),
+      }));
+
+    const {getByText, queryByText} = render(<Index/>);
+    didShow();
+
+    await waitFor(() => {
+      expect(getByText('结算（1）')).not.toBeNull();
+    });
+
+    const remove = getByText('移除');
+
+    fireEvent.click(remove);
+
+    await waitForElementToBeRemoved(() => queryByText('移除'));
+
+    expect(getByText('购物车空空如也')).not.toBeNull();
+    expect(getByText('结算（0）')).not.toBeNull();
+
+    const amount = getByText('合计：');
+    expect(amount.textContent).toBe('合计：￥0');
 
     expect($.http).toMatchSnapshot();
   });

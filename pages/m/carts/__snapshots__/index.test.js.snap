@@ -1,5 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Index delete 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "url": "/api/carts",
+      },
+    ],
+    Array [
+      Object {
+        "method": "delete",
+        "url": "/api/carts/1",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {
+        "reject": [Function],
+        "resolve": [Function],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Promise {
+        "reject": [Function],
+        "resolve": [Function],
+      },
+    },
+  ],
+}
+`;
+
 exports[`Index empty 1`] = `
 <div>
   <taro-view-core
