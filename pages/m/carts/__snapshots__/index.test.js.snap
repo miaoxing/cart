@@ -285,6 +285,59 @@ exports[`Index list 2`] = `
 }
 `;
 
+exports[`Index quantity 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "url": "/api/carts",
+      },
+    ],
+    Array [
+      Object {
+        "data": Object {
+          "quantity": 4,
+        },
+        "method": "put",
+        "url": "/api/carts/1/quantity",
+      },
+    ],
+    Array [
+      Object {
+        "data": Object {
+          "quantity": 5,
+        },
+        "method": "put",
+        "url": "/api/carts/1/quantity",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {
+        "reject": [Function],
+        "resolve": [Function],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Promise {
+        "reject": [Function],
+        "resolve": [Function],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Promise {
+        "reject": [Function],
+        "resolve": [Function],
+      },
+    },
+  ],
+}
+`;
+
 exports[`Index select 1`] = `
 [MockFunction] {
   "calls": Array [

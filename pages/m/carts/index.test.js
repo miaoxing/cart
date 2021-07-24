@@ -237,4 +237,63 @@ describe('Index', () => {
 
     expect($.http).toMatchSnapshot();
   });
+
+  test('quantity', async () => {
+    const product = createProduct();
+
+    const promise = createPromise();
+    const promise2 = createPromise();
+    const promise3 = createPromise();
+
+    $.http = jest.fn()
+      .mockImplementationOnce(() => promise.resolve({
+        ret: Ret.suc({
+          data: [
+            {
+              id: 1,
+              productId: product.id,
+              skuId: product.skus[2].id,
+              quantity: 5,
+              changedPrice: null,
+              addedPrice: '9',
+              configs: {},
+              updatedAt: '2021-06-28 16:45:59',
+              sku: product.skus[2],
+              product: product,
+              createOrder: Ret.suc(),
+            },
+          ],
+          selected: [1],
+        }),
+      }))
+      .mockImplementationOnce(() => promise2.resolve({
+        ret: Ret.suc(),
+      }))
+      .mockImplementationOnce(() => promise3.resolve({
+        ret: Ret.suc(),
+      }));
+
+    const {container, getByText} = render(<Index/>);
+    didShow();
+
+    await waitFor(() => {
+      expect(getByText('结算（1）')).not.toBeNull();
+    });
+
+    const amount = getByText('60');
+
+    const stepper = container.querySelector('.mx-stepper-input');
+
+    const minus = container.querySelector('.mx-stepper-minus');
+    fireEvent.click(minus);
+    expect(stepper.value).toBe(4);
+    expect(amount.textContent).toBe('￥48');
+
+    const plus = container.querySelector('.mx-stepper-plus');
+    fireEvent.click(plus);
+    expect(stepper.value).toBe(5);
+    expect(amount.textContent).toBe('￥60');
+
+    expect($.http).toMatchSnapshot();
+  });
 });
