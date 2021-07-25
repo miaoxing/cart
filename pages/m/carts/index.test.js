@@ -461,4 +461,44 @@ describe('Index', () => {
 
     await waitFor(() => expect(amount.textContent).toBe('合计：￥' + (5 * 14)));
   });
+
+  test('product deleted', async () => {
+    const product = createProduct();
+    product.deletedAt = Date.now();
+    $.http = jest.fn()
+      .mockResolvedValueOnce({
+        ret: Ret.suc({
+          data: [
+            {
+              id: 1,
+              productId: product.id,
+              skuId: product.skus[2].id,
+              quantity: 5,
+              changedPrice: null,
+              addedPrice: '9',
+              configs: {},
+              updatedAt: '2021-06-28 16:45:59',
+              product: product,
+              createOrder: Ret.err('该商品已失效'),
+            },
+          ],
+          selected: [],
+        }),
+      });
+    $.err = jest.fn();
+
+    const {container, findByText, queryByText} = render(<Index/>);
+    didShow();
+
+    await findByText(product.name);
+    expect($.http).toMatchSnapshot();
+
+    // 不显示规格，价格，步进器
+    expect(queryByText('红色')).toBeNull();
+    expect(container.querySelector('.mx-stepper')).toBeNull();
+    expect(queryByText(product.skus[2].price)).toBeNull();
+
+    // 显示错误提示
+    expect(queryByText('该商品已失效')).not.toBeNull();
+  });
 });
