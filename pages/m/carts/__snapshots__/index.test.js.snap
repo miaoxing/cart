@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Index checkout 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "url": "/api/carts",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
 exports[`Index delete 1`] = `
 [MockFunction] {
   "calls": Array [

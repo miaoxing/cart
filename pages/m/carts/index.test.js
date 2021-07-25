@@ -348,4 +348,47 @@ describe('Index', () => {
 
     expect($.http).toMatchSnapshot();
   });
+
+  test('checkout', async () => {
+    const product = createProduct();
+    $.http = jest.fn()
+      .mockResolvedValueOnce({
+        ret: Ret.suc({
+          data: [
+            {
+              id: 1,
+              productId: product.id,
+              skuId: product.skus[2].id,
+              quantity: 5,
+              changedPrice: null,
+              addedPrice: '9',
+              configs: {},
+              updatedAt: '2021-06-28 16:45:59',
+              sku: product.skus[2],
+              product: product,
+              createOrder: Ret.suc(),
+            },
+          ],
+          selected: [],
+        }),
+      });
+    $.err = jest.fn();
+
+    const {container, findByText} = render(<Index/>);
+    didShow();
+
+    await findByText(product.name);
+    expect($.http).toMatchSnapshot();
+
+    const checkout = await findByText('结算（0）');
+    fireEvent.click(checkout);
+    expect($.err).toBeCalledWith('请选择要结算的商品');
+
+    fireEvent.change(container.querySelectorAll('taro-checkbox-group-core')[1]);
+    expect(checkout.textContent).toBe('结算（1）');
+
+    Taro.navigateTo = jest.fn();
+    fireEvent.click(checkout);
+    await waitFor(() => expect(Taro.navigateTo).toBeCalled());
+  });
 });
