@@ -391,4 +391,74 @@ describe('Index', () => {
     fireEvent.click(checkout);
     await waitFor(() => expect(Taro.navigateTo).toBeCalled());
   });
+
+  test('update sku', async () => {
+    const product = createProduct();
+    $.http = jest.fn()
+      .mockResolvedValueOnce({
+        ret: Ret.suc({
+          data: [
+            {
+              id: 1,
+              productId: product.id,
+              skuId: product.skus[2].id,
+              quantity: 5,
+              changedPrice: null,
+              addedPrice: '9',
+              configs: {},
+              updatedAt: '2021-06-28 16:45:59',
+              sku: product.skus[2],
+              product: product,
+              createOrder: Ret.suc(),
+            },
+          ],
+          selected: [1],
+        }),
+      });
+
+    const {getByText, findByText} = render(<Index/>);
+    didShow();
+
+    await findByText(product.name);
+
+    const amount = getByText('合计：');
+    expect(amount.textContent).toBe('合计：￥' + (5 * 12));
+
+    $.http.mockResolvedValueOnce({
+      ret: Ret.suc({
+        data: product,
+      }),
+    });
+    const skuValues = getByText('M；红色');
+    fireEvent.click(skuValues);
+
+    const colorBlue = await findByText('蓝色');
+    fireEvent.click(colorBlue);
+
+    $.http.mockResolvedValueOnce({ret: Ret.suc()});
+    $.http.mockResolvedValueOnce({
+      ret: Ret.suc({
+        data: [
+          {
+            id: 1,
+            productId: product.id,
+            skuId: product.skus[3].id,
+            quantity: 5,
+            changedPrice: null,
+            addedPrice: '9',
+            configs: {},
+            // updated
+            updatedAt: Date.now(),
+            sku: product.skus[3],
+            product: product,
+            createOrder: Ret.suc(),
+          },
+        ],
+        selected: [1],
+      }),
+    });
+    fireEvent.click(getByText('确 定'));
+
+    await waitFor(() => expect(amount.textContent).toBe('合计：￥' + (5 * 14)));
+  });
 });
