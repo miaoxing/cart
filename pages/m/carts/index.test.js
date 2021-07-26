@@ -501,4 +501,71 @@ describe('Index', () => {
     // 显示错误提示
     expect(queryByText('该商品已失效')).not.toBeNull();
   });
+
+  test('sku deleted', async () => {
+    const product = createProduct();
+    $.http = jest.fn()
+      .mockResolvedValueOnce({
+        ret: Ret.suc({
+          data: [
+            {
+              id: 1,
+              productId: product.id,
+              skuId: null,
+              quantity: 5,
+              changedPrice: null,
+              addedPrice: '9',
+              configs: {},
+              updatedAt: '2021-06-28 16:45:59',
+              sku: null,
+              product: product,
+              createOrder: Ret.err('该规格已失效'),
+            },
+          ],
+          selected: [],
+        }),
+      });
+
+    const {findByText, getByText, queryByText} = render(<Index/>);
+    didShow();
+
+    await findByText(product.name);
+
+    $.http.mockResolvedValueOnce({
+      ret: Ret.suc({
+        data: product,
+      }),
+    });
+    const reSelect = getByText('重选');
+    fireEvent.click(reSelect);
+
+    $.http.mockResolvedValueOnce({ret: Ret.suc()});
+    $.http.mockResolvedValueOnce({
+        ret: Ret.suc({
+          data: [
+            {
+              id: 1,
+              productId: product.id,
+              skuId: 4,
+              quantity: 5,
+              changedPrice: null,
+              addedPrice: '9',
+              configs: {},
+              updatedAt: '2021-06-28 16:45:59',
+              sku: product.skus[3],
+              product: product,
+              createOrder: Ret.suc(),
+            },
+          ],
+          selected: [],
+        }),
+      });
+    fireEvent.click(await findByText('蓝色'));
+    fireEvent.click(await findByText('M'));
+    fireEvent.click(getByText('确 定'));
+
+    await waitForElementToBeRemoved(() => queryByText('重选'));
+
+    expect($.http).toMatchSnapshot();
+  });
 });

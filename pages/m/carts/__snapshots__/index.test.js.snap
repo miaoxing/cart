@@ -487,3 +487,54 @@ exports[`Index select 1`] = `
   ],
 }
 `;
+
+exports[`Index sku deleted 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "url": "/api/carts",
+      },
+    ],
+    Array [
+      Object {
+        "method": "get",
+        "url": "/api/products/1",
+      },
+    ],
+    Array [
+      Object {
+        "data": Object {
+          "quantity": 5,
+          "skuId": 4,
+        },
+        "method": "patch",
+        "url": "/api/carts/1",
+      },
+    ],
+    Array [
+      Object {
+        "url": "/api/carts",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
