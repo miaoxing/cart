@@ -12,12 +12,12 @@ import ButtonTheme from '@mxjs/m-button/ButtonTheme';
 import Price from '@miaoxing/product/components/m/Price';
 import SkuPicker from '@miaoxing/product/components/m/SkuPicker';
 import Ret from '@mxjs/m-ret';
-import {AtSwipeAction} from "taro-ui";
 import {List, ListItem, ListCol} from '@mxjs/m-list';
 import money from '@mxjs/money';
 import Empty from '@mxjs/m-empty';
 import Stepper from '@mxjs/m-stepper';
 import {Checkbox, CheckboxGroup} from '@mxjs/m-checkbox';
+import SwipeAction from '@mxjs/m-swipe-action';
 
 const getSpecValueNames = (specValueIds, specs) => {
   const names = [];
@@ -50,16 +50,15 @@ const CartItem = ({cart, selected, quantity, onChangeQuantity, onClickSpec, widt
   return (
     <Card>
       <List>
-        <AtSwipeAction
-          maxDistance={75}
-          areaWidth={width}
+        <SwipeAction
           key={cart.id}
-          options={[{text: '移除', style: {backgroundColor: 'var(--mx-colors-danger-500)'}}]}
-          onClick={() => {
-            onRemoveCart(index);
-          }}
+          options={[{
+            children: '移除', bgRed500: true, onClick: () => {
+              onRemoveCart(index);
+            },
+          }]}
         >
-          <ListItem w="100%" px3>
+          <ListItem px3>
             <ListCol flex="0">
               <View toCenterY>
                 <Checkbox value={cart.id} checked={selected} disabled={cart.createOrder.code !== 0}/>
@@ -98,7 +97,7 @@ const CartItem = ({cart, selected, quantity, onChangeQuantity, onClickSpec, widt
 
             </ListCol>
           </ListItem>
-        </AtSwipeAction>
+        </SwipeAction>
       </List>
     </Card>
   );

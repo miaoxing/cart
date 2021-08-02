@@ -31,7 +31,6 @@
     "@tarojs/taro": "^3.2.10"
   },
   "devDependencies": {
-    "pretty": "^2.0.0",
     "@testing-library/react": "^11.2.6",
     "@mxjs/test": "^0.1.8"
   },
@@ -50,6 +49,7 @@
     "@mxjs/m-list": "miaoxing/mxjs-m-list",
     "@mxjs/m-empty": "miaoxing/mxjs-m-empty",
     "@mxjs/m-stepper": "miaoxing/mxjs-m-stepper",
+    "@mxjs/m-swipe-action": "miaoxing/mxjs-m-swipe-action",
     "@mxjs/m-checkbox": "miaoxing/mxjs-m-checkbox",
     "@mxjs/money": "miaoxing/mxjs-money"
   }

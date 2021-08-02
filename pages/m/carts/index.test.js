@@ -4,7 +4,6 @@ import $, {Ret} from 'miaoxing';
 import {createPromise, bootstrap, setUrl, resetUrl} from '@mxjs/test';
 import * as TaroTest from '@tarojs/taro';
 import {createProduct} from '@miaoxing/product/test-utils';
-import pretty from 'pretty';
 import Taro from '@tarojs/taro';
 
 bootstrap();
@@ -104,9 +103,7 @@ describe('Index', () => {
       expect(getByText('该商品已失效')).not.toBeNull();
     });
 
-    const html = pretty(container.innerHTML.replace(/id="swipeAction(.+?)"/g, 'id="REPLACED"'));
-
-    expect(html).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect($.http).toMatchSnapshot();
   });
 
