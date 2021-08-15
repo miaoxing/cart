@@ -54,9 +54,9 @@ class CartTest extends BaseTestCase
         if ($ret->isErr()) {
             $this->assertSameRet($ret, $createRet);
         } else {
-            $this->assertSame($ret['message'], $createRet['message']);
-            $this->assertSame($product->skus[0]->price, $createRet['data']->addedPrice);
-            $this->assertSame(2, $createRet['data']->quantity);
+            $this->assertSame($ret->getMessage(), $createRet->getMessage());
+            $this->assertSame($product->skus[0]->price, $createRet->getData()->addedPrice);
+            $this->assertSame(2, $createRet->getData()->quantity);
         }
     }
 
@@ -120,7 +120,7 @@ class CartTest extends BaseTestCase
         if ($ret->isErr()) {
             $this->assertSameRet($ret, $updateRet);
         } else {
-            $this->assertSame($ret['message'], $updateRet['message']);
+            $this->assertSame($ret->getMessage(), $updateRet->getMessage());
             $this->assertSame($data['quantity'], $updateRet['data']->quantity);
         }
     }

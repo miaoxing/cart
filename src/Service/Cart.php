@@ -138,8 +138,10 @@ class Cart extends BaseService
 
         $cart->save($attributes);
 
-        $ret['data'] = $cart;
-        $ret['message'] = '加入成功';
+        $ret->with([
+            'data' => $cart,
+            'message' => '加入成功',
+        ]);
         return $ret;
     }
 
