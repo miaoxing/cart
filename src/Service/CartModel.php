@@ -7,6 +7,7 @@ use Miaoxing\Plugin\BaseModel;
 use Miaoxing\Plugin\Model\HasAppIdTrait;
 use Miaoxing\Plugin\Model\MineTrait;
 use Miaoxing\Plugin\Model\ModelTrait;
+use Miaoxing\Plugin\Model\SnowflakeTrait;
 use Miaoxing\Plugin\Model\SoftDeleteTrait;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Product\Model\BelongsToProductTrait;
@@ -28,6 +29,7 @@ class CartModel extends BaseModel
     use HasAppIdTrait;
     use MineTrait;
     use ModelTrait;
+    use SnowflakeTrait;
     use SoftDeleteTrait;
 
     public const STATUS_NORMAL = 1;
