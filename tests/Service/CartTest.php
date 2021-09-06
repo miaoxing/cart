@@ -4,9 +4,9 @@ namespace MiaoxingTest\Cart\Service;
 
 use Miaoxing\Cart\Service\Cart;
 use Miaoxing\Cart\Service\CartModel;
-use Miaoxing\Plugin\Service\Tester;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Test\BaseTestCase;
+use Miaoxing\Product\Service\Product;
 use Miaoxing\Product\Service\ProductModel;
 use Wei\Ret;
 
@@ -15,7 +15,7 @@ class CartTest extends BaseTestCase
     protected function createProduct(array $data = [], array $sku = []): ProductModel
     {
         // 创建测试商品
-        $ret = Tester::postAdminApi('products', array_merge([
+        $ret = Product::create(array_merge([
             'name' => '测试商品',
             'spec' => [
                 'specs' => ProductModel::getDefaultSpecs(),
@@ -34,10 +34,7 @@ class CartTest extends BaseTestCase
             ],
         ], $data));
 
-        /** @var ProductModel $product */
-        $product = $ret->getMetadata('model');
-
-        return $product;
+        return $ret['data'];
     }
 
     /**
@@ -162,7 +159,7 @@ class CartTest extends BaseTestCase
         User::loginById(1);
 
         // 创建测试商品
-        $ret = Tester::postAdminApi('products', [
+        $ret = Product::create([
             'name' => '重复加入购物车的测试商品',
             'spec' => [
                 'specs' => ProductModel::getDefaultSpecs(),
@@ -181,8 +178,7 @@ class CartTest extends BaseTestCase
             ],
         ]);
 
-        /** @var ProductModel $product */
-        $product = $ret->getMetadata('model');
+        $product = $ret['data'];
         $firstSku = $product->skus[0];
 
         // 首次加入购物车
@@ -217,7 +213,7 @@ class CartTest extends BaseTestCase
         User::loginById(1);
 
         // 创建测试商品
-        $ret = Tester::postAdminApi('products', [
+        $ret = Product::create([
             'name' => '更改购物车数量的测试商品',
             'spec' => [
                 'specs' => ProductModel::getDefaultSpecs(),
@@ -237,8 +233,7 @@ class CartTest extends BaseTestCase
             'maxOrderQuantity' => 3,
         ]);
 
-        /** @var ProductModel $product */
-        $product = $ret->getMetadata('model');
+        $product = $ret['data'];
         $firstSku = $product->skus[0];
 
         // 加入购物车
@@ -455,7 +450,7 @@ class CartTest extends BaseTestCase
 
     public function testCreateStockNumNotEnough()
     {
-        $ret = Tester::postAdminApi('products', [
+        $ret = Product::create([
             'name' => '测试商品',
             'spec' => [
                 'specs' => [
@@ -515,8 +510,7 @@ class CartTest extends BaseTestCase
             ],
         ]);
 
-        /** @var ProductModel $product */
-        $product = $ret->getMetadata('model');
+        $product = $ret['data'];
 
         $ret = Cart::create(['skuId' => $product->skus[0]->id, 1]);
         $this->assertRetErr($ret, '该商品规格已售罄');

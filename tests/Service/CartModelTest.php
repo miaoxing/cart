@@ -4,8 +4,8 @@ namespace MiaoxingTest\Cart\Service;
 
 use Miaoxing\Cart\Service\Cart;
 use Miaoxing\Plugin\Service\Ret;
-use Miaoxing\Plugin\Service\Tester;
 use Miaoxing\Plugin\Test\BaseTestCase;
+use Miaoxing\Product\Service\Product;
 use Miaoxing\Product\Service\ProductModel;
 
 class CartModelTest extends BaseTestCase
@@ -62,7 +62,7 @@ class CartModelTest extends BaseTestCase
     protected function createProduct(array $data = [], array $sku = []): ProductModel
     {
         // 创建测试商品
-        $ret = Tester::postAdminApi('products', array_merge([
+        $ret = Product::create(array_merge([
             'name' => '测试商品',
             'spec' => [
                 'specs' => ProductModel::getDefaultSpecs(),
