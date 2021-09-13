@@ -18,7 +18,7 @@ class CartTest extends BaseTestCase
         $ret = Product::create(array_merge([
             'name' => '测试商品',
             'spec' => [
-                'specs' => ProductModel::getDefaultSpecs(),
+                'specs' => Product::getDefaultSpecs(),
             ],
             'skus' => [
                 array_merge([
@@ -162,7 +162,7 @@ class CartTest extends BaseTestCase
         $ret = Product::create([
             'name' => '重复加入购物车的测试商品',
             'spec' => [
-                'specs' => ProductModel::getDefaultSpecs(),
+                'specs' => Product::getDefaultSpecs(),
             ],
             'skus' => [
                 [
@@ -216,7 +216,7 @@ class CartTest extends BaseTestCase
         $ret = Product::create([
             'name' => '更改购物车数量的测试商品',
             'spec' => [
-                'specs' => ProductModel::getDefaultSpecs(),
+                'specs' => Product::getDefaultSpecs(),
             ],
             'skus' => [
                 [

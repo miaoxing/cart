@@ -74,7 +74,7 @@ class IndexTest extends BaseTestCase
         $ret = Product::create(array_merge([
             'name' => '测试商品',
             'spec' => [
-                'specs' => ProductModel::getDefaultSpecs(),
+                'specs' => Product::getDefaultSpecs(),
             ],
             'skus' => [
                 array_merge([
