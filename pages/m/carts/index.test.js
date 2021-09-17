@@ -5,6 +5,7 @@ import {createPromise, bootstrap, setUrl, resetUrl} from '@mxjs/test';
 import * as TaroTest from '@tarojs/taro';
 import {createProduct} from '@miaoxing/product/test-utils';
 import Taro from '@tarojs/taro';
+import {reset} from 'use-uid';
 
 bootstrap();
 let didShow;
@@ -15,6 +16,7 @@ TaroTest.useDidShow = (fn) => {
 
 describe('Index', () => {
   beforeEach(() => {
+    reset();
     setUrl('/carts');
   });
 

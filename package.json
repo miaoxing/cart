@@ -32,7 +32,8 @@
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.6",
-    "@mxjs/test": "^0.1.8"
+    "@mxjs/test": "^0.1.8",
+    "use-uid": "^1.0.0"
   },
   "ciDependencies": {
     "miaoxing": "miaoxing/miaoxing-js",

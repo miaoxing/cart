@@ -61,11 +61,11 @@ exports[`Index empty 1`] = `
     <taro-block-core>
       <taro-checkbox-group-core />
       <taro-view-core
-        style="justify-content: center; align-items: center; color: rgb(113, 113, 122); flex-direction: column; display: flex;"
+        style="flex-direction: column; color: rgb(113, 113, 122); justify-content: center; align-items: center; display: flex;"
       >
         <taro-view-core
           class="mx-empty-image"
-          style="height: 5.1rem;"
+          style="width: 128px; height: 82px;"
         />
         <taro-view-core>
           购物车空空如也
@@ -83,21 +83,19 @@ exports[`Index empty 1`] = `
       <taro-block-core />
     </taro-block-core>
     <taro-view-core
-      class="mx-footer-bar"
-      style="align-items: center; justify-content: space-between; flex-direction: row; display: flex;"
+      class="mx-footer-bar __mx-footer-bar-1"
+      style="flex-direction: row; align-items: center; justify-content: space-between; display: flex;"
     >
       <taro-checkbox-group-core>
         <taro-label-core
-          style="align-items: center; color: rgb(113, 113, 122); line-height: 1; flex-direction: row; display: flex;"
+          style="color: rgb(113, 113, 122); line-height: 1; flex-direction: row; align-items: center; display: flex;"
         >
-          <taro-checkbox-core
-            checked="true"
-          />
+          <taro-checkbox-core />
           全选
         </taro-label-core>
       </taro-checkbox-group-core>
       <taro-view-core
-        style="align-items: center; flex-direction: row; display: flex;"
+        style="flex-direction: row; align-items: center; display: flex;"
       >
         <taro-view-core
           style="color: rgb(113, 113, 122);"
@@ -171,82 +169,84 @@ exports[`Index list 1`] = `
                 class="mx-swipe-action-content"
                 style="transform: translate3d(0px, 0, 0);"
               >
-                <taro-view-core
-                  class="mx-list-item"
-                >
+                <taro-view-core>
                   <taro-view-core
-                    class="mx-list-col"
-                    style="flex: 0 0px;"
+                    class="mx-list-item"
                   >
                     <taro-view-core
-                      style="align-items: center; flex-direction: row; display: flex;"
+                      class="mx-list-col"
+                      style="flex: 0 0px;"
                     >
-                      <taro-checkbox-core
-                        checked="true"
-                      />
-                      <taro-navigator-core
-                        style="border-radius: 8rpx; overflow: hidden;"
-                      >
-                        <taro-image-core />
-                      </taro-navigator-core>
-                    </taro-view-core>
-                  </taro-view-core>
-                  <taro-view-core
-                    class="mx-list-col"
-                    style="justify-content: space-between; flex-direction: column; display: flex;"
-                  >
-                    <taro-navigator-core
-                      truncate2="true"
-                    >
-                      alias commodi ipsam
-                    </taro-navigator-core>
-                    <taro-block-core>
-                      <taro-view-core>
-                        <taro-view-core
-                          style="display: inline-block; color: rgb(113, 113, 122); background-color: rgb(244, 244, 245); border-radius: 4rpx;"
-                        >
-                          S；红色
-                          <taro-text-core
-                            class="mxi mxi-chevron-down"
-                          />
-                        </taro-view-core>
-                      </taro-view-core>
                       <taro-view-core
-                        style="align-items: center; justify-content: space-between; flex-direction: row; display: flex;"
+                        style="flex-direction: row; align-items: center; display: flex;"
                       >
-                        <taro-text-core
-                          primary500="true"
+                        <taro-checkbox-core
+                          checked="true"
+                        />
+                        <taro-navigator-core
+                          style="border-radius: 8rpx; overflow: hidden;"
                         >
-                          <taro-text-core>
-                            ￥
-                          </taro-text-core>
-                          9
-                        </taro-text-core>
+                          <taro-image-core />
+                        </taro-navigator-core>
+                      </taro-view-core>
+                    </taro-view-core>
+                    <taro-view-core
+                      class="mx-list-col"
+                      style="flex-direction: column; justify-content: space-between; display: flex;"
+                    >
+                      <taro-navigator-core
+                        truncate2="true"
+                      >
+                        alias commodi ipsam
+                      </taro-navigator-core>
+                      <taro-block-core>
                         <taro-view-core>
                           <taro-view-core
-                            class="mx-stepper"
+                            style="display: inline-block; color: rgb(113, 113, 122); background-color: rgb(244, 244, 245); border-radius: 4rpx;"
                           >
-                            <taro-button-core
-                              class="mx-stepper-minus"
-                            />
-                            <taro-input-core
-                              class="mx-stepper-input"
-                            />
-                            <taro-button-core
-                              class="mx-stepper-plus"
-                              disabled="true"
+                            S；红色
+                            <taro-text-core
+                              class="mxi mxi-chevron-down"
                             />
                           </taro-view-core>
                         </taro-view-core>
-                      </taro-view-core>
-                    </taro-block-core>
+                        <taro-view-core
+                          style="flex-direction: row; align-items: center; justify-content: space-between; display: flex;"
+                        >
+                          <taro-text-core
+                            primary500="true"
+                          >
+                            <taro-text-core>
+                              ￥
+                            </taro-text-core>
+                            9
+                          </taro-text-core>
+                          <taro-view-core>
+                            <taro-view-core
+                              class="mx-stepper"
+                            >
+                              <taro-button-core
+                                class="mx-stepper-minus"
+                              />
+                              <taro-input-core
+                                class="mx-stepper-input"
+                              />
+                              <taro-button-core
+                                class="mx-stepper-plus"
+                                disabled="true"
+                              />
+                            </taro-view-core>
+                          </taro-view-core>
+                        </taro-view-core>
+                      </taro-block-core>
+                    </taro-view-core>
                   </taro-view-core>
                 </taro-view-core>
                 <taro-view-core
-                  class="mx-swipe-action-options mx-swipe-action-options-0"
+                  class="mx-swipe-action-options __mx-swipe-action-options-2"
                 >
                   <taro-view-core
-                    style="color: rgb(255, 255, 255); justify-content: center; align-items: center; background-color: rgb(255, 107, 107); flex-direction: row; display: flex;"
+                    style="color: rgb(255, 255, 255); background-color: rgb(255, 107, 107); flex-direction: row; justify-content: center; align-items: center; display: flex;"
                   >
                     移除
                   </taro-view-core>
@@ -268,87 +268,89 @@ exports[`Index list 1`] = `
                 class="mx-swipe-action-content"
                 style="transform: translate3d(0px, 0, 0);"
               >
-                <taro-view-core
-                  class="mx-list-item"
-                >
+                <taro-view-core>
                   <taro-view-core
-                    class="mx-list-col"
-                    style="flex: 0 0px;"
+                    class="mx-list-item"
                   >
                     <taro-view-core
-                      style="align-items: center; flex-direction: row; display: flex;"
+                      class="mx-list-col"
+                      style="flex: 0 0px;"
                     >
-                      <taro-checkbox-core
-                        disabled="true"
-                      />
-                      <taro-navigator-core
-                        style="border-radius: 8rpx; overflow: hidden;"
-                      >
-                        <taro-image-core />
-                      </taro-navigator-core>
-                    </taro-view-core>
-                  </taro-view-core>
-                  <taro-view-core
-                    class="mx-list-col"
-                    style="justify-content: space-between; flex-direction: column; display: flex;"
-                  >
-                    <taro-navigator-core
-                      truncate2="true"
-                    >
-                      alias commodi ipsam
-                    </taro-navigator-core>
-                    <taro-block-core>
-                      <taro-view-core>
-                        <taro-view-core
-                          style="display: inline-block; color: rgb(113, 113, 122); background-color: rgb(244, 244, 245); border-radius: 4rpx;"
-                        >
-                          S；蓝色
-                          <taro-text-core
-                            class="mxi mxi-chevron-down"
-                          />
-                        </taro-view-core>
-                      </taro-view-core>
                       <taro-view-core
-                        style="align-items: center; justify-content: space-between; flex-direction: row; display: flex;"
+                        style="flex-direction: row; align-items: center; display: flex;"
                       >
-                        <taro-text-core
-                          primary500="true"
+                        <taro-checkbox-core
+                          disabled="true"
+                        />
+                        <taro-navigator-core
+                          style="border-radius: 8rpx; overflow: hidden;"
                         >
-                          <taro-text-core>
-                            ￥
-                          </taro-text-core>
-                          11
-                        </taro-text-core>
+                          <taro-image-core />
+                        </taro-navigator-core>
+                      </taro-view-core>
+                    </taro-view-core>
+                    <taro-view-core
+                      class="mx-list-col"
+                      style="flex-direction: column; justify-content: space-between; display: flex;"
+                    >
+                      <taro-navigator-core
+                        truncate2="true"
+                      >
+                        alias commodi ipsam
+                      </taro-navigator-core>
+                      <taro-block-core>
                         <taro-view-core>
                           <taro-view-core
-                            class="mx-stepper"
+                            style="display: inline-block; color: rgb(113, 113, 122); background-color: rgb(244, 244, 245); border-radius: 4rpx;"
                           >
-                            <taro-button-core
-                              class="mx-stepper-minus"
-                            />
-                            <taro-input-core
-                              class="mx-stepper-input"
-                            />
-                            <taro-button-core
-                              class="mx-stepper-plus"
-                              disabled="true"
+                            S；蓝色
+                            <taro-text-core
+                              class="mxi mxi-chevron-down"
                             />
                           </taro-view-core>
                         </taro-view-core>
+                        <taro-view-core
+                          style="flex-direction: row; align-items: center; justify-content: space-between; display: flex;"
+                        >
+                          <taro-text-core
+                            primary500="true"
+                          >
+                            <taro-text-core>
+                              ￥
+                            </taro-text-core>
+                            11
+                          </taro-text-core>
+                          <taro-view-core>
+                            <taro-view-core
+                              class="mx-stepper"
+                            >
+                              <taro-button-core
+                                class="mx-stepper-minus"
+                              />
+                              <taro-input-core
+                                class="mx-stepper-input"
+                              />
+                              <taro-button-core
+                                class="mx-stepper-plus"
+                                disabled="true"
+                              />
+                            </taro-view-core>
+                          </taro-view-core>
+                        </taro-view-core>
+                      </taro-block-core>
+                      <taro-view-core
+                        style="color: rgb(255, 107, 107);"
+                      >
+                        该商品已失效
                       </taro-view-core>
-                    </taro-block-core>
-                    <taro-view-core
-                      style="color: rgb(255, 107, 107);"
-                    >
-                      该商品已失效
                     </taro-view-core>
                   </taro-view-core>
                 </taro-view-core>
                 <taro-view-core
-                  class="mx-swipe-action-options mx-swipe-action-options-1"
+                  class="mx-swipe-action-options __mx-swipe-action-options-3"
                 >
                   <taro-view-core
-                    style="color: rgb(255, 255, 255); justify-content: center; align-items: center; background-color: rgb(255, 107, 107); flex-direction: row; display: flex;"
+                    style="color: rgb(255, 255, 255); background-color: rgb(255, 107, 107); flex-direction: row; justify-content: center; align-items: center; display: flex;"
                   >
                     移除
                   </taro-view-core>
@@ -370,87 +372,89 @@ exports[`Index list 1`] = `
                 class="mx-swipe-action-content"
                 style="transform: translate3d(0px, 0, 0);"
               >
-                <taro-view-core
-                  class="mx-list-item"
-                >
+                <taro-view-core>
                   <taro-view-core
-                    class="mx-list-col"
-                    style="flex: 0 0px;"
+                    class="mx-list-item"
                   >
                     <taro-view-core
-                      style="align-items: center; flex-direction: row; display: flex;"
+                      class="mx-list-col"
+                      style="flex: 0 0px;"
                     >
-                      <taro-checkbox-core
-                        disabled="true"
-                      />
-                      <taro-navigator-core
-                        style="border-radius: 8rpx; overflow: hidden;"
-                      >
-                        <taro-image-core />
-                      </taro-navigator-core>
-                    </taro-view-core>
-                  </taro-view-core>
-                  <taro-view-core
-                    class="mx-list-col"
-                    style="justify-content: space-between; flex-direction: column; display: flex;"
-                  >
-                    <taro-navigator-core
-                      truncate2="true"
-                    >
-                      alias commodi ipsam
-                    </taro-navigator-core>
-                    <taro-block-core>
-                      <taro-view-core>
-                        <taro-view-core
-                          style="display: inline-block; color: rgb(113, 113, 122); background-color: rgb(244, 244, 245); border-radius: 4rpx;"
-                        >
-                          M；红色
-                          <taro-text-core
-                            class="mxi mxi-chevron-down"
-                          />
-                        </taro-view-core>
-                      </taro-view-core>
                       <taro-view-core
-                        style="align-items: center; justify-content: space-between; flex-direction: row; display: flex;"
+                        style="flex-direction: row; align-items: center; display: flex;"
                       >
-                        <taro-text-core
-                          primary500="true"
+                        <taro-checkbox-core
+                          disabled="true"
+                        />
+                        <taro-navigator-core
+                          style="border-radius: 8rpx; overflow: hidden;"
                         >
-                          <taro-text-core>
-                            ￥
-                          </taro-text-core>
-                          12
-                        </taro-text-core>
+                          <taro-image-core />
+                        </taro-navigator-core>
+                      </taro-view-core>
+                    </taro-view-core>
+                    <taro-view-core
+                      class="mx-list-col"
+                      style="flex-direction: column; justify-content: space-between; display: flex;"
+                    >
+                      <taro-navigator-core
+                        truncate2="true"
+                      >
+                        alias commodi ipsam
+                      </taro-navigator-core>
+                      <taro-block-core>
                         <taro-view-core>
                           <taro-view-core
-                            class="mx-stepper"
+                            style="display: inline-block; color: rgb(113, 113, 122); background-color: rgb(244, 244, 245); border-radius: 4rpx;"
                           >
-                            <taro-button-core
-                              class="mx-stepper-minus"
-                            />
-                            <taro-input-core
-                              class="mx-stepper-input"
-                            />
-                            <taro-button-core
-                              class="mx-stepper-plus"
-                              disabled="true"
+                            M；红色
+                            <taro-text-core
+                              class="mxi mxi-chevron-down"
                             />
                           </taro-view-core>
                         </taro-view-core>
+                        <taro-view-core
+                          style="flex-direction: row; align-items: center; justify-content: space-between; display: flex;"
+                        >
+                          <taro-text-core
+                            primary500="true"
+                          >
+                            <taro-text-core>
+                              ￥
+                            </taro-text-core>
+                            12
+                          </taro-text-core>
+                          <taro-view-core>
+                            <taro-view-core
+                              class="mx-stepper"
+                            >
+                              <taro-button-core
+                                class="mx-stepper-minus"
+                              />
+                              <taro-input-core
+                                class="mx-stepper-input"
+                              />
+                              <taro-button-core
+                                class="mx-stepper-plus"
+                                disabled="true"
+                              />
+                            </taro-view-core>
+                          </taro-view-core>
+                        </taro-view-core>
+                      </taro-block-core>
+                      <taro-view-core
+                        style="color: rgb(255, 107, 107);"
+                      >
+                        该规格已失效
                       </taro-view-core>
-                    </taro-block-core>
-                    <taro-view-core
-                      style="color: rgb(255, 107, 107);"
-                    >
-                      该规格已失效
                     </taro-view-core>
                   </taro-view-core>
                 </taro-view-core>
                 <taro-view-core
-                  class="mx-swipe-action-options mx-swipe-action-options-2"
+                  class="mx-swipe-action-options __mx-swipe-action-options-4"
                 >
                   <taro-view-core
-                    style="color: rgb(255, 255, 255); justify-content: center; align-items: center; background-color: rgb(255, 107, 107); flex-direction: row; display: flex;"
+                    style="color: rgb(255, 255, 255); background-color: rgb(255, 107, 107); flex-direction: row; justify-content: center; align-items: center; display: flex;"
                   >
                     移除
                   </taro-view-core>
@@ -463,12 +467,12 @@ exports[`Index list 1`] = `
       <taro-block-core />
     </taro-block-core>
     <taro-view-core
-      class="mx-footer-bar"
-      style="align-items: center; justify-content: space-between; flex-direction: row; display: flex;"
+      class="mx-footer-bar __mx-footer-bar-1"
+      style="flex-direction: row; align-items: center; justify-content: space-between; display: flex;"
     >
       <taro-checkbox-group-core>
         <taro-label-core
-          style="align-items: center; color: rgb(113, 113, 122); line-height: 1; flex-direction: row; display: flex;"
+          style="color: rgb(113, 113, 122); line-height: 1; flex-direction: row; align-items: center; display: flex;"
         >
           <taro-checkbox-core
             checked="true"
@@ -477,7 +481,7 @@ exports[`Index list 1`] = `
         </taro-label-core>
       </taro-checkbox-group-core>
       <taro-view-core
-        style="align-items: center; flex-direction: row; display: flex;"
+        style="flex-direction: row; align-items: center; display: flex;"
       >
         <taro-view-core
           style="color: rgb(113, 113, 122);"
