@@ -52,6 +52,7 @@
     "@mxjs/m-stepper": "miaoxing/mxjs-m-stepper",
     "@mxjs/m-swipe-action": "miaoxing/mxjs-m-swipe-action",
     "@mxjs/m-checkbox": "miaoxing/mxjs-m-checkbox",
-    "@mxjs/money": "miaoxing/mxjs-money"
+    "@mxjs/money": "miaoxing/mxjs-money",
+    "@mxjs/theme": "miaoxing/mxjs-theme"
   }
 }
