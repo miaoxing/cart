@@ -1,4 +1,3 @@
-import Index from './index';
 import {render, waitFor, fireEvent, waitForElementToBeRemoved} from '@testing-library/react';
 import $, {Ret} from 'miaoxing';
 import {createPromise, bootstrap, setUrl, resetUrl} from '@mxjs/test';
@@ -6,6 +5,7 @@ import * as TaroTest from '@tarojs/taro';
 import {createProduct} from '@miaoxing/product/test-utils';
 import Taro from '@tarojs/taro';
 import {reset} from 'use-uid';
+import Index from './index';
 
 bootstrap();
 let didShow;
@@ -34,7 +34,7 @@ describe('Index', () => {
         }),
       }));
 
-    const {container, getByText} = render(<Index/>);
+    const {container, getByText} = render(<Index />);
     didShow();
 
     await waitFor(() => {
@@ -98,7 +98,7 @@ describe('Index', () => {
         }),
       }));
 
-    const {container, getByText} = render(<Index/>);
+    const {container, getByText} = render(<Index />);
     didShow();
 
     await waitFor(() => {
@@ -162,7 +162,7 @@ describe('Index', () => {
         }),
       }));
 
-    const {container, getByText, findByText} = render(<Index/>);
+    const {container, getByText, findByText} = render(<Index />);
     didShow();
 
     const checkout = await findByText('结算（2）');
@@ -272,7 +272,7 @@ describe('Index', () => {
         ret: Ret.suc(),
       }));
 
-    const {container, getByText} = render(<Index/>);
+    const {container, getByText} = render(<Index />);
     didShow();
 
     await waitFor(() => {
@@ -326,7 +326,7 @@ describe('Index', () => {
         ret: Ret.suc(),
       }));
 
-    const {getByText, queryByText} = render(<Index/>);
+    const {getByText, queryByText} = render(<Index />);
     didShow();
 
     await waitFor(() => {
@@ -373,7 +373,7 @@ describe('Index', () => {
       });
     $.err = jest.fn();
 
-    const {container, findByText} = render(<Index/>);
+    const {container, findByText} = render(<Index />);
     didShow();
 
     await findByText(product.name);
@@ -415,7 +415,7 @@ describe('Index', () => {
         }),
       });
 
-    const {getByText, findByText} = render(<Index/>);
+    const {getByText, findByText} = render(<Index />);
     didShow();
 
     await findByText(product.name);
@@ -486,7 +486,7 @@ describe('Index', () => {
       });
     $.err = jest.fn();
 
-    const {container, findByText, queryByText} = render(<Index/>);
+    const {container, findByText, queryByText} = render(<Index />);
     didShow();
 
     await findByText(product.name);
@@ -525,7 +525,7 @@ describe('Index', () => {
         }),
       });
 
-    const {findByText, getByText, queryByText} = render(<Index/>);
+    const {findByText, getByText, queryByText} = render(<Index />);
     didShow();
 
     await findByText(product.name);
