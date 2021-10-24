@@ -6,7 +6,7 @@ use Miaoxing\Cart\Service\CartConfigModel;
 use Miaoxing\Cart\Service\CartModel;
 use Miaoxing\Plugin\BaseController;
 
-return new class extends BaseController {
+return new class () extends BaseController {
     public function get()
     {
         $carts = CartModel::mine()

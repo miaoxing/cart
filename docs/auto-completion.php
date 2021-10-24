@@ -3,27 +3,31 @@
 /**
  * @property    Miaoxing\Cart\Service\Cart $cart
  */
-class CartMixin {
+class CartMixin
+{
 }
 
 /**
  * @property    Miaoxing\Cart\Service\CartConfig $cartConfig
  */
-class CartConfigMixin {
+class CartConfigMixin
+{
 }
 
 /**
  * @property    Miaoxing\Cart\Service\CartConfigModel $cartConfigModel
  * @method      Miaoxing\Cart\Service\CartConfigModel cartConfigModel() 返回当前对象
  */
-class CartConfigModelMixin {
+class CartConfigModelMixin
+{
 }
 
 /**
  * @property    Miaoxing\Cart\Service\CartModel $cartModel
  * @method      Miaoxing\Cart\Service\CartModel cartModel() 返回当前对象
  */
-class CartModelMixin {
+class CartModelMixin
+{
 }
 
 /**
@@ -32,7 +36,8 @@ class CartModelMixin {
  * @mixin CartConfigModelMixin
  * @mixin CartModelMixin
  */
-class AutoCompletion {
+class AutoCompletion
+{
 }
 
 /**
@@ -40,7 +45,7 @@ class AutoCompletion {
  */
 function wei()
 {
-    return new AutoCompletion;
+    return new AutoCompletion();
 }
 
 /** @var Miaoxing\Cart\Service\Cart $cart */
