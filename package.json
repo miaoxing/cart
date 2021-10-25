@@ -28,7 +28,7 @@
     "@mxjs/m-empty": "^0.1.0",
     "@mxjs/m-stepper": "^0.1.0",
     "@mxjs/m-checkbox": "^0.1.0",
-    "@tarojs/taro": "^3.2.10"
+    "@tarojs/taro": "^3.3.10"
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.6",

@@ -71,7 +71,9 @@ exports[`Index empty 1`] = `
           购物车空空如也
         </taro-view-core>
         <taro-view-core>
-          <taro-navigator-core>
+          <taro-navigator-core
+            url="/products"
+          >
             <taro-button-core
               class="mx-btn mx-btn-primary"
             >
@@ -182,11 +184,16 @@ exports[`Index list 1`] = `
                       >
                         <taro-checkbox-core
                           checked="true"
+                          value="1"
                         />
                         <taro-navigator-core
                           style="border-radius: 8rpx; overflow: hidden;"
+                          url="/products/show?id=1"
                         >
-                          <taro-image-core />
+                          <taro-image-core
+                            mode="aspectFit"
+                            src="https://dev.test.com/uploads/1/210610/002439539409.png"
+                          />
                         </taro-navigator-core>
                       </taro-view-core>
                     </taro-view-core>
@@ -195,7 +202,9 @@ exports[`Index list 1`] = `
                       style="flex-direction: column; justify-content: space-between; display: flex;"
                     >
                       <taro-navigator-core
+                        hoverclass="none"
                         truncate2="true"
+                        url="/products/show?id=1"
                       >
                         alias commodi ipsam
                       </taro-navigator-core>
@@ -230,6 +239,7 @@ exports[`Index list 1`] = `
                               />
                               <taro-input-core
                                 class="mx-stepper-input"
+                                value="9"
                               />
                               <taro-button-core
                                 class="mx-stepper-plus"
@@ -281,11 +291,16 @@ exports[`Index list 1`] = `
                       >
                         <taro-checkbox-core
                           disabled="true"
+                          value="2"
                         />
                         <taro-navigator-core
                           style="border-radius: 8rpx; overflow: hidden;"
+                          url="/products/show?id=1"
                         >
-                          <taro-image-core />
+                          <taro-image-core
+                            mode="aspectFit"
+                            src="https://dev.test.com/uploads/1/210610/002439539409.png"
+                          />
                         </taro-navigator-core>
                       </taro-view-core>
                     </taro-view-core>
@@ -294,7 +309,9 @@ exports[`Index list 1`] = `
                       style="flex-direction: column; justify-content: space-between; display: flex;"
                     >
                       <taro-navigator-core
+                        hoverclass="none"
                         truncate2="true"
+                        url="/products/show?id=1"
                       >
                         alias commodi ipsam
                       </taro-navigator-core>
@@ -329,6 +346,7 @@ exports[`Index list 1`] = `
                               />
                               <taro-input-core
                                 class="mx-stepper-input"
+                                value="9"
                               />
                               <taro-button-core
                                 class="mx-stepper-plus"
@@ -385,11 +403,16 @@ exports[`Index list 1`] = `
                       >
                         <taro-checkbox-core
                           disabled="true"
+                          value="3"
                         />
                         <taro-navigator-core
                           style="border-radius: 8rpx; overflow: hidden;"
+                          url="/products/show?id=1"
                         >
-                          <taro-image-core />
+                          <taro-image-core
+                            mode="aspectFit"
+                            src="https://dev.test.com/uploads/1/210610/002439539409.png"
+                          />
                         </taro-navigator-core>
                       </taro-view-core>
                     </taro-view-core>
@@ -398,7 +421,9 @@ exports[`Index list 1`] = `
                       style="flex-direction: column; justify-content: space-between; display: flex;"
                     >
                       <taro-navigator-core
+                        hoverclass="none"
                         truncate2="true"
+                        url="/products/show?id=1"
                       >
                         alias commodi ipsam
                       </taro-navigator-core>
@@ -433,6 +458,7 @@ exports[`Index list 1`] = `
                               />
                               <taro-input-core
                                 class="mx-stepper-input"
+                                value="9"
                               />
                               <taro-button-core
                                 class="mx-stepper-plus"
