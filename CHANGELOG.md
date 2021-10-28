@@ -1,3 +1,44 @@
+## [0.1.22](https://github.com/miaoxing/cart/compare/v0.1.21...v0.1.22) (2021-10-28)
+
+
+### Features
+
+* 模型通过 `SnowflakeTrait` 生成 id ([2c7aa3d](https://github.com/miaoxing/cart/commit/2c7aa3d1fe57e5536b33c3d15ebf7fe44fedc084))
+* **cart:** 增加删除购物车接口 ([6f6dbfd](https://github.com/miaoxing/cart/commit/6f6dbfd0708e0d559637216502e90fe14c566efa))
+* **cart:** 增加加入购物车接口 ([db6833d](https://github.com/miaoxing/cart/commit/db6833db26c0715dcdfdeeee474adc9e3da7334a))
+* **cart:** 增加更改购物车数量接口 ([4ad69b1](https://github.com/miaoxing/cart/commit/4ad69b170d7638fd772223162d46dc1d41a76bcf))
+* **cart:** 增加更新购物车接口 ([3742a8e](https://github.com/miaoxing/cart/commit/3742a8e8db813b1fbad7ae5cfc52f06305f8e518))
+* **cart:** 增加购物车列表接口 ([7baa471](https://github.com/miaoxing/cart/commit/7baa471142788cecae39083f69b75b2083249557))
+* **cart:** 增加购物车数量接口 ([1348f4a](https://github.com/miaoxing/cart/commit/1348f4a5df66a031046bf57a68d75ce2781a96d9))
+* **cart:** 处理商品已删除的情况 ([ab09bad](https://github.com/miaoxing/cart/commit/ab09badff3b55d75fcaf8fd66d042cfa18f02395))
+* **cart:** 支持规格失效后重选 ([5b111f8](https://github.com/miaoxing/cart/commit/5b111f838842755a904b51d39225cd93a3c74084))
+* **u, cart:** 增加接口记录用户的选中的购物车 ([ce5af71](https://github.com/miaoxing/cart/commit/ce5af71ce7a1803cf1ebe2f192fadeecb14bfe2e))
+* **u, cart:** 增加购物车列表 ([7386e6b](https://github.com/miaoxing/cart/commit/7386e6b71c6813b4d538d999dd0728d68e61f4c7))
+
+
+
+
+
+### Dependencies
+
+* **miaoxing:** upgrade from `0.2.5` to `0.3.0`
+* **@mxjs/money:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/m-icon:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/m-footer-bar:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/m-card:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/m-button:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/m-page:** upgrade from `0.1.0` to `0.2.0`
+* **@mxjs/m-ret:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/m-list:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/m-empty:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/m-stepper:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/m-checkbox:** upgrade from `0.1.0` to `0.1.1`
+* **@mxjs/test:** upgrade from `0.1.8` to `0.2.0`
+* **@miaoxing/app:** upgrade from `0.3.3` to `0.4.0`
+* **@miaoxing/product:** upgrade from `0.1.19` to `0.2.0`
+* **@miaoxing/user:** upgrade from `0.2.17` to `0.3.0`
+* **@miaoxing/dev:** upgrade from `7.0.1` to `8.0.0`
+
 ## [0.1.21](https://github.com/miaoxing/cart/compare/v0.1.20...v0.1.21) (2021-05-24)
 
 

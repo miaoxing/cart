@@ -1,6 +1,6 @@
 {
   "name": "@miaoxing/cart",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "private": true,
   "main": "index.js",
   "author": "twinh",
@@ -12,27 +12,27 @@
     "plugins/*"
   ],
   "dependencies": {
-    "miaoxing": "^0.2.5",
+    "miaoxing": "^0.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "taro-ui": "^3.0.0-alpha.10",
     "@fower/taro": "^1.52.0",
-    "@mxjs/money": "^0.1.0",
-    "@mxjs/m-icon": "^0.1.0",
-    "@mxjs/m-footer-bar": "^0.1.0",
-    "@mxjs/m-card": "^0.1.0",
-    "@mxjs/m-button": "^0.1.0",
-    "@mxjs/m-page": "^0.1.0",
-    "@mxjs/m-ret": "^0.1.0",
-    "@mxjs/m-list": "^0.1.0",
-    "@mxjs/m-empty": "^0.1.0",
-    "@mxjs/m-stepper": "^0.1.0",
-    "@mxjs/m-checkbox": "^0.1.0",
+    "@mxjs/money": "^0.1.1",
+    "@mxjs/m-icon": "^0.1.1",
+    "@mxjs/m-footer-bar": "^0.1.1",
+    "@mxjs/m-card": "^0.1.1",
+    "@mxjs/m-button": "^0.1.1",
+    "@mxjs/m-page": "^0.2.0",
+    "@mxjs/m-ret": "^0.1.1",
+    "@mxjs/m-list": "^0.1.1",
+    "@mxjs/m-empty": "^0.1.1",
+    "@mxjs/m-stepper": "^0.1.1",
+    "@mxjs/m-checkbox": "^0.1.1",
     "@tarojs/taro": "^3.3.10"
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.6",
-    "@mxjs/test": "^0.1.8",
+    "@mxjs/test": "^0.2.0",
     "use-uid": "^1.0.0"
   },
   "ciDependencies": {
