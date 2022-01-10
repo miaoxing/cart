@@ -6,6 +6,7 @@ import {createProduct} from '@miaoxing/product/test-utils';
 import Taro from '@tarojs/taro';
 import {reset} from 'use-uid';
 import Index from './index';
+import '../../../initTaroH5';
 
 bootstrap();
 let didShow;

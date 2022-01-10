@@ -3,7 +3,7 @@ import {View, Image, Label, Navigator, Block} from '@fower/taro';
 import $ from 'miaoxing';
 import Page from '@mxjs/m-page';
 import './index.scss';
-import Taro, {useDidShow} from '@tarojs/taro';
+import Taro, {useDidShow, getSystemInfo} from '@tarojs/taro';
 import Icon from '@mxjs/m-icon';
 import FooterBar from '@mxjs/m-footer-bar';
 import Card from '@mxjs/m-card';
@@ -149,7 +149,7 @@ const Index = () => {
 
   const [width, setWidth] = useState(0);
   useEffect(() => {
-    Taro.getSystemInfo({
+    getSystemInfo({
       success: function (res) {
         setWidth(res.screenWidth);
       },
