@@ -1,3 +1,42 @@
+## [0.1.23](https://github.com/miaoxing/cart/compare/v0.1.22...v0.1.23) (2022-01-12)
+
+
+### Bug Fixes
+
+* 更新 `[@fower](https://github.com/fower)` 到 `^1.59.0` ([71699ae](https://github.com/miaoxing/cart/commit/71699ae2c935e83ff5524f1eb544ca5a1a7c3f8c))
+
+
+### Features
+
+* **taro:** 限制 taro 为 3.3.x，3.4 有 BREAKING CHANGES ([d118039](https://github.com/miaoxing/cart/commit/d1180397622a7d4ab9d76a356757a32b12f9a4bb))
+* 更新 `[@fower](https://github.com/fower)` 到 `^1.61` ([17fe44c](https://github.com/miaoxing/cart/commit/17fe44c05b25a0301bf8da855d23dde98bca0923))
+* 更新 taro 到 `^3.3.20` ([492b70e](https://github.com/miaoxing/cart/commit/492b70e9176ea03c139ca3eb653606ec5478c416))
+
+
+
+
+
+### Dependencies
+
+* **miaoxing:** upgrade from `0.3.0` to `0.4.0`
+* **@mxjs/money:** upgrade from `0.1.1` to `0.1.2`
+* **@mxjs/m-icon:** upgrade from `0.1.1` to `0.1.2`
+* **@mxjs/m-footer-bar:** upgrade from `0.1.1` to `0.1.2`
+* **@mxjs/m-card:** upgrade from `0.1.1` to `0.1.2`
+* **@mxjs/m-button:** upgrade from `0.1.1` to `0.1.2`
+* **@mxjs/m-page:** upgrade from `0.2.0` to `0.2.1`
+* **@mxjs/m-ret:** upgrade from `0.1.1` to `0.1.2`
+* **@mxjs/m-list:** upgrade from `0.1.1` to `0.1.2`
+* **@mxjs/m-empty:** upgrade from `0.1.1` to `0.1.2`
+* **@mxjs/m-stepper:** upgrade from `0.1.1` to `0.1.2`
+* **@mxjs/m-checkbox:** upgrade from `0.1.1` to `0.1.2`
+* **@miaoxing/dev:** upgrade from `8.0.0` to `8.0.1`
+* **@mxjs/test:** upgrade from `0.2.0` to `0.2.1`
+* **taro-test:** upgrade from `0.1.0` to `0.1.1`
+* **@miaoxing/app:** upgrade from `0.4.0` to `0.5.0`
+* **@miaoxing/product:** upgrade from `0.2.0` to `0.2.1`
+* **@miaoxing/user:** upgrade from `0.3.0` to `0.4.0`
+
 ## [0.1.22](https://github.com/miaoxing/cart/compare/v0.1.21...v0.1.22) (2021-10-28)
 
 
