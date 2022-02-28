@@ -31,7 +31,7 @@
       "miaoxing/phpstan-miaoxing": "miaoxing/phpstan-miaoxing as 0.1.x-dev",
       "miaoxing/plugin": "miaoxing/plugin as 0.7.x-dev",
       "miaoxing/product": "miaoxing/product as 0.2.x-dev",
-      "miaoxing/services": "miaoxing/services as 0.4.x-dev"
+      "miaoxing/services": "miaoxing/services as 0.5.x-dev"
     }
   },
   "require-dev": {
