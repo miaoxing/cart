@@ -13,7 +13,7 @@ class V20170331192907CreateCartsTable extends BaseMigration
     {
         $this->schema->table('carts')
             ->bigId()
-            ->uInt('app_id')->comment('应用编号')
+            ->uBigInt('app_id')->comment('应用编号')
             ->uBigInt('user_id')->comment('用户编号')
             ->uBigInt('product_id')->comment('商品编号')
             ->uBigInt('sku_id')->comment('SKU编号')
