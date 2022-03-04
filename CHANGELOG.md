@@ -1,3 +1,26 @@
+# [0.2.0](https://github.com/miaoxing/cart/compare/v0.1.25...v0.2.0) (2022-03-04)
+
+
+### Features
+
+* 数据表 `app_id` 字段由 `int` 升级到 `bigint` ([8c8f510](https://github.com/miaoxing/cart/commit/8c8f51057b2c02121d122db052f5cda7c4a3b267))
+
+
+### BREAKING CHANGES
+
+* 数据表 `app_id` 字段由 `int` 升级到 `bigint`
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/test:** upgrade from `0.2.2` to `0.2.3`
+* **@miaoxing/app:** upgrade from `0.6.0` to `0.6.1`
+* **@miaoxing/product:** upgrade from `0.2.3` to `0.3.0`
+* **@miaoxing/user:** upgrade from `0.4.2` to `0.4.3`
+
 ## [0.1.25](https://github.com/miaoxing/cart/compare/v0.1.24...v0.1.25) (2022-02-28)
 
 
