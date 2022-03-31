@@ -250,7 +250,7 @@ exports[`Index list 1`] = `
                 class="mx-swipe-action-options __mx-swipe-action-options-2"
               >
                 <taro-view-core
-                  style="color: rgb(255, 255, 255); background-color: rgb(255, 107, 107); flex-direction: row; justify-content: center; align-items: center; display: flex;"
+                  style="color: rgb(255, 255, 255); background-color: rgb(239, 68, 68); flex-direction: row; justify-content: center; align-items: center; display: flex;"
                 >
                   移除
                 </taro-view-core>
@@ -349,7 +349,7 @@ exports[`Index list 1`] = `
                       </taro-view-core>
                     </taro-view-core>
                     <taro-view-core
-                      style="color: rgb(255, 107, 107);"
+                      style="color: rgb(239, 68, 68);"
                     >
                       该商品已失效
                     </taro-view-core>
@@ -360,7 +360,7 @@ exports[`Index list 1`] = `
                 class="mx-swipe-action-options __mx-swipe-action-options-3"
               >
                 <taro-view-core
-                  style="color: rgb(255, 255, 255); background-color: rgb(255, 107, 107); flex-direction: row; justify-content: center; align-items: center; display: flex;"
+                  style="color: rgb(255, 255, 255); background-color: rgb(239, 68, 68); flex-direction: row; justify-content: center; align-items: center; display: flex;"
                 >
                   移除
                 </taro-view-core>
@@ -459,7 +459,7 @@ exports[`Index list 1`] = `
                       </taro-view-core>
                     </taro-view-core>
                     <taro-view-core
-                      style="color: rgb(255, 107, 107);"
+                      style="color: rgb(239, 68, 68);"
                     >
                       该规格已失效
                     </taro-view-core>
@@ -470,7 +470,7 @@ exports[`Index list 1`] = `
                 class="mx-swipe-action-options __mx-swipe-action-options-4"
               >
                 <taro-view-core
-                  style="color: rgb(255, 255, 255); background-color: rgb(255, 107, 107); flex-direction: row; justify-content: center; align-items: center; display: flex;"
+                  style="color: rgb(255, 255, 255); background-color: rgb(239, 68, 68); flex-direction: row; justify-content: center; align-items: center; display: flex;"
                 >
                   移除
                 </taro-view-core>
