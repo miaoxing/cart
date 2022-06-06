@@ -1,6 +1,6 @@
 {
   "name": "@miaoxing/cart",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": true,
   "main": "index.js",
   "author": "twinh",
@@ -34,7 +34,7 @@
     "@miaoxing/dev": "^8.1.1",
     "ts-jest": "^26.2.0",
     "@testing-library/react": "^11.2.6",
-    "@mxjs/test": "^0.2.5",
+    "@mxjs/test": "^0.2.6",
     "taro-test": "^0.1.3",
     "use-uid": "^1.0.0"
   },
