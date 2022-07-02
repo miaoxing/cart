@@ -1,3 +1,20 @@
+## [0.2.6](https://github.com/miaoxing/cart/compare/v0.2.5...v0.2.6) (2022-07-02)
+
+
+### Bug Fixes
+
+* 解决 composer 2.2+ 默认不启用插件导致安装路径错误 ([5b0bbbd](https://github.com/miaoxing/cart/commit/5b0bbbd39faff7a6b9264a641d1d13cba0eb2542))
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/app:** upgrade from `0.6.5` to `0.6.6`
+* **@miaoxing/product:** upgrade from `0.4.4` to `0.4.5`
+* **@miaoxing/user:** upgrade from `0.4.8` to `0.4.9`
+
 ## [0.2.5](https://github.com/miaoxing/cart/compare/v0.2.4...v0.2.5) (2022-07-01)
 
 
