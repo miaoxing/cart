@@ -117,10 +117,11 @@ class CartModel extends BaseModel
         }
 
         // 4. 检查数量参数是否合法，并且低于库存
-        $ret = V::new()
-            ->int('quantity', '商品数量')->positiveInteger()
-            ->lessThanOrEqual($sku->stockNum)->message('%name%不能超过库存数量')
-            ->check($data);
+        $v = V::new();
+        $v->int('quantity', '商品数量')
+            ->positiveInteger()
+            ->lessThanOrEqual($sku->stockNum)->message('%name%不能超过库存数量');
+        $ret = $v->check($data);
         if ($ret->isErr()) {
             return $ret;
         }
