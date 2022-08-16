@@ -8,13 +8,13 @@ use Miaoxing\Plugin\Model\HasAppIdTrait;
 use Miaoxing\Plugin\Model\MineTrait;
 use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Plugin\Model\SnowflakeTrait;
-use Miaoxing\Plugin\Model\SoftDeleteTrait;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Product\Model\BelongsToProductTrait;
 use Miaoxing\Product\Service\ProductModel;
 use Miaoxing\Product\Service\SkuModel;
 use Wei\Event;
 use Wei\IsPositiveInteger;
+use Wei\Model\SoftDeleteTrait;
 use Wei\Ret;
 use Wei\V;
 
