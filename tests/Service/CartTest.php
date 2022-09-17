@@ -70,7 +70,7 @@ class CartTest extends BaseTestCase
                 [
                     'quantity' => 'a',
                 ],
-                err('商品数量必须是一个整数', -1),
+                err('商品数量必须是大于0的整数', -1),
             ],
             [
                 [

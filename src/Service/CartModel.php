@@ -118,8 +118,7 @@ class CartModel extends BaseModel
 
         // 4. 检查数量参数是否合法，并且低于库存
         $v = V::new();
-        $v->int('quantity', '商品数量')
-            ->positiveInteger()
+        $v->positiveInteger('quantity', '商品数量')
             ->lessThanOrEqual($sku->stockNum)->message('%name%不能超过库存数量');
         $ret = $v->check($data);
         if ($ret->isErr()) {
