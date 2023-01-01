@@ -16,7 +16,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "taro-ui": "^3.0.0-alpha.10",
-    "@fower/taro": "^1.70.0",
+    "@fower/taro": "~1.75.0",
     "@mxjs/money": "^1.0.1",
     "@mxjs/m-icon": "^1.0.1",
     "@mxjs/m-footer-bar": "^1.0.2",

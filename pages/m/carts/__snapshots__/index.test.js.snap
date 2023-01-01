@@ -56,11 +56,11 @@ exports[`Index empty 1`] = `
 <div>
   <taro-view-core
     class="mx-page css-17ragm3-Component"
-    style="--mx-colors-gray-50: #fafafa; --mx-colors-gray-100: #f4f4f5; --mx-colors-gray-200: #e4e4e7; --mx-colors-gray-300: #d4d4d8; --mx-colors-gray-400: #a1a1aa; --mx-colors-gray-500: #71717a; --mx-colors-gray-600: #52525b; --mx-colors-gray-700: #3f3f46; --mx-colors-gray-800: #27272a; --mx-colors-gray-900: #18181b; --mx-space-0: 0; --mx-space-1: 4; --mx-space-2: 8; --mx-space-3: 12; --mx-space-4: 16; --mx-space-5: 20; --mx-space-6: 24; --mx-space-7: 28; --mx-space-8: 32; --mx-space-9: 36; --mx-space-10: 40; --mx-space-11: 44; --mx-space-12: 48; --mx-space-14: 56; --mx-space-16: 64; --mx-space-20: 80; --mx-space-24: 96; --mx-space-28: 112; --mx-space-32: 128; --mx-space-36: 144; --mx-space-40: 160; --mx-space-44: 176; --mx-space-48: 192; --mx-space-52: 208; --mx-space-56: 224; --mx-space-60: 240; --mx-space-64: 256; --mx-space-72: 288; --mx-space-80: 320; --mx-space-96: 384; --mx-fontSizes-xs: 12; --mx-fontSizes-sm: 14; --mx-fontSizes-base: 16; --mx-fontSizes-lg: 18; --mx-fontSizes-xl: 20; --mx-fontSizes-2xl: 24; --mx-fontSizes-3xl: 30; --mx-fontSizes-4xl: 36; --mx-fontSizes-5xl: 48; --mx-fontSizes-6xl: 60; --mx-fontSizes-7xl: 72; --mx-fontSizes-8xl: 96; --mx-fontSizes-9xl: 128;"
+    style="--mx-colors-gray-50: #f9fafb; --mx-colors-gray-100: #f3f4f6; --mx-colors-gray-200: #e5e7eb; --mx-colors-gray-300: #d1d5db; --mx-colors-gray-400: #9ca3af; --mx-colors-gray-500: #6b7280; --mx-colors-gray-600: #4b5563; --mx-colors-gray-700: #374151; --mx-colors-gray-800: #1f2937; --mx-colors-gray-900: #111827; --mx-space-0: 0; --mx-space-1: 4; --mx-space-2: 8; --mx-space-3: 12; --mx-space-4: 16; --mx-space-5: 20; --mx-space-6: 24; --mx-space-7: 28; --mx-space-8: 32; --mx-space-9: 36; --mx-space-10: 40; --mx-space-11: 44; --mx-space-12: 48; --mx-space-14: 56; --mx-space-16: 64; --mx-space-20: 80; --mx-space-24: 96; --mx-space-28: 112; --mx-space-32: 128; --mx-space-36: 144; --mx-space-40: 160; --mx-space-44: 176; --mx-space-48: 192; --mx-space-52: 208; --mx-space-56: 224; --mx-space-60: 240; --mx-space-64: 256; --mx-space-72: 288; --mx-space-80: 320; --mx-space-96: 384; --mx-fontSizes-xs: 12; --mx-fontSizes-sm: 14; --mx-fontSizes-base: 16; --mx-fontSizes-lg: 18; --mx-fontSizes-xl: 20; --mx-fontSizes-2xl: 24; --mx-fontSizes-3xl: 30; --mx-fontSizes-4xl: 36; --mx-fontSizes-5xl: 48; --mx-fontSizes-6xl: 60; --mx-fontSizes-7xl: 72; --mx-fontSizes-8xl: 96; --mx-fontSizes-9xl: 128;"
   >
     <taro-checkbox-group-core />
     <taro-view-core
-      style="flex-direction: column; color: rgb(113, 113, 122); justify-content: center; align-items: center; display: flex;"
+      style="flex-direction: column; color: rgb(107, 114, 128); justify-content: center; align-items: center; display: flex;"
     >
       <taro-view-core
         class="mx-empty-image"
@@ -87,7 +87,7 @@ exports[`Index empty 1`] = `
     >
       <taro-checkbox-group-core>
         <taro-label-core
-          style="color: rgb(113, 113, 122); line-height: 1; flex-direction: row; align-items: center; display: flex;"
+          style="color: rgb(107, 114, 128); line-height: 1; flex-direction: row; align-items: center; display: flex;"
         >
           <taro-checkbox-core />
           全选
@@ -97,7 +97,7 @@ exports[`Index empty 1`] = `
         style="flex-direction: row; align-items: center; display: flex;"
       >
         <taro-view-core
-          style="color: rgb(113, 113, 122);"
+          style="color: rgb(107, 114, 128);"
         >
           合计：
           <taro-text-core
@@ -151,7 +151,7 @@ exports[`Index list 1`] = `
 <div>
   <taro-view-core
     class="mx-page css-17ragm3-Component"
-    style="--mx-colors-gray-50: #fafafa; --mx-colors-gray-100: #f4f4f5; --mx-colors-gray-200: #e4e4e7; --mx-colors-gray-300: #d4d4d8; --mx-colors-gray-400: #a1a1aa; --mx-colors-gray-500: #71717a; --mx-colors-gray-600: #52525b; --mx-colors-gray-700: #3f3f46; --mx-colors-gray-800: #27272a; --mx-colors-gray-900: #18181b; --mx-space-0: 0; --mx-space-1: 4; --mx-space-2: 8; --mx-space-3: 12; --mx-space-4: 16; --mx-space-5: 20; --mx-space-6: 24; --mx-space-7: 28; --mx-space-8: 32; --mx-space-9: 36; --mx-space-10: 40; --mx-space-11: 44; --mx-space-12: 48; --mx-space-14: 56; --mx-space-16: 64; --mx-space-20: 80; --mx-space-24: 96; --mx-space-28: 112; --mx-space-32: 128; --mx-space-36: 144; --mx-space-40: 160; --mx-space-44: 176; --mx-space-48: 192; --mx-space-52: 208; --mx-space-56: 224; --mx-space-60: 240; --mx-space-64: 256; --mx-space-72: 288; --mx-space-80: 320; --mx-space-96: 384; --mx-fontSizes-xs: 12; --mx-fontSizes-sm: 14; --mx-fontSizes-base: 16; --mx-fontSizes-lg: 18; --mx-fontSizes-xl: 20; --mx-fontSizes-2xl: 24; --mx-fontSizes-3xl: 30; --mx-fontSizes-4xl: 36; --mx-fontSizes-5xl: 48; --mx-fontSizes-6xl: 60; --mx-fontSizes-7xl: 72; --mx-fontSizes-8xl: 96; --mx-fontSizes-9xl: 128;"
+    style="--mx-colors-gray-50: #f9fafb; --mx-colors-gray-100: #f3f4f6; --mx-colors-gray-200: #e5e7eb; --mx-colors-gray-300: #d1d5db; --mx-colors-gray-400: #9ca3af; --mx-colors-gray-500: #6b7280; --mx-colors-gray-600: #4b5563; --mx-colors-gray-700: #374151; --mx-colors-gray-800: #1f2937; --mx-colors-gray-900: #111827; --mx-space-0: 0; --mx-space-1: 4; --mx-space-2: 8; --mx-space-3: 12; --mx-space-4: 16; --mx-space-5: 20; --mx-space-6: 24; --mx-space-7: 28; --mx-space-8: 32; --mx-space-9: 36; --mx-space-10: 40; --mx-space-11: 44; --mx-space-12: 48; --mx-space-14: 56; --mx-space-16: 64; --mx-space-20: 80; --mx-space-24: 96; --mx-space-28: 112; --mx-space-32: 128; --mx-space-36: 144; --mx-space-40: 160; --mx-space-44: 176; --mx-space-48: 192; --mx-space-52: 208; --mx-space-56: 224; --mx-space-60: 240; --mx-space-64: 256; --mx-space-72: 288; --mx-space-80: 320; --mx-space-96: 384; --mx-fontSizes-xs: 12; --mx-fontSizes-sm: 14; --mx-fontSizes-base: 16; --mx-fontSizes-lg: 18; --mx-fontSizes-xl: 20; --mx-fontSizes-2xl: 24; --mx-fontSizes-3xl: 30; --mx-fontSizes-4xl: 36; --mx-fontSizes-5xl: 48; --mx-fontSizes-6xl: 60; --mx-fontSizes-7xl: 72; --mx-fontSizes-8xl: 96; --mx-fontSizes-9xl: 128;"
   >
     <taro-checkbox-group-core>
       <taro-view-core
@@ -206,7 +206,7 @@ exports[`Index list 1`] = `
                     </taro-navigator-core>
                     <taro-view-core>
                       <taro-view-core
-                        style="display: inline-block; color: rgb(113, 113, 122); background-color: rgb(244, 244, 245); border-radius: 4rpx;"
+                        style="display: inline-block; color: rgb(107, 114, 128); background-color: rgb(243, 244, 246); border-radius: 4rpx;"
                       >
                         S；红色
                         <taro-text-core
@@ -311,7 +311,7 @@ exports[`Index list 1`] = `
                     </taro-navigator-core>
                     <taro-view-core>
                       <taro-view-core
-                        style="display: inline-block; color: rgb(113, 113, 122); background-color: rgb(244, 244, 245); border-radius: 4rpx;"
+                        style="display: inline-block; color: rgb(107, 114, 128); background-color: rgb(243, 244, 246); border-radius: 4rpx;"
                       >
                         S；蓝色
                         <taro-text-core
@@ -421,7 +421,7 @@ exports[`Index list 1`] = `
                     </taro-navigator-core>
                     <taro-view-core>
                       <taro-view-core
-                        style="display: inline-block; color: rgb(113, 113, 122); background-color: rgb(244, 244, 245); border-radius: 4rpx;"
+                        style="display: inline-block; color: rgb(107, 114, 128); background-color: rgb(243, 244, 246); border-radius: 4rpx;"
                       >
                         M；红色
                         <taro-text-core
@@ -486,7 +486,7 @@ exports[`Index list 1`] = `
     >
       <taro-checkbox-group-core>
         <taro-label-core
-          style="color: rgb(113, 113, 122); line-height: 1; flex-direction: row; align-items: center; display: flex;"
+          style="color: rgb(107, 114, 128); line-height: 1; flex-direction: row; align-items: center; display: flex;"
         >
           <taro-checkbox-core
             checked="true"
@@ -498,7 +498,7 @@ exports[`Index list 1`] = `
         style="flex-direction: row; align-items: center; display: flex;"
       >
         <taro-view-core
-          style="color: rgb(113, 113, 122);"
+          style="color: rgb(107, 114, 128);"
         >
           合计：
           <taro-text-core
