@@ -38,6 +38,9 @@
     "taro-test": "^1.0.2",
     "use-uid": "^1.0.0"
   },
+  "resolutions": {
+    "@fower/core": "~1.75.0"
+  },
   "ciDependencies": {
     "miaoxing": "miaoxing/miaoxing-js",
     "babel-preset-miaoxing": "miaoxing/babel-preset-miaoxing",
