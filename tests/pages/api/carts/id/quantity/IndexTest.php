@@ -1,6 +1,6 @@
 <?php
 
-namespace MiaoxingTest\Cart\Pages\MApi\Carts\Id\Quantity;
+namespace MiaoxingTest\Cart\Pages\Api\Carts\Id\Quantity;
 
 use Miaoxing\Cart\Service\Cart;
 use Miaoxing\Plugin\Service\Tester;
@@ -26,13 +26,13 @@ class IndexTest extends BaseTestCase
         ]);
         $this->assertRetSuc($ret);
 
-        $ret = Tester::request(['quantity' => 5])->put(sprintf('/m-api/carts/%s/quantity', $cart->id));
+        $ret = Tester::request(['quantity' => 5])->put(sprintf('/api/carts/%s/quantity', $cart->id));
         $this->assertRetSuc($ret);
 
         $cart->reload();
         $this->assertSame(5, $cart->quantity);
 
-        $ret = Tester::request(['quantity' => 3])->put(sprintf('/m-api/carts/%s/quantity', $cart->id));
+        $ret = Tester::request(['quantity' => 3])->put(sprintf('/api/carts/%s/quantity', $cart->id));
         $this->assertRetSuc($ret);
 
         $cart->reload();

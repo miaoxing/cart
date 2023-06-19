@@ -1,6 +1,6 @@
 <?php
 
-namespace MiaoxingTest\Cart\Pages\MApi\Carts;
+namespace MiaoxingTest\Cart\Pages\Api\Carts;
 
 use Miaoxing\Cart\Service\Cart;
 use Miaoxing\Plugin\Service\Tester;
@@ -20,7 +20,7 @@ class IndexTest extends BaseTestCase
 
         ['data' => $cart] = Cart::create(['skuId' => $product->skus[0]->id, 'quantity' => 1]);
 
-        $ret = Tester::get('/m-api/carts');
+        $ret = Tester::get('/api/carts');
 
         $this->assertRetSuc($ret);
         $this->assertSame($cart->id, $ret['data'][0]['id']);
@@ -39,7 +39,7 @@ class IndexTest extends BaseTestCase
                 'skuId' => $product->skus[0]->id,
                 'quantity' => 1,
             ])
-            ->post('/m-api/carts');
+            ->post('/api/carts');
 
         $this->assertRetSuc($ret);
         $this->assertFalse($ret['exists']);
@@ -58,7 +58,7 @@ class IndexTest extends BaseTestCase
                 'skuId' => $product->skus[0]->id,
                 'quantity' => 1,
             ])
-            ->post('/m-api/carts');
+            ->post('/api/carts');
 
         $this->assertTrue($ret['exists']);
         $this->assertRetSuc($ret);

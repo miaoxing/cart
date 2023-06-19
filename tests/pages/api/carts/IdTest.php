@@ -1,6 +1,6 @@
 <?php
 
-namespace MiaoxingTest\Cart\Pages\MApi\Carts;
+namespace MiaoxingTest\Cart\Pages\Api\Carts;
 
 use Miaoxing\Cart\Service\Cart;
 use Miaoxing\Cart\Service\CartModel;
@@ -22,7 +22,7 @@ class IdTest extends BaseTestCase
                 'skuId' => $product->skus[1]->id,
                 'quantity' => 2,
             ])
-            ->patch('/m-api/carts/' . $cart->id);
+            ->patch('/api/carts/' . $cart->id);
         $this->assertRetSuc($ret);
 
         $cart->reload();
@@ -36,7 +36,7 @@ class IdTest extends BaseTestCase
 
         ['data' => $cart] = Cart::create(['skuId' => $product->skus[0]->id, 'quantity' => 1]);
 
-        $ret = Tester::delete('/m-api/carts/' . $cart->id);
+        $ret = Tester::delete('/api/carts/' . $cart->id);
         $this->assertRetSuc($ret);
 
         $cart->reload();
