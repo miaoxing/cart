@@ -1,9 +1,9 @@
 <?php
 
 use Miaoxing\Cart\Service\CartConfigModel;
-use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\BasePage;
 
-return new class () extends BaseController {
+return new class () extends BasePage {
     /**
      * 更新选中的购物车编号
      * @param mixed $req

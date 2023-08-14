@@ -1,9 +1,9 @@
 <?php
 
 use Miaoxing\Cart\Service\CartModel;
-use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\BasePage;
 
-return new class () extends BaseController {
+return new class () extends BasePage {
     public function put($req)
     {
         $cart = CartModel::mine()->findOrFail($req['id']);

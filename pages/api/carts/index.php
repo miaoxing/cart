@@ -4,9 +4,9 @@ use Miaoxing\Cart\Resource\CartResource;
 use Miaoxing\Cart\Service\Cart;
 use Miaoxing\Cart\Service\CartConfigModel;
 use Miaoxing\Cart\Service\CartModel;
-use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\BasePage;
 
-return new class () extends BaseController {
+return new class () extends BasePage {
     public function get()
     {
         $carts = CartModel::mine()
