@@ -17,8 +17,7 @@ class IdTest extends BaseTestCase
 
         ['data' => $cart] = Cart::create(['skuId' => $product->skus[0]->id, 'quantity' => 1]);
 
-        $ret = Tester
-            ::request([
+        $ret = Tester::request([
                 'skuId' => $product->skus[1]->id,
                 'quantity' => 2,
             ])

@@ -248,8 +248,7 @@ class CartModel extends BaseModel
      */
     public function getCartCount(ProductModel $product): int
     {
-        return (int) self
-            ::selectRaw('SUM(quantity)')
+        return (int) self::selectRaw('SUM(quantity)')
                 ->mine()
                 ->where('productId', $product->id)
                 ->fetchColumn();

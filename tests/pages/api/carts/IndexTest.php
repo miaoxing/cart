@@ -34,8 +34,7 @@ class IndexTest extends BaseTestCase
 
         $product = $this->createProduct();
 
-        $ret = Tester
-            ::request([
+        $ret = Tester::request([
                 'skuId' => $product->skus[0]->id,
                 'quantity' => 1,
             ])
@@ -53,8 +52,7 @@ class IndexTest extends BaseTestCase
 
         ['data' => $cart] = Cart::create(['skuId' => $product->skus[0]->id, 'quantity' => 1]);
 
-        $ret = Tester
-            ::request([
+        $ret = Tester::request([
                 'skuId' => $product->skus[0]->id,
                 'quantity' => 1,
             ])

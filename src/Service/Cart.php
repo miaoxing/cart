@@ -208,12 +208,12 @@ class Cart extends BaseService
         $this->save();
 
         if ((float) $this['price']) {
-            $message = '修改购物车商品价格[' . $this['name'] . ']：原价为￥' . ($this['origPrice']) . '，现价为￥' . sprintf(
+            $message = '修改购物车商品价格[' . $this['name'] . ']：原价为￥' . $this['origPrice'] . '，现价为￥' . sprintf(
                 '%.2f',
                 $this['price']
             );
         } else {
-            $message = '修改购物车商品价格[' . $this['name'] . ']：重置价格为￥' . ($this['origPrice']);
+            $message = '修改购物车商品价格[' . $this['name'] . ']：重置价格为￥' . $this['origPrice'];
         }
         wei()->db('cartLog')->save([
             'cartId' => $this['id'],

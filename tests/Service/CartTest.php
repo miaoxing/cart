@@ -132,7 +132,7 @@ class CartTest extends BaseTestCase
                 err('该商品不存在'),
             ],
             [
-                function (self $test) {
+                static function (self $test) {
                     return [
                         'skuId' => $test->createProduct()->skus[0]->id,
                     ];

@@ -25,7 +25,7 @@ class CartResource extends BaseResource
                 'updatedAt',
             ]),
             'sku' => SkuResource::whenLoaded($cart, 'sku'),
-            'product' => call_user_func(function () use ($cart) {
+            'product' => call_user_func(static function () use ($cart) {
                 /** @internal */
                 $product = ProductResource::whenLoaded($cart, 'product');
                 if ($product instanceof MissingValue) {
