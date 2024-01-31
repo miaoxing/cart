@@ -1,3 +1,31 @@
+## [0.2.28](https://github.com/miaoxing/cart/compare/v0.2.27...v0.2.28) (2024-01-31)
+
+
+### Features
+
+* 更新 `react` 支持 18 ([612a348](https://github.com/miaoxing/cart/commit/612a3487fffecfdb975682eee7af3fd697d3fe13))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/money:** upgrade from `1.0.8` to `1.1.0`
+* **@mxjs/m-icon:** upgrade from `1.1.6` to `1.2.0`
+* **@mxjs/m-footer-bar:** upgrade from `1.1.6` to `1.2.0`
+* **@mxjs/m-card:** upgrade from `1.1.6` to `1.2.0`
+* **@mxjs/m-button:** upgrade from `1.1.6` to `1.2.0`
+* **@mxjs/m-page:** upgrade from `1.1.6` to `1.2.0`
+* **@mxjs/m-ret:** upgrade from `1.0.9` to `1.1.0`
+* **@mxjs/m-list:** upgrade from `1.1.6` to `1.2.0`
+* **@mxjs/m-empty:** upgrade from `1.1.6` to `1.2.0`
+* **@mxjs/m-stepper:** upgrade from `1.1.6` to `1.2.0`
+* **@mxjs/m-checkbox:** upgrade from `1.1.6` to `1.2.0`
+* **@miaoxing/app:** upgrade from `0.7.11` to `0.8.0`
+* **@miaoxing/product:** upgrade from `0.4.26` to `0.4.27`
+* **@miaoxing/user:** upgrade from `0.5.14` to `0.5.15`
+
 ## [0.2.27](https://github.com/miaoxing/cart/compare/v0.2.26...v0.2.27) (2024-01-08)
 
 
