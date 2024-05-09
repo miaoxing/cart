@@ -105,7 +105,8 @@ describe('Index', () => {
     didShow();
 
     await waitFor(() => {
-      expect(getByText('该商品已失效')).not.toBeNull();
+      // 合计：￥81
+      expect(getByText('81')).not.toBeNull();
     });
 
     expect(container).toMatchSnapshot();
