@@ -186,7 +186,7 @@ describe('Index', () => {
     expect(checkboxes[2].checked).toBeTruthy();
     expect(checkboxes[2].disabled).toBeUndefined();
 
-    expect(checkout.textContent).toBe('结算（2）');
+    await waitFor(() => expect(checkout.textContent).toBe('结算（2）'));
     expect(amount.textContent).toBe('合计：￥' + (9 * 9 + 12 * 9));
 
     // 取消选择1
@@ -199,7 +199,7 @@ describe('Index', () => {
     expect(checkboxes[1].checked).toBeUndefined();
     expect(checkboxes[2].checked).toBeTruthy();
 
-    expect(checkout.textContent).toBe('结算（1）');
+    await waitFor(() => expect(checkout.textContent).toBe('结算（1）'));
     expect(amount.textContent).toBe('合计：￥' + (12 * 9));
 
     // 全选
@@ -208,7 +208,7 @@ describe('Index', () => {
     expect(checkboxes[1].checked).toBeUndefined();
     expect(checkboxes[2].checked).toBeTruthy();
 
-    expect(checkout.textContent).toBe('结算（2）');
+    await waitFor(() => expect(checkout.textContent).toBe('结算（2）'));
     expect(amount.textContent).toBe('合计：￥' + (9 * 9 + 12 * 9));
 
     // 取消全选
@@ -217,7 +217,7 @@ describe('Index', () => {
     expect(checkboxes[1].checked).toBeUndefined();
     expect(checkboxes[2].checked).toBeUndefined();
 
-    expect(checkout.textContent).toBe('结算（0）');
+    await waitFor(() => expect(checkout.textContent).toBe('结算（0）'));
     expect(amount.textContent).toBe('合计：￥0');
 
     // 选择1
@@ -230,7 +230,7 @@ describe('Index', () => {
     expect(checkboxes[1].checked).toBeUndefined();
     expect(checkboxes[2].checked).toBeUndefined();
 
-    expect(checkout.textContent).toBe('结算（1）');
+    await waitFor(() => expect(checkout.textContent).toBe('结算（1）'));
     expect(amount.textContent).toBe('合计：￥' + (9 * 9));
 
     // 提交
