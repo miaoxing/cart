@@ -8,9 +8,9 @@
   ],
   "license": "MIT",
   "require": {
-    "miaoxing/app": "^0.10.0",
-    "miaoxing/product": "^0.5.1",
-    "miaoxing/user": "^0.5.20"
+    "miaoxing/app": "^0.10.1",
+    "miaoxing/product": "^0.5.2",
+    "miaoxing/user": "^0.5.21"
   },
   "autoload": {
     "psr-4": {
@@ -35,7 +35,7 @@
       "wei/wei": "twinh/wei as 0.17.x-dev",
       "miaoxing/dev": "miaoxing/dev as 8.x-dev",
       "miaoxing/phpstan-miaoxing": "miaoxing/phpstan-miaoxing as 3.x-dev",
-      "miaoxing/plugin": "miaoxing/plugin as 0.14.x-dev",
+      "miaoxing/plugin": "miaoxing/plugin as 0.15.x-dev",
       "miaoxing/product": "miaoxing/product as 0.5.x-dev",
       "miaoxing/services": "miaoxing/services as 0.9.x-dev"
     }
