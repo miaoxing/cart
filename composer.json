@@ -42,5 +42,10 @@
   },
   "require-dev": {
     "miaoxing/dev": "^9.1.3"
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "@php wei g:auto-completion"
+    ]
   }
 }
