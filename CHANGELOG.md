@@ -1,3 +1,30 @@
+## [0.2.35](https://github.com/miaoxing/cart/compare/v0.2.34...v0.2.35) (2024-07-31)
+
+
+
+
+
+### Dependencies
+
+* **miaoxing:** upgrade from `0.4.15` to `0.4.16`
+* **@mxjs/money:** upgrade from `1.1.1` to `1.1.2`
+* **@mxjs/m-icon:** upgrade from `1.2.1` to `1.2.2`
+* **@mxjs/m-footer-bar:** upgrade from `1.2.3` to `1.2.4`
+* **@mxjs/m-card:** upgrade from `1.2.1` to `1.2.2`
+* **@mxjs/m-button:** upgrade from `1.2.1` to `1.2.2`
+* **@mxjs/m-page:** upgrade from `1.2.3` to `1.2.4`
+* **@mxjs/m-ret:** upgrade from `1.1.3` to `1.1.4`
+* **@mxjs/m-list:** upgrade from `1.2.1` to `1.2.2`
+* **@mxjs/m-empty:** upgrade from `1.2.1` to `1.2.2`
+* **@mxjs/m-stepper:** upgrade from `1.2.1` to `1.2.2`
+* **@mxjs/m-checkbox:** upgrade from `1.2.1` to `1.2.2`
+* **@miaoxing/dev:** upgrade from `9.1.1` to `9.1.2`
+* **@mxjs/test:** upgrade from `2.0.0` to `2.0.1`
+* **taro-test:** upgrade from `1.0.9` to `1.0.10`
+* **@miaoxing/app:** upgrade from `0.10.1` to `0.10.2`
+* **@miaoxing/product:** upgrade from `0.5.2` to `0.5.3`
+* **@miaoxing/user:** upgrade from `0.5.21` to `0.5.22`
+
 ## [0.2.34](https://github.com/miaoxing/cart/compare/v0.2.33...v0.2.34) (2024-06-30)
 
 
