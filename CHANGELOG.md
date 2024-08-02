@@ -1,3 +1,19 @@
+## [0.2.36](https://github.com/miaoxing/cart/compare/v0.2.35...v0.2.36) (2024-08-02)
+
+
+
+
+
+### Dependencies
+
+* **miaoxing:** upgrade from `0.4.16` to `0.4.17`
+* **@mxjs/m-footer-bar:** upgrade from `1.2.4` to `1.2.5`
+* **@mxjs/m-page:** upgrade from `1.2.4` to `1.2.5`
+* **@mxjs/m-ret:** upgrade from `1.1.4` to `1.1.5`
+* **@mxjs/test:** upgrade from `2.0.1` to `2.0.2`
+* **@miaoxing/product:** upgrade from `0.5.3` to `0.5.4`
+* **@miaoxing/user:** upgrade from `0.5.22` to `0.5.23`
+
 ## [0.2.35](https://github.com/miaoxing/cart/compare/v0.2.34...v0.2.35) (2024-07-31)
 
 
