@@ -55,7 +55,7 @@ exports[`Index delete 1`] = `
 exports[`Index empty 1`] = `
 <div>
   <taro-view-core
-    class="mx-page css-17ragm3-Component"
+    class="mx-page css-0"
     style="--mx-colors-gray-50: #f9fafb; --mx-colors-gray-100: #f3f4f6; --mx-colors-gray-200: #e5e7eb; --mx-colors-gray-300: #d1d5db; --mx-colors-gray-400: #9ca3af; --mx-colors-gray-500: #6b7280; --mx-colors-gray-600: #4b5563; --mx-colors-gray-700: #374151; --mx-colors-gray-800: #1f2937; --mx-colors-gray-900: #111827; --mx-space-0: 0; --mx-space-1: 4; --mx-space-2: 8; --mx-space-3: 12; --mx-space-4: 16; --mx-space-5: 20; --mx-space-6: 24; --mx-space-7: 28; --mx-space-8: 32; --mx-space-9: 36; --mx-space-10: 40; --mx-space-11: 44; --mx-space-12: 48; --mx-space-14: 56; --mx-space-16: 64; --mx-space-20: 80; --mx-space-24: 96; --mx-space-28: 112; --mx-space-32: 128; --mx-space-36: 144; --mx-space-40: 160; --mx-space-44: 176; --mx-space-48: 192; --mx-space-52: 208; --mx-space-56: 224; --mx-space-60: 240; --mx-space-64: 256; --mx-space-72: 288; --mx-space-80: 320; --mx-space-96: 384; --mx-fontSizes-xs: 12; --mx-fontSizes-sm: 14; --mx-fontSizes-base: 16; --mx-fontSizes-lg: 18; --mx-fontSizes-xl: 20; --mx-fontSizes-2xl: 24; --mx-fontSizes-3xl: 30; --mx-fontSizes-4xl: 36; --mx-fontSizes-5xl: 48; --mx-fontSizes-6xl: 60; --mx-fontSizes-7xl: 72; --mx-fontSizes-8xl: 96; --mx-fontSizes-9xl: 128;"
   >
     <taro-checkbox-group-core />
@@ -150,7 +150,7 @@ exports[`Index empty 2`] = `
 exports[`Index list 1`] = `
 <div>
   <taro-view-core
-    class="mx-page css-17ragm3-Component"
+    class="mx-page css-0"
     style="--mx-colors-gray-50: #f9fafb; --mx-colors-gray-100: #f3f4f6; --mx-colors-gray-200: #e5e7eb; --mx-colors-gray-300: #d1d5db; --mx-colors-gray-400: #9ca3af; --mx-colors-gray-500: #6b7280; --mx-colors-gray-600: #4b5563; --mx-colors-gray-700: #374151; --mx-colors-gray-800: #1f2937; --mx-colors-gray-900: #111827; --mx-space-0: 0; --mx-space-1: 4; --mx-space-2: 8; --mx-space-3: 12; --mx-space-4: 16; --mx-space-5: 20; --mx-space-6: 24; --mx-space-7: 28; --mx-space-8: 32; --mx-space-9: 36; --mx-space-10: 40; --mx-space-11: 44; --mx-space-12: 48; --mx-space-14: 56; --mx-space-16: 64; --mx-space-20: 80; --mx-space-24: 96; --mx-space-28: 112; --mx-space-32: 128; --mx-space-36: 144; --mx-space-40: 160; --mx-space-44: 176; --mx-space-48: 192; --mx-space-52: 208; --mx-space-56: 224; --mx-space-60: 240; --mx-space-64: 256; --mx-space-72: 288; --mx-space-80: 320; --mx-space-96: 384; --mx-fontSizes-xs: 12; --mx-fontSizes-sm: 14; --mx-fontSizes-base: 16; --mx-fontSizes-lg: 18; --mx-fontSizes-xl: 20; --mx-fontSizes-2xl: 24; --mx-fontSizes-3xl: 30; --mx-fontSizes-4xl: 36; --mx-fontSizes-5xl: 48; --mx-fontSizes-6xl: 60; --mx-fontSizes-7xl: 72; --mx-fontSizes-8xl: 96; --mx-fontSizes-9xl: 128;"
   >
     <taro-checkbox-group-core>
