@@ -3,7 +3,7 @@
 use Miaoxing\Cart\Service\CartConfigModel;
 use Miaoxing\Plugin\BasePage;
 
-return new class () extends BasePage {
+return new class extends BasePage {
     /**
      * 更新选中的购物车编号
      * @param mixed $req

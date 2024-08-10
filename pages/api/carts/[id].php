@@ -5,7 +5,7 @@ use Miaoxing\Cart\Service\Cart;
 use Miaoxing\Cart\Service\CartModel;
 use Miaoxing\Plugin\BasePage;
 
-return new class () extends BasePage {
+return new class extends BasePage {
     public function patch($req)
     {
         $ret = Cart::update($req);
