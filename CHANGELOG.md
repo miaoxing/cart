@@ -1,3 +1,35 @@
+## [0.2.38](https://github.com/miaoxing/cart/compare/v0.2.37...v0.2.38) (2024-09-01)
+
+
+### Features
+
+* 插件增加 wei 命令行入口 ([59777b9](https://github.com/miaoxing/cart/commit/59777b935dc1e17795e868a6208e2d8bf21c421d))
+
+
+
+
+
+### Dependencies
+
+* **miaoxing:** upgrade from `0.4.18` to `0.4.19`
+* **@mxjs/money:** upgrade from `1.1.3` to `1.1.4`
+* **@mxjs/m-icon:** upgrade from `1.2.3` to `1.2.4`
+* **@mxjs/m-footer-bar:** upgrade from `1.2.6` to `1.2.7`
+* **@mxjs/m-card:** upgrade from `1.2.3` to `1.2.4`
+* **@mxjs/m-button:** upgrade from `1.2.3` to `1.2.4`
+* **@mxjs/m-page:** upgrade from `1.2.6` to `1.2.7`
+* **@mxjs/m-ret:** upgrade from `1.1.6` to `1.1.7`
+* **@mxjs/m-list:** upgrade from `1.2.3` to `1.2.4`
+* **@mxjs/m-empty:** upgrade from `1.2.3` to `1.2.4`
+* **@mxjs/m-stepper:** upgrade from `1.2.3` to `1.2.4`
+* **@mxjs/m-checkbox:** upgrade from `1.2.3` to `1.2.4`
+* **@miaoxing/dev:** upgrade from `9.1.3` to `9.2.0`
+* **@mxjs/test:** upgrade from `2.0.3` to `2.0.4`
+* **taro-test:** upgrade from `1.0.11` to `1.0.12`
+* **@miaoxing/app:** upgrade from `0.10.3` to `0.10.4`
+* **@miaoxing/product:** upgrade from `0.5.5` to `0.5.6`
+* **@miaoxing/user:** upgrade from `0.5.24` to `0.5.25`
+
 ## [0.2.37](https://github.com/miaoxing/cart/compare/v0.2.36...v0.2.37) (2024-08-03)
 
 
