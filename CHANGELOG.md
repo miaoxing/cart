@@ -1,3 +1,16 @@
+## [0.2.40](https://github.com/miaoxing/cart/compare/v0.2.39...v0.2.40) (2024-11-01)
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/test:** upgrade from `2.0.4` to `2.0.5`
+* **@miaoxing/app:** upgrade from `0.10.5` to `0.10.6`
+* **@miaoxing/product:** upgrade from `0.5.7` to `0.5.8`
+* **@miaoxing/user:** upgrade from `0.5.26` to `0.5.27`
+
 ## [0.2.39](https://github.com/miaoxing/cart/compare/v0.2.38...v0.2.39) (2024-09-30)
 
 
