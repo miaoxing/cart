@@ -13,8 +13,8 @@
   ],
   "dependencies": {
     "miaoxing": "^0.4.19",
-    "react": ">=16.13.1",
-    "react-dom": ">=16.13.1",
+    "react": ">=16.13.1 <19",
+    "react-dom": ">=16.13.1 <19",
     "taro-ui": "^3.0.0-alpha.10",
     "@fower/taro": "~1.75.0",
     "@mxjs/money": "^1.1.4",
