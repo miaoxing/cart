@@ -1,3 +1,36 @@
+# [0.3.0](https://github.com/miaoxing/cart/compare/v0.2.42...v0.3.0) (2024-12-30)
+
+
+### Bug Fixes
+
+* 限制 react 版本低于 19，避免测试失败 ([4185d21](https://github.com/miaoxing/cart/commit/4185d211feeff059f5a6f6258fd5cb41e802562a))
+* **cart:** 增加 `@mxjs/m-swipe-action` 依赖 ([6b9cfc7](https://github.com/miaoxing/cart/commit/6b9cfc7cf81b56b8bf6f3bf5d9e0979ab2464807))
+
+
+### Code Refactoring
+
+* Taro 相关功能移到 m 项目中 ([2e20414](https://github.com/miaoxing/cart/commit/2e20414a6ef4f01357190a849204a93122b4669c))
+
+
+### BREAKING CHANGES
+
+* Taro 相关功能移到 m 项目中
+
+
+
+
+
+### Dependencies
+
+* **miaoxing:** upgrade from `0.4.19` to `0.4.20`
+* **@mxjs/money:** upgrade from `1.1.4` to `1.1.5`
+* **@miaoxing/dev:** upgrade from `9.2.0` to `9.3.0`
+* **@mxjs/test:** upgrade from `2.0.5` to `2.0.6`
+* **taro-test:** upgrade from `1.0.12` to `1.0.13`
+* **@miaoxing/app:** upgrade from `0.10.7` to `0.10.8`
+* **@miaoxing/product:** upgrade from `0.5.10` to `0.6.0`
+* **@miaoxing/user:** upgrade from `0.5.29` to `0.5.30`
+
 ## [0.2.42](https://github.com/miaoxing/cart/compare/v0.2.41...v0.2.42) (2024-11-30)
 
 

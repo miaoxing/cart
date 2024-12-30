@@ -1,6 +1,6 @@
 {
   "name": "@miaoxing/cart",
-  "version": "0.2.42",
+  "version": "0.3.0",
   "private": true,
   "main": "index.js",
   "author": "twinh",
@@ -12,17 +12,17 @@
     "plugins/*"
   ],
   "dependencies": {
-    "miaoxing": "^0.4.19",
+    "miaoxing": "^0.4.20",
     "react": ">=16.13.1 <19",
     "react-dom": ">=16.13.1 <19",
-    "@mxjs/money": "^1.1.4"
+    "@mxjs/money": "^1.1.5"
   },
   "devDependencies": {
-    "@miaoxing/dev": "^9.2.0",
+    "@miaoxing/dev": "^9.3.0",
     "ts-jest": "^26.2.0",
     "@testing-library/react": "^14",
-    "@mxjs/test": "^2.0.5",
-    "taro-test": "^1.0.12",
+    "@mxjs/test": "^2.0.6",
+    "taro-test": "^1.0.13",
     "use-uid": "^1.0.0"
   },
   "ciDependencies": {
