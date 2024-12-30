@@ -15,21 +15,7 @@
     "miaoxing": "^0.4.19",
     "react": ">=16.13.1 <19",
     "react-dom": ">=16.13.1 <19",
-    "taro-ui": "^3.0.0-alpha.10",
-    "@fower/taro": "~1.75.0",
-    "@mxjs/money": "^1.1.4",
-    "@mxjs/m-icon": "^1.2.4",
-    "@mxjs/m-footer-bar": "^1.2.7",
-    "@mxjs/m-card": "^1.2.4",
-    "@mxjs/m-button": "^1.2.4",
-    "@mxjs/m-page": "^1.2.7",
-    "@mxjs/m-ret": "^1.1.7",
-    "@mxjs/m-list": "^1.2.4",
-    "@mxjs/m-empty": "^1.2.4",
-    "@mxjs/m-stepper": "^1.2.4",
-    "@mxjs/m-checkbox": "^1.2.4",
-    "@mxjs/m-swipe-action": "^1.2.0",
-    "@tarojs/taro": "~3.3.20"
+    "@mxjs/money": "^1.1.4"
   },
   "devDependencies": {
     "@miaoxing/dev": "^9.2.0",
@@ -39,29 +25,14 @@
     "taro-test": "^1.0.12",
     "use-uid": "^1.0.0"
   },
-  "resolutions": {
-    "@fower/core": "~1.75.0"
-  },
   "ciDependencies": {
     "miaoxing": "miaoxing/miaoxing-js",
     "babel-preset-miaoxing": "miaoxing/babel-preset-miaoxing",
     "@miaoxing/dev": "miaoxing/dev",
     "jest-preset-miaoxing": "miaoxing/jest-preset-miaoxing",
     "@mxjs/app": "miaoxing/mxjs-app",
-    "@mxjs/m-icon": "miaoxing/mxjs-m-icon",
-    "@mxjs/m-footer-bar": "miaoxing/mxjs-m-footer-bar",
-    "@mxjs/m-card": "miaoxing/mxjs-m-card",
-    "@mxjs/m-button": "miaoxing/mxjs-m-button",
-    "@mxjs/m-page": "miaoxing/mxjs-m-page",
-    "@mxjs/m-ret": "miaoxing/mxjs-m-ret",
-    "@mxjs/m-list": "miaoxing/mxjs-m-list",
-    "@mxjs/m-empty": "miaoxing/mxjs-m-empty",
-    "@mxjs/m-stepper": "miaoxing/mxjs-m-stepper",
-    "@mxjs/m-swipe-action": "miaoxing/mxjs-m-swipe-action",
-    "@mxjs/m-checkbox": "miaoxing/mxjs-m-checkbox",
     "@mxjs/money": "miaoxing/mxjs-money",
     "@mxjs/test": "miaoxing/mxjs-test",
-    "@mxjs/theme": "miaoxing/mxjs-theme",
-    "taro-test": "miaoxing/taro-test"
+    "@mxjs/theme": "miaoxing/mxjs-theme"
   }
 }
