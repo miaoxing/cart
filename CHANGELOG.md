@@ -1,3 +1,20 @@
+## [0.3.1](https://github.com/miaoxing/cart/compare/v0.3.0...v0.3.1) (2024-12-31)
+
+
+
+
+
+### Dependencies
+
+* **miaoxing:** upgrade from `0.4.20` to `0.4.21`
+* **@mxjs/money:** upgrade from `1.1.5` to `1.1.6`
+* **@miaoxing/dev:** upgrade from `9.3.0` to `9.3.1`
+* **@mxjs/test:** upgrade from `2.0.6` to `2.0.7`
+* **taro-test:** upgrade from `1.0.13` to `1.0.14`
+* **@miaoxing/app:** upgrade from `0.10.8` to `0.10.9`
+* **@miaoxing/product:** upgrade from `0.6.0` to `0.6.1`
+* **@miaoxing/user:** upgrade from `0.5.30` to `0.5.31`
+
 # [0.3.0](https://github.com/miaoxing/cart/compare/v0.2.42...v0.3.0) (2024-12-30)
 
 
