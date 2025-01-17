@@ -2,7 +2,6 @@
 
 namespace Miaoxing\Cart\Service;
 
-use Miaoxing\Cart\Metadata\CartTrait;
 use Miaoxing\Plugin\BaseModel;
 use Miaoxing\Plugin\Model\HasAppIdTrait;
 use Miaoxing\Plugin\Model\MineTrait;
@@ -19,13 +18,29 @@ use Wei\Ret;
 use Wei\V;
 
 /**
+ * @property string|null $id
+ * @property string $appId 应用编号
+ * @property string $userId 用户编号
+ * @property string $productId 商品编号
+ * @property string $skuId SKU编号
+ * @property string $orderId 订单编号
+ * @property int $status 状态。1:正常;2:已下单;3:已删除
+ * @property int $quantity 数量
+ * @property string|null $changedPrice 修改后价格
+ * @property string $addedPrice 加入价格
+ * @property object $configs 配置
+ * @property string|null $createdAt
+ * @property string|null $updatedAt
+ * @property string $createdBy
+ * @property string $updatedBy
+ * @property string|null $deletedAt
+ * @property string $deletedBy
  * @property SkuModel $sku
- * @property ProductModel $product
+ * @property ProductModel $withDeletedProduct
  */
 class CartModel extends BaseModel
 {
     use BelongsToProductTrait;
-    use CartTrait;
     use HasAppIdTrait;
     use MineTrait;
     use ModelTrait;
