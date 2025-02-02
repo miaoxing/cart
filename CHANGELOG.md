@@ -1,3 +1,15 @@
+## [0.3.2](https://github.com/miaoxing/cart/compare/v0.3.1...v0.3.2) (2025-02-02)
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/app:** upgrade from `0.10.9` to `0.10.10`
+* **@miaoxing/product:** upgrade from `0.6.1` to `0.6.2`
+* **@miaoxing/user:** upgrade from `0.5.31` to `0.5.32`
+
 ## [0.3.1](https://github.com/miaoxing/cart/compare/v0.3.0...v0.3.1) (2024-12-31)
 
 
